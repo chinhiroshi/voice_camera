@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F443917623AB658C004349F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917523AB658C004349F8 /* AppDelegate.swift */; };
+		F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917723AB658C004349F8 /* SceneDelegate.swift */; };
+		F443917A23AB658C004349F8 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917923AB658C004349F8 /* CameraVC.swift */; };
+		F443917D23AB658C004349F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F443917B23AB658C004349F8 /* Main.storyboard */; };
+		F443918023AB658C004349F8 /* HeyLiveCam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F443917E23AB658C004349F8 /* HeyLiveCam.xcdatamodeld */; };
+		F443918223AB658E004349F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F443918123AB658E004349F8 /* Assets.xcassets */; };
+		F443918523AB658E004349F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F443918323AB658E004349F8 /* LaunchScreen.storyboard */; };
+		F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4559F0023B3193000E5BD30 /* UserDefaultData.swift */; };
+		F456CC9A23B5B386006C3C82 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F456CC9923B5B386006C3C82 /* Photos.framework */; };
+		F456CC9C23B5B38F006C3C82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F456CC9B23B5B38F006C3C82 /* Foundation.framework */; };
+		F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFE623AC831D00DED004 /* AVFoundation.framework */; };
+		F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */; };
+		F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEB23ACD32400DED004 /* Speech.framework */; };
+		F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFED23ACD43300DED004 /* AVKit.framework */; };
+		F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEF23ACD43900DED004 /* UIKit.framework */; };
+		F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFF323ACEC3800DED004 /* UIImageExtension.swift */; };
+		F4A9136D23B4B698006E207A /* PopOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9136C23B4B698006E207A /* PopOverVC.swift */; };
+		F4AD5A8423B21CC900784D94 /* VoiceTextUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD5A8323B21CC900784D94 /* VoiceTextUpdateVC.swift */; };
+		F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD5A8623B2607400784D94 /* HelpVC.swift */; };
+		F4B0D8F423ADE0B9007F0380 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8F323ADE0B9007F0380 /* CameraController.swift */; };
+		F4B0D8FA23ADEE55007F0380 /* CameraVidoeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8F923ADEE55007F0380 /* CameraVidoeVC.swift */; };
+		F4B0D8FD23AE394B007F0380 /* InAppPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8FC23AE394B007F0380 /* InAppPurchaseVC.swift */; };
+		F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F443917223AB658C004349F8 /* HeyLiveCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyLiveCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F443917523AB658C004349F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F443917723AB658C004349F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F443917923AB658C004349F8 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		F443917C23AB658C004349F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F443917F23AB658C004349F8 /* HeyLiveCam.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeyLiveCam.xcdatamodel; sourceTree = "<group>"; };
+		F443918123AB658E004349F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F443918423AB658E004349F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F443918623AB658E004349F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4559F0023B3193000E5BD30 /* UserDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
+		F456CC9923B5B386006C3C82 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		F456CC9B23B5B38F006C3C82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F497CFE623AC831D00DED004 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextVC.swift; sourceTree = "<group>"; };
+		F497CFEB23ACD32400DED004 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		F497CFED23ACD43300DED004 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		F497CFEF23ACD43900DED004 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F497CFF323ACEC3800DED004 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		F4A9136C23B4B698006E207A /* PopOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverVC.swift; sourceTree = "<group>"; };
+		F4AD5A8323B21CC900784D94 /* VoiceTextUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTextUpdateVC.swift; sourceTree = "<group>"; };
+		F4AD5A8623B2607400784D94 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
+		F4B0D8F323ADE0B9007F0380 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		F4B0D8F923ADEE55007F0380 /* CameraVidoeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVidoeVC.swift; sourceTree = "<group>"; };
+		F4B0D8FC23AE394B007F0380 /* InAppPurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseVC.swift; sourceTree = "<group>"; };
+		F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F443916F23AB658C004349F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */,
+				F456CC9C23B5B38F006C3C82 /* Foundation.framework in Frameworks */,
+				F456CC9A23B5B386006C3C82 /* Photos.framework in Frameworks */,
+				F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */,
+				F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */,
+				F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F443916923AB658C004349F8 = {
+			isa = PBXGroup;
+			children = (
+				F443917423AB658C004349F8 /* HeyLiveCam */,
+				F443917323AB658C004349F8 /* Products */,
+				F497CFE523AC831D00DED004 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F443917323AB658C004349F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F443917223AB658C004349F8 /* HeyLiveCam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F443917423AB658C004349F8 /* HeyLiveCam */ = {
+			isa = PBXGroup;
+			children = (
+				F497CFF123ACEC1000DED004 /* LTL_Library */,
+				F443918F23AB6661004349F8 /* Storyboard */,
+				F443918C23AB6613004349F8 /* SwiftFiles */,
+				F443918123AB658E004349F8 /* Assets.xcassets */,
+				F443918623AB658E004349F8 /* Info.plist */,
+				F443917E23AB658C004349F8 /* HeyLiveCam.xcdatamodeld */,
+			);
+			path = HeyLiveCam;
+			sourceTree = "<group>";
+		};
+		F443918C23AB6613004349F8 /* SwiftFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F443919023AB6695004349F8 /* ViewControllers */,
+				F443918E23AB6650004349F8 /* SceneDelegate */,
+				F443918D23AB6635004349F8 /* AppDelegate */,
+			);
+			path = SwiftFiles;
+			sourceTree = "<group>";
+		};
+		F443918D23AB6635004349F8 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F443917523AB658C004349F8 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F443918E23AB6650004349F8 /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F443917723AB658C004349F8 /* SceneDelegate.swift */,
+			);
+			path = SceneDelegate;
+			sourceTree = "<group>";
+		};
+		F443918F23AB6661004349F8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F443918323AB658E004349F8 /* LaunchScreen.storyboard */,
+				F443917B23AB658C004349F8 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F443919023AB6695004349F8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4AD5A8523B2606400784D94 /* HelpVC */,
+				F4AD5A8223B21C8100784D94 /* VoiceTextUpdateVC */,
+				F4B0D8FE23AE4293007F0380 /* SettingsVC */,
+				F4B0D8FB23AE3934007F0380 /* InAppPurchaseVC */,
+				F4B0D8F823ADEE3C007F0380 /* CameraVideoVC */,
+				F497CFE823ACD1F800DED004 /* SpeechToTextVC */,
+				F443919123AB66B0004349F8 /* CameraVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F443919123AB66B0004349F8 /* CameraVC */ = {
+			isa = PBXGroup;
+			children = (
+				F443917923AB658C004349F8 /* CameraVC.swift */,
+			);
+			path = CameraVC;
+			sourceTree = "<group>";
+		};
+		F4559EFF23B3190700E5BD30 /* UserDefaultData */ = {
+			isa = PBXGroup;
+			children = (
+				F4559F0023B3193000E5BD30 /* UserDefaultData.swift */,
+			);
+			path = UserDefaultData;
+			sourceTree = "<group>";
+		};
+		F497CFE523AC831D00DED004 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F456CC9B23B5B38F006C3C82 /* Foundation.framework */,
+				F456CC9923B5B386006C3C82 /* Photos.framework */,
+				F497CFEF23ACD43900DED004 /* UIKit.framework */,
+				F497CFED23ACD43300DED004 /* AVKit.framework */,
+				F497CFEB23ACD32400DED004 /* Speech.framework */,
+				F497CFE623AC831D00DED004 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F497CFE823ACD1F800DED004 /* SpeechToTextVC */ = {
+			isa = PBXGroup;
+			children = (
+				F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */,
+			);
+			path = SpeechToTextVC;
+			sourceTree = "<group>";
+		};
+		F497CFF123ACEC1000DED004 /* LTL_Library */ = {
+			isa = PBXGroup;
+			children = (
+				F4559EFF23B3190700E5BD30 /* UserDefaultData */,
+				F4B0D8F123ADE096007F0380 /* CustomLibrary */,
+				F497CFF223ACEC1B00DED004 /* Extension */,
+			);
+			path = LTL_Library;
+			sourceTree = "<group>";
+		};
+		F497CFF223ACEC1B00DED004 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F497CFF323ACEC3800DED004 /* UIImageExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F4A9136B23B4B68A006E207A /* PopOverVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4A9136C23B4B698006E207A /* PopOverVC.swift */,
+			);
+			path = PopOverVC;
+			sourceTree = "<group>";
+		};
+		F4AD5A8223B21C8100784D94 /* VoiceTextUpdateVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4AD5A8323B21CC900784D94 /* VoiceTextUpdateVC.swift */,
+			);
+			path = VoiceTextUpdateVC;
+			sourceTree = "<group>";
+		};
+		F4AD5A8523B2606400784D94 /* HelpVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4AD5A8623B2607400784D94 /* HelpVC.swift */,
+			);
+			path = HelpVC;
+			sourceTree = "<group>";
+		};
+		F4B0D8F123ADE096007F0380 /* CustomLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				F4A9136B23B4B68A006E207A /* PopOverVC */,
+				F4B0D8F223ADE0AD007F0380 /* CameraController */,
+			);
+			path = CustomLibrary;
+			sourceTree = "<group>";
+		};
+		F4B0D8F223ADE0AD007F0380 /* CameraController */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0D8F323ADE0B9007F0380 /* CameraController.swift */,
+			);
+			path = CameraController;
+			sourceTree = "<group>";
+		};
+		F4B0D8F823ADEE3C007F0380 /* CameraVideoVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0D8F923ADEE55007F0380 /* CameraVidoeVC.swift */,
+			);
+			path = CameraVideoVC;
+			sourceTree = "<group>";
+		};
+		F4B0D8FB23AE3934007F0380 /* InAppPurchaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0D8FC23AE394B007F0380 /* InAppPurchaseVC.swift */,
+			);
+			path = InAppPurchaseVC;
+			sourceTree = "<group>";
+		};
+		F4B0D8FE23AE4293007F0380 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F443917123AB658C004349F8 /* HeyLiveCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F443918923AB658E004349F8 /* Build configuration list for PBXNativeTarget "HeyLiveCam" */;
+			buildPhases = (
+				F443916E23AB658C004349F8 /* Sources */,
+				F443916F23AB658C004349F8 /* Frameworks */,
+				F443917023AB658C004349F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeyLiveCam;
+			productName = HeyLiveCam;
+			productReference = F443917223AB658C004349F8 /* HeyLiveCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F443916A23AB658C004349F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = Shree;
+				TargetAttributes = {
+					F443917123AB658C004349F8 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = F443916D23AB658C004349F8 /* Build configuration list for PBXProject "HeyLiveCam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F443916923AB658C004349F8;
+			productRefGroup = F443917323AB658C004349F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F443917123AB658C004349F8 /* HeyLiveCam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F443917023AB658C004349F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F443918523AB658E004349F8 /* LaunchScreen.storyboard in Resources */,
+				F443918223AB658E004349F8 /* Assets.xcassets in Resources */,
+				F443917D23AB658C004349F8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F443916E23AB658C004349F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4A9136D23B4B698006E207A /* PopOverVC.swift in Sources */,
+				F443917A23AB658C004349F8 /* CameraVC.swift in Sources */,
+				F443917623AB658C004349F8 /* AppDelegate.swift in Sources */,
+				F4B0D8F423ADE0B9007F0380 /* CameraController.swift in Sources */,
+				F4B0D8FD23AE394B007F0380 /* InAppPurchaseVC.swift in Sources */,
+				F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */,
+				F443918023AB658C004349F8 /* HeyLiveCam.xcdatamodeld in Sources */,
+				F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */,
+				F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */,
+				F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */,
+				F4AD5A8423B21CC900784D94 /* VoiceTextUpdateVC.swift in Sources */,
+				F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */,
+				F4B0D8FA23ADEE55007F0380 /* CameraVidoeVC.swift in Sources */,
+				F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F443917B23AB658C004349F8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F443917C23AB658C004349F8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F443918323AB658E004349F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F443918423AB658E004349F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F443918723AB658E004349F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F443918823AB658E004349F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F443918A23AB658E004349F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WNSR674VCF;
+				INFOPLIST_FILE = HeyLiveCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F443918B23AB658E004349F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WNSR674VCF;
+				INFOPLIST_FILE = HeyLiveCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F443916D23AB658C004349F8 /* Build configuration list for PBXProject "HeyLiveCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F443918723AB658E004349F8 /* Debug */,
+				F443918823AB658E004349F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F443918923AB658E004349F8 /* Build configuration list for PBXNativeTarget "HeyLiveCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F443918A23AB658E004349F8 /* Debug */,
+				F443918B23AB658E004349F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F443917E23AB658C004349F8 /* HeyLiveCam.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F443917F23AB658C004349F8 /* HeyLiveCam.xcdatamodel */,
+			);
+			currentVersion = F443917F23AB658C004349F8 /* HeyLiveCam.xcdatamodel */;
+			path = HeyLiveCam.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F443916A23AB658C004349F8 /* Project object */;
+}
