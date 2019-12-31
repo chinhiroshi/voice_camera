@@ -27,6 +27,9 @@ class CameraVC: UIViewController {
     @IBOutlet var imgNightMode: UIImageView!
     @IBOutlet var imgCameraFlash: UIImageView!
     @IBOutlet var imgCameraTimer: UIImageView!
+    @IBOutlet var lblCameraTimer: UILabel!
+    @IBOutlet var controlPhotoGallery: UIControl!
+    @IBOutlet var imgPhotoGallery: UIImageView!
     
     //TODO: - Variable Declaration
     
@@ -71,8 +74,6 @@ class CameraVC: UIViewController {
     var recognitionTask         : SFSpeechRecognitionTask?
     let audioEngine             = AVAudioEngine()
     
-    var picker = UIImagePickerController();
-    
     //TODO: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +84,9 @@ class CameraVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         //Change statusbar color
         UIApplication.shared.statusBarStyle = .default
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -95,6 +96,7 @@ class CameraVC: UIViewController {
         self.strTakePhoto = UserDefaults.standard.getSettingTakePhoto()
         self.strReverseCamera = UserDefaults.standard.getSettingReverseCamera()
         self.strCloseHeyCamera = UserDefaults.standard.getSettingCloseHeyCamera()
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -128,7 +130,10 @@ class CameraVC: UIViewController {
         arrTimerList.append(ModelPopupOver.init(isSelected: true, title: "Off", id: "0", isSelectionTouch: true))
         arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "3s", id: "1", isSelectionTouch: true))
         arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "10s", id: "2", isSelectionTouch: true))
-        
+     
+        //Hide Photo Gallery Button
+        self.controlPhotoGallery.isHidden = true
+        self.lblCameraTimer.text = ""
     }
     func showBlurView(isAnimated:Bool) {
         
@@ -726,8 +731,8 @@ extension CameraVC {
     @IBAction func tappedOnPhotoAlbum(_ sender: Any) {
         print("Tapped On Photo Album")
         
-        picker.sourceType = .photoLibrary
-        self.present(picker, animated: true, completion: nil)
+        //Redirect To Photo Gallery
+        self.redirectToPhotoGallery()
     }
     @IBAction func tappedOnTakePhoto(_ sender: Any) {
         
@@ -854,6 +859,8 @@ extension CameraVC : AVCapturePhotoCaptureDelegate {
             let orientationFixedImage = image.fixOrientation()
             UIImageWriteToSavedPhotosAlbum(orientationFixedImage, nil, nil, nil);
             //self.imagesCaptured.append(orientationFixedImage)
+            self.controlPhotoGallery.isHidden = false
+            self.imgPhotoGallery.image = orientationFixedImage
 
         } else {
             print("some error here")
@@ -871,6 +878,10 @@ extension CameraVC {
         let vcInAppPurchase = self.storyboard?.instantiateViewController(withIdentifier: "InAppPurchaseVC") as! InAppPurchaseVC
         self.present(vcInAppPurchase, animated: true, completion: nil)
     }
+    func redirectToPhotoGallery() {
+        let localController = PhotosController(dataSourceType: .local)
+        self.navigationController?.pushViewController(localController, animated: true)
+    }
 }
 //MARK: - PopupOverDelegate
 extension CameraVC: PopupOverDelegate {
@@ -882,10 +893,34 @@ extension CameraVC: PopupOverDelegate {
             self.arrFlashModeList = arrData
             self.cameraFlashModeIndex = index
             
+            if(index == 0) {
+                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteAuto")
+                
+            } else if(index == 1) {
+                
+                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOn")
+                
+            } else if(index == 2) {
+                           
+                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOff")
+            }
+            
         } else if(tag == 2) {
             
             self.arrTimerList = arrData
             self.cameraTimerIndex = index
+            
+            if(index == 0) {
+                self.lblCameraTimer.text = ""
+                
+            } else if(index == 1) {
+                
+                self.lblCameraTimer.text = "3"
+                
+            } else if(index == 2) {
+                           
+                self.lblCameraTimer.text = "10"
+            }
         }
     }
     func dismissPopoverView() {

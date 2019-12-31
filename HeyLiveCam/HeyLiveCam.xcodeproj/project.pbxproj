@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3B46C337230E5CDD211268 /* Pods_HeyLiveCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28312230A8A87055BDAE0219 /* Pods_HeyLiveCam.framework */; };
 		F443917623AB658C004349F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917523AB658C004349F8 /* AppDelegate.swift */; };
 		F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917723AB658C004349F8 /* SceneDelegate.swift */; };
 		F443917A23AB658C004349F8 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917923AB658C004349F8 /* CameraVC.swift */; };
@@ -23,6 +24,35 @@
 		F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFED23ACD43300DED004 /* AVKit.framework */; };
 		F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEF23ACD43900DED004 /* UIKit.framework */; };
 		F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFF323ACEC3800DED004 /* UIImageExtension.swift */; };
+		F4A4320D23B8769C001787A5 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A431FF23B8769A001787A5 /* 0.jpg */; };
+		F4A4320E23B8769C001787A5 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320023B8769A001787A5 /* 1.jpg */; };
+		F4A4320F23B8769C001787A5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320123B8769A001787A5 /* HeaderView.swift */; };
+		F4A4321023B8769C001787A5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320223B8769B001787A5 /* PopupController.swift */; };
+		F4A4321123B8769C001787A5 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320323B8769B001787A5 /* 2.jpg */; };
+		F4A4321223B8769C001787A5 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320423B8769B001787A5 /* FooterView.swift */; };
+		F4A4321323B8769C001787A5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320523B8769B001787A5 /* PhotoCell.swift */; };
+		F4A4321423B8769C001787A5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320623B8769B001787A5 /* Photo.swift */; };
+		F4A4321523B8769C001787A5 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320723B8769B001787A5 /* 4.jpg */; };
+		F4A4321623B8769C001787A5 /* PhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320823B8769B001787A5 /* PhotosController.swift */; };
+		F4A4321723B8769C001787A5 /* PhotosCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320923B8769C001787A5 /* PhotosCollectionLayout.swift */; };
+		F4A4321823B8769C001787A5 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320A23B8769C001787A5 /* 3.jpg */; };
+		F4A4321923B8769C001787A5 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320B23B8769C001787A5 /* clear.png */; };
+		F4A4321A23B8769C001787A5 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320C23B8769C001787A5 /* 5.png */; };
+		F4A4322A23B877EC001787A5 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4321B23B877E9001787A5 /* Viewable.swift */; };
+		F4A4322B23B877EC001787A5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4321C23B877E9001787A5 /* UIViewExtensions.swift */; };
+		F4A4322C23B877EC001787A5 /* Viewer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A4321D23B877E9001787A5 /* Viewer.xcassets */; };
+		F4A4322D23B877EC001787A5 /* ViewerAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4321E23B877E9001787A5 /* ViewerAssets.swift */; };
+		F4A4322E23B877EC001787A5 /* VideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4321F23B877EA001787A5 /* VideoProgressView.swift */; };
+		F4A4322F23B877EC001787A5 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322023B877EA001787A5 /* PaginatedScrollView.swift */; };
+		F4A4323023B877EC001787A5 /* UIImage+CenteredFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322123B877EA001787A5 /* UIImage+CenteredFrame.swift */; };
+		F4A4323123B877EC001787A5 /* DefaultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322223B877EA001787A5 /* DefaultHeaderView.swift */; };
+		F4A4323223B877EC001787A5 /* NSIndexPath+Contiguous.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322323B877EB001787A5 /* NSIndexPath+Contiguous.swift */; };
+		F4A4323323B877EC001787A5 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322423B877EB001787A5 /* VideoView.swift */; };
+		F4A4323423B877EC001787A5 /* UIViewController+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322523B877EB001787A5 /* UIViewController+Window.swift */; };
+		F4A4323523B877EC001787A5 /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322623B877EB001787A5 /* SlideshowView.swift */; };
+		F4A4323623B877EC001787A5 /* ViewableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322723B877EB001787A5 /* ViewableController.swift */; };
+		F4A4323723B877EC001787A5 /* ViewableControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322823B877EB001787A5 /* ViewableControllerContainer.swift */; };
+		F4A4323823B877EC001787A5 /* ViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4322923B877EC001787A5 /* ViewerController.swift */; };
 		F4A9136D23B4B698006E207A /* PopOverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9136C23B4B698006E207A /* PopOverVC.swift */; };
 		F4AD5A8423B21CC900784D94 /* VoiceTextUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD5A8323B21CC900784D94 /* VoiceTextUpdateVC.swift */; };
 		F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AD5A8623B2607400784D94 /* HelpVC.swift */; };
@@ -33,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeyLiveCam.release.xcconfig"; path = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.release.xcconfig"; sourceTree = "<group>"; };
+		28312230A8A87055BDAE0219 /* Pods_HeyLiveCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyLiveCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeyLiveCam.debug.xcconfig"; path = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.debug.xcconfig"; sourceTree = "<group>"; };
 		F443917223AB658C004349F8 /* HeyLiveCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyLiveCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F443917523AB658C004349F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F443917723AB658C004349F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +84,35 @@
 		F497CFED23ACD43300DED004 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		F497CFEF23ACD43900DED004 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F497CFF323ACEC3800DED004 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		F4A431FF23B8769A001787A5 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		F4A4320023B8769A001787A5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		F4A4320123B8769A001787A5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F4A4320223B8769B001787A5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		F4A4320323B8769B001787A5 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		F4A4320423B8769B001787A5 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F4A4320523B8769B001787A5 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		F4A4320623B8769B001787A5 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F4A4320723B8769B001787A5 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		F4A4320823B8769B001787A5 /* PhotosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosController.swift; sourceTree = "<group>"; };
+		F4A4320923B8769C001787A5 /* PhotosCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionLayout.swift; sourceTree = "<group>"; };
+		F4A4320A23B8769C001787A5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		F4A4320B23B8769C001787A5 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
+		F4A4320C23B8769C001787A5 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		F4A4321B23B877E9001787A5 /* Viewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
+		F4A4321C23B877E9001787A5 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		F4A4321D23B877E9001787A5 /* Viewer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Viewer.xcassets; sourceTree = "<group>"; };
+		F4A4321E23B877E9001787A5 /* ViewerAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerAssets.swift; sourceTree = "<group>"; };
+		F4A4321F23B877EA001787A5 /* VideoProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProgressView.swift; sourceTree = "<group>"; };
+		F4A4322023B877EA001787A5 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedScrollView.swift; sourceTree = "<group>"; };
+		F4A4322123B877EA001787A5 /* UIImage+CenteredFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CenteredFrame.swift"; sourceTree = "<group>"; };
+		F4A4322223B877EA001787A5 /* DefaultHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultHeaderView.swift; sourceTree = "<group>"; };
+		F4A4322323B877EB001787A5 /* NSIndexPath+Contiguous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+Contiguous.swift"; sourceTree = "<group>"; };
+		F4A4322423B877EB001787A5 /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		F4A4322523B877EB001787A5 /* UIViewController+Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Window.swift"; sourceTree = "<group>"; };
+		F4A4322623B877EB001787A5 /* SlideshowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowView.swift; sourceTree = "<group>"; };
+		F4A4322723B877EB001787A5 /* ViewableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewableController.swift; sourceTree = "<group>"; };
+		F4A4322823B877EB001787A5 /* ViewableControllerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewableControllerContainer.swift; sourceTree = "<group>"; };
+		F4A4322923B877EC001787A5 /* ViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerController.swift; sourceTree = "<group>"; };
 		F4A9136C23B4B698006E207A /* PopOverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverVC.swift; sourceTree = "<group>"; };
 		F4AD5A8323B21CC900784D94 /* VoiceTextUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTextUpdateVC.swift; sourceTree = "<group>"; };
 		F4AD5A8623B2607400784D94 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
@@ -71,18 +133,29 @@
 				F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */,
 				F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */,
 				F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */,
+				3C3B46C337230E5CDD211268 /* Pods_HeyLiveCam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA232242C866599B06645ACB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */,
+				1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F443916923AB658C004349F8 = {
 			isa = PBXGroup;
 			children = (
 				F443917423AB658C004349F8 /* HeyLiveCam */,
 				F443917323AB658C004349F8 /* Products */,
 				F497CFE523AC831D00DED004 /* Frameworks */,
+				DA232242C866599B06645ACB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +170,7 @@
 		F443917423AB658C004349F8 /* HeyLiveCam */ = {
 			isa = PBXGroup;
 			children = (
+				F4A431FD23B87653001787A5 /* ThirdPartyLib */,
 				F497CFF123ACEC1000DED004 /* LTL_Library */,
 				F443918F23AB6661004349F8 /* Storyboard */,
 				F443918C23AB6613004349F8 /* SwiftFiles */,
@@ -181,6 +255,7 @@
 				F497CFED23ACD43300DED004 /* AVKit.framework */,
 				F497CFEB23ACD32400DED004 /* Speech.framework */,
 				F497CFE623AC831D00DED004 /* AVFoundation.framework */,
+				28312230A8A87055BDAE0219 /* Pods_HeyLiveCam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +284,50 @@
 				F497CFF323ACEC3800DED004 /* UIImageExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F4A431FD23B87653001787A5 /* ThirdPartyLib */ = {
+			isa = PBXGroup;
+			children = (
+				F4A431FE23B87664001787A5 /* PhotoViewer */,
+			);
+			path = ThirdPartyLib;
+			sourceTree = "<group>";
+		};
+		F4A431FE23B87664001787A5 /* PhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				F4A431FF23B8769A001787A5 /* 0.jpg */,
+				F4A4320023B8769A001787A5 /* 1.jpg */,
+				F4A4320323B8769B001787A5 /* 2.jpg */,
+				F4A4320A23B8769C001787A5 /* 3.jpg */,
+				F4A4320723B8769B001787A5 /* 4.jpg */,
+				F4A4320C23B8769C001787A5 /* 5.png */,
+				F4A4320B23B8769C001787A5 /* clear.png */,
+				F4A4320423B8769B001787A5 /* FooterView.swift */,
+				F4A4320123B8769A001787A5 /* HeaderView.swift */,
+				F4A4320623B8769B001787A5 /* Photo.swift */,
+				F4A4320523B8769B001787A5 /* PhotoCell.swift */,
+				F4A4320923B8769C001787A5 /* PhotosCollectionLayout.swift */,
+				F4A4322223B877EA001787A5 /* DefaultHeaderView.swift */,
+				F4A4322323B877EB001787A5 /* NSIndexPath+Contiguous.swift */,
+				F4A4322023B877EA001787A5 /* PaginatedScrollView.swift */,
+				F4A4322623B877EB001787A5 /* SlideshowView.swift */,
+				F4A4322123B877EA001787A5 /* UIImage+CenteredFrame.swift */,
+				F4A4322523B877EB001787A5 /* UIViewController+Window.swift */,
+				F4A4321C23B877E9001787A5 /* UIViewExtensions.swift */,
+				F4A4321F23B877EA001787A5 /* VideoProgressView.swift */,
+				F4A4322423B877EB001787A5 /* VideoView.swift */,
+				F4A4321B23B877E9001787A5 /* Viewable.swift */,
+				F4A4322723B877EB001787A5 /* ViewableController.swift */,
+				F4A4322823B877EB001787A5 /* ViewableControllerContainer.swift */,
+				F4A4321D23B877E9001787A5 /* Viewer.xcassets */,
+				F4A4321E23B877E9001787A5 /* ViewerAssets.swift */,
+				F4A4322923B877EC001787A5 /* ViewerController.swift */,
+				F4A4320823B8769B001787A5 /* PhotosController.swift */,
+				F4A4320223B8769B001787A5 /* PopupController.swift */,
+			);
+			path = PhotoViewer;
 			sourceTree = "<group>";
 		};
 		F4A9136B23B4B68A006E207A /* PopOverVC */ = {
@@ -283,9 +402,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F443918923AB658E004349F8 /* Build configuration list for PBXNativeTarget "HeyLiveCam" */;
 			buildPhases = (
+				0E57EB7149258DB9834715C7 /* [CP] Check Pods Manifest.lock */,
 				F443916E23AB658C004349F8 /* Sources */,
 				F443916F23AB658C004349F8 /* Frameworks */,
 				F443917023AB658C004349F8 /* Resources */,
+				612AD32A2B4F8D01EDE6CD82 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,33 +455,104 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A4321923B8769C001787A5 /* clear.png in Resources */,
+				F4A4321A23B8769C001787A5 /* 5.png in Resources */,
+				F4A4322C23B877EC001787A5 /* Viewer.xcassets in Resources */,
+				F4A4321123B8769C001787A5 /* 2.jpg in Resources */,
+				F4A4321523B8769C001787A5 /* 4.jpg in Resources */,
+				F4A4320D23B8769C001787A5 /* 0.jpg in Resources */,
 				F443918523AB658E004349F8 /* LaunchScreen.storyboard in Resources */,
 				F443918223AB658E004349F8 /* Assets.xcassets in Resources */,
 				F443917D23AB658C004349F8 /* Main.storyboard in Resources */,
+				F4A4320E23B8769C001787A5 /* 1.jpg in Resources */,
+				F4A4321823B8769C001787A5 /* 3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E57EB7149258DB9834715C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeyLiveCam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		612AD32A2B4F8D01EDE6CD82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F443916E23AB658C004349F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A4323023B877EC001787A5 /* UIImage+CenteredFrame.swift in Sources */,
+				F4A4322A23B877EC001787A5 /* Viewable.swift in Sources */,
+				F4A4323723B877EC001787A5 /* ViewableControllerContainer.swift in Sources */,
+				F4A4323423B877EC001787A5 /* UIViewController+Window.swift in Sources */,
 				F4A9136D23B4B698006E207A /* PopOverVC.swift in Sources */,
 				F443917A23AB658C004349F8 /* CameraVC.swift in Sources */,
 				F443917623AB658C004349F8 /* AppDelegate.swift in Sources */,
+				F4A4322B23B877EC001787A5 /* UIViewExtensions.swift in Sources */,
+				F4A4323823B877EC001787A5 /* ViewerController.swift in Sources */,
+				F4A4323323B877EC001787A5 /* VideoView.swift in Sources */,
 				F4B0D8F423ADE0B9007F0380 /* CameraController.swift in Sources */,
 				F4B0D8FD23AE394B007F0380 /* InAppPurchaseVC.swift in Sources */,
 				F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */,
+				F4A4321623B8769C001787A5 /* PhotosController.swift in Sources */,
 				F443918023AB658C004349F8 /* HeyLiveCam.xcdatamodeld in Sources */,
+				F4A4323123B877EC001787A5 /* DefaultHeaderView.swift in Sources */,
+				F4A4322D23B877EC001787A5 /* ViewerAssets.swift in Sources */,
 				F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */,
+				F4A4321023B8769C001787A5 /* PopupController.swift in Sources */,
 				F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */,
+				F4A4321323B8769C001787A5 /* PhotoCell.swift in Sources */,
 				F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */,
+				F4A4322E23B877EC001787A5 /* VideoProgressView.swift in Sources */,
+				F4A4323623B877EC001787A5 /* ViewableController.swift in Sources */,
+				F4A4321423B8769C001787A5 /* Photo.swift in Sources */,
+				F4A4320F23B8769C001787A5 /* HeaderView.swift in Sources */,
 				F4AD5A8423B21CC900784D94 /* VoiceTextUpdateVC.swift in Sources */,
 				F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */,
 				F4B0D8FA23ADEE55007F0380 /* CameraVidoeVC.swift in Sources */,
+				F4A4321723B8769C001787A5 /* PhotosCollectionLayout.swift in Sources */,
+				F4A4323523B877EC001787A5 /* SlideshowView.swift in Sources */,
+				F4A4323223B877EC001787A5 /* NSIndexPath+Contiguous.swift in Sources */,
+				F4A4322F23B877EC001787A5 /* PaginatedScrollView.swift in Sources */,
 				F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */,
+				F4A4321223B8769C001787A5 /* FooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,8 +694,10 @@
 		};
 		F443918A23AB658E004349F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WNSR674VCF;
 				INFOPLIST_FILE = HeyLiveCam/Info.plist;
@@ -514,6 +708,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -521,8 +716,10 @@
 		};
 		F443918B23AB658E004349F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WNSR674VCF;
 				INFOPLIST_FILE = HeyLiveCam/Info.plist;
@@ -533,6 +730,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

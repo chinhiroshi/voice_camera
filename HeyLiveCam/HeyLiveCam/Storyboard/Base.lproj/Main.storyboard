@@ -96,12 +96,25 @@
                                                             <constraint firstAttribute="width" constant="25" id="LKj-xC-E2K"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G08-6w-Wy6">
+                                                        <rect key="frame" x="38" y="5" width="20" height="17"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="17" id="BtO-sy-PzB"/>
+                                                            <constraint firstAttribute="width" constant="20" id="uq6-Hr-2jL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="ZVV-sB-LVR" firstAttribute="centerY" secondItem="Zlg-23-TFB" secondAttribute="centerY" id="DWK-VF-cdy"/>
                                                     <constraint firstAttribute="width" constant="51" id="QeA-SQ-hHO"/>
+                                                    <constraint firstItem="G08-6w-Wy6" firstAttribute="top" secondItem="Zlg-23-TFB" secondAttribute="top" constant="5" id="R9s-dr-ToP"/>
                                                     <constraint firstItem="ZVV-sB-LVR" firstAttribute="centerX" secondItem="Zlg-23-TFB" secondAttribute="centerX" id="gnb-4M-5Ct"/>
+                                                    <constraint firstItem="G08-6w-Wy6" firstAttribute="leading" secondItem="ZVV-sB-LVR" secondAttribute="trailing" id="lES-Ac-ttd"/>
                                                 </constraints>
                                                 <connections>
                                                     <action selector="tappedOnTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U3G-4g-f0E"/>
@@ -215,6 +228,12 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWv-ZU-wgP" customClass="UIControl">
                                                 <rect key="frame" x="10" y="23" width="51" height="51"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfs-aw-YNJ">
+                                                        <rect key="frame" x="10" y="0.0" width="31" height="51"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="10l-zd-jjk"/>
@@ -322,9 +341,12 @@
                         <outlet property="btnPhoto" destination="qut-Qg-a0i" id="fQz-x2-Umr"/>
                         <outlet property="btnVideo" destination="kjw-gF-8Nl" id="nsr-fX-bzM"/>
                         <outlet property="controlCameraBG" destination="iAe-yw-qX0" id="pA7-ib-LnD"/>
+                        <outlet property="controlPhotoGallery" destination="oWv-ZU-wgP" id="Dxp-6y-LBp"/>
                         <outlet property="imgCameraFlash" destination="eKp-aH-RGm" id="Sgc-61-zId"/>
                         <outlet property="imgCameraTimer" destination="ZVV-sB-LVR" id="ixs-1b-lEQ"/>
                         <outlet property="imgNightMode" destination="h7g-RU-sKp" id="eGi-UT-Roq"/>
+                        <outlet property="imgPhotoGallery" destination="mfs-aw-YNJ" id="Alr-ui-yLI"/>
+                        <outlet property="lblCameraTimer" destination="G08-6w-Wy6" id="sdn-kh-ZMH"/>
                         <outlet property="viewBlurBG" destination="S2p-4q-d6G" id="KMB-MU-uaP"/>
                         <outlet property="viewCameraTransperant" destination="pat-F8-vyC" id="994-sd-LRe"/>
                         <outlet property="viewPhotoCaptureBG" destination="GSG-Uh-GjR" id="VGC-Ay-EWd"/>

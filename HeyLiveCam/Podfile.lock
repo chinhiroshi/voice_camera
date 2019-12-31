@@ -1,0 +1,16 @@
+PODS:
+  - Viewer (4.1.0)
+
+DEPENDENCIES:
+  - Viewer
+
+SPEC REPOS:
+  trunk:
+    - Viewer
+
+SPEC CHECKSUMS:
+  Viewer: 80e7b1e8c105e8cb655e4032ed1aebbfea6e3e58
+
+PODFILE CHECKSUM: 39b8ea24ec118ce1f02c69befb808b50a0c8fb99
+
+COCOAPODS: 1.8.4
