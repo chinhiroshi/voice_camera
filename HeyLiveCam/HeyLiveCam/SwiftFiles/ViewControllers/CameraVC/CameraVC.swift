@@ -12,6 +12,8 @@ import Photos
 import Foundation
 import Speech
 import AVKit
+import IntentsUI
+import Intents
 
 //MARK: - Camera View Controller
 class CameraVC: UIViewController {
@@ -22,12 +24,17 @@ class CameraVC: UIViewController {
     @IBOutlet var btnPhoto: UIButton!
     @IBOutlet var btnVideo: UIButton!
     @IBOutlet var viewBlurBG: UIView!
+    
     @IBOutlet var controlCameraBG: UIControl!
     @IBOutlet var viewCameraTransperant: UIView!
+    @IBOutlet var widthConstraintCameraTransperent: NSLayoutConstraint!
+    @IBOutlet var heightConstraintCameraTransperent: NSLayoutConstraint!
+    
     @IBOutlet var imgNightMode: UIImageView!
     @IBOutlet var imgCameraFlash: UIImageView!
     @IBOutlet var imgCameraTimer: UIImageView!
     @IBOutlet var lblCameraTimer: UILabel!
+    
     @IBOutlet var controlPhotoGallery: UIControl!
     @IBOutlet var imgPhotoGallery: UIImageView!
     
@@ -80,13 +87,15 @@ class CameraVC: UIViewController {
         
         //Initialization
         self.initialization()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //Change statusbar color
         UIApplication.shared.statusBarStyle = .default
+        
+        //Add Observers
+        self.addObservers()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -104,11 +113,11 @@ class CameraVC: UIViewController {
         if(self.timerCameraAuto != nil) {
             self.timerCameraAuto.invalidate()
         }
+        
+        //Remove Observers
+        self.removeObservers()
     }
     func initialization() {
-        
-        //Update Buttons
-        self.updateButtons()
         
         //Setup Speech
         self.setupSpeech()
@@ -119,7 +128,6 @@ class CameraVC: UIViewController {
         self.controlCameraBG.layer.borderWidth = 1
         self.controlCameraBG.layer.borderColor = UIColor.white.cgColor
         self.controlCameraBG.layer.cornerRadius = 34
-        self.viewCameraTransperant.layer.cornerRadius = 21
         
         //Flash Mode
         arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "Auto", id: "0", isSelectionTouch: true))
@@ -134,6 +142,34 @@ class CameraVC: UIViewController {
         //Hide Photo Gallery Button
         self.controlPhotoGallery.isHidden = true
         self.lblCameraTimer.text = ""
+        
+        //Update Camera Button
+        self.updateCameraButton(type: 1, isAnimated: true)
+        
+    }
+    func updateCameraButton(type:Int,isAnimated:Bool) {
+        
+        if type == 1 {
+            
+            self.viewCameraTransperant.layer.cornerRadius = 25
+            self.widthConstraintCameraTransperent.constant = 50
+            self.heightConstraintCameraTransperent.constant = 50
+            self.viewCameraTransperant.backgroundColor = .white
+            
+        } else if type == 2 {
+            
+            self.viewCameraTransperant.layer.cornerRadius = 25
+            self.widthConstraintCameraTransperent.constant = 50
+            self.heightConstraintCameraTransperent.constant = 50
+            self.viewCameraTransperant.backgroundColor = .red
+            
+        } else if type == 3 {
+                   
+            self.viewCameraTransperant.layer.cornerRadius = 7
+            self.widthConstraintCameraTransperent.constant = 30
+            self.heightConstraintCameraTransperent.constant = 30
+            self.viewCameraTransperant.backgroundColor = .red
+        }
     }
     func showBlurView(isAnimated:Bool) {
         
@@ -182,6 +218,10 @@ class CameraVC: UIViewController {
                 //Start Photo Camera
                 self.startPhotoCamera()
             }
+            
+            //Update Camera Button
+            self.updateCameraButton(type: 1, isAnimated: true)
+            
         } else {
             //btnPhoto.isUserInteractionEnabled = false
             //btnVideo.isUserInteractionEnabled = true
@@ -200,6 +240,9 @@ class CameraVC: UIViewController {
                     startSession()
                 }
             }
+            
+            //Update Camera Button
+            self.updateCameraButton(type: 2, isAnimated: true)
         }
     }
     func changeCameraNightMode() {
@@ -378,6 +421,43 @@ extension CameraVC {
         }
     }
 }
+//MARK: - Background / Foreground Application
+extension CameraVC {
+    
+    func addObservers() {
+      NotificationCenter.default.addObserver(self,
+                                             selector: #selector(applicationDidBecomeActive),
+                                             name: UIApplication.didBecomeActiveNotification,
+                                             object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidEnterBackground),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
+    }
+    func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    @objc func applicationDidBecomeActive() {
+        print("Application Did Become Active")
+        
+        //Update Buttons
+        self.updateButtons()
+    }
+    @objc func applicationDidEnterBackground() {
+        print("Application Did Enter Background")
+        
+        if(movieOutput.isRecording == true && self.isPhotoCameraDisplay == true) {
+            
+            //Stop Recording
+            self.stopRecording()
+            
+            //Update Camera Button
+            self.updateCameraButton(type: 2, isAnimated: true)
+            
+        }
+    }
+}
 //MARK: - SFSpeechRecognizerDelegate
 extension CameraVC: SFSpeechRecognizerDelegate {
 
@@ -411,6 +491,27 @@ extension CameraVC:AVCaptureFileOutputRecordingDelegate {
             let videoRecorded = outputURL! as URL
             self.playVideo(from: videoRecorded.absoluteString)
             print("Video Recorded : ",videoRecorded.absoluteString)
+            
+            let imgThumbnail = self.createThumbnailOfVideoFromRemoteUrl(url: videoRecorded.absoluteString)
+            if imgThumbnail != nil {
+                self.controlPhotoGallery.isHidden = false
+                self.imgPhotoGallery.image = imgThumbnail
+            }
+            
+            PHPhotoLibrary.shared().performChanges({ () -> Void in
+
+                let createAssetRequest: PHAssetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: NSURL(string: videoRecorded.absoluteString)! as URL)!
+                createAssetRequest.placeholderForCreatedAsset
+
+                }) { (success, error) -> Void in
+                    if success {
+
+                        //popup alert success
+                    }
+                    else {
+                       //popup alert unsuccess
+                    }
+            }
         }
     }
     private func playVideo(from file:String) {
@@ -425,6 +526,22 @@ extension CameraVC:AVCaptureFileOutputRecordingDelegate {
         playerLayer.frame = self.view.bounds
         self.view.layer.addSublayer(playerLayer)
         player.play()
+    }
+    func createThumbnailOfVideoFromRemoteUrl(url: String) -> UIImage? {
+        let asset = AVAsset(url: URL(string: url)!)
+        let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        //Can set this to improve performance if target size is known before hand
+        //assetImgGenerate.maximumSize = CGSize(width,height)
+        let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
+        do {
+            let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: img)
+            return thumbnail
+        } catch {
+          print(error.localizedDescription)
+          return nil
+        }
     }
 }
 //MARK: - Video Function
@@ -521,7 +638,7 @@ extension CameraVC {
     }
     func currentVideoOrientation() -> AVCaptureVideoOrientation {
         var orientation: AVCaptureVideoOrientation
-        switch UIDevice.current.orientation {
+        /*switch UIDevice.current.orientation {
             case .portrait:
                 orientation = AVCaptureVideoOrientation.portrait
             case .landscapeRight:
@@ -530,7 +647,8 @@ extension CameraVC {
                 orientation = AVCaptureVideoOrientation.portraitUpsideDown
             default:
                 orientation = AVCaptureVideoOrientation.landscapeRight
-        }
+        }*/
+        orientation = AVCaptureVideoOrientation.portrait
         return orientation
     }
     @objc func startCapture() {
@@ -743,9 +861,20 @@ extension CameraVC {
         print("Tapped On Video")
         
         //Video Event
-        self.videoEvent(isPlayVideo: true)
+        self.videoEvent(isPlayVideo: false)
     }
     @IBAction func tappedOnCamera(_ sender: Any) {
+        
+        //Tapped Event
+        UIView.animate(withDuration: 0.1,
+        animations: {
+            self.viewCameraTransperant.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        },
+        completion: { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.viewCameraTransperant.transform = CGAffineTransform.identity
+            }
+        })
         
         if(self.isPhotoCameraDisplay) {
             
@@ -771,10 +900,16 @@ extension CameraVC {
                 //Stop Recording
                 self.stopRecording()
                 
+                //Update Camera Button
+                self.updateCameraButton(type: 2, isAnimated: true)
+                
             } else {
                 
                 //Start Recording
                 self.startRecording()
+                
+                //Update Camera Button
+                self.updateCameraButton(type: 3, isAnimated: true)
             }
         }
     }

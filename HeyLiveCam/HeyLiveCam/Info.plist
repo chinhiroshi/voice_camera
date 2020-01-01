@@ -30,6 +30,10 @@
 	<string>Choose a photo</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Speech for control command</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>PhotoIntentIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

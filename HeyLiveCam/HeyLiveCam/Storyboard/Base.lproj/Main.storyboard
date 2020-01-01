@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="har-r4-PRm">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,7 +181,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-gF-8Nl">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="25"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.79215686269999996" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <state key="normal" title="VIDEO">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,7 +192,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qut-Qg-a0i">
                                                         <rect key="frame" x="66" y="0.0" width="66" height="25"/>
-                                                        <color key="backgroundColor" red="0.64313725490196072" green="0.792156862745098" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <state key="normal" title="PHOTO">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,19 +249,19 @@
                                                 <subviews>
                                                     <view clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pat-F8-vyC">
                                                         <rect key="frame" x="13" y="13" width="42" height="42"/>
-                                                        <color key="backgroundColor" red="0.61176470588235299" green="0.58823529411764708" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="42" id="79G-gS-NhX"/>
-                                                            <constraint firstAttribute="width" constant="42" id="NcQ-cB-4sc"/>
+                                                            <constraint firstAttribute="height" constant="42" id="HVF-DL-ZOE"/>
+                                                            <constraint firstAttribute="width" constant="42" id="qfR-3K-JqN"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="pat-F8-vyC" firstAttribute="centerY" secondItem="iAe-yw-qX0" secondAttribute="centerY" id="6UF-Kb-sDi"/>
+                                                    <constraint firstItem="pat-F8-vyC" firstAttribute="centerX" secondItem="iAe-yw-qX0" secondAttribute="centerX" id="EDm-Fa-cof"/>
                                                     <constraint firstAttribute="width" constant="68" id="GhG-Br-UY7"/>
-                                                    <constraint firstItem="pat-F8-vyC" firstAttribute="centerY" secondItem="iAe-yw-qX0" secondAttribute="centerY" id="e8Z-Wc-MIU"/>
                                                     <constraint firstAttribute="height" constant="68" id="fZh-FN-bCM"/>
-                                                    <constraint firstItem="pat-F8-vyC" firstAttribute="centerX" secondItem="iAe-yw-qX0" secondAttribute="centerX" id="r5J-gF-DM9"/>
                                                 </constraints>
                                                 <connections>
                                                     <action selector="tappedOnCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwy-qx-FJc"/>
@@ -342,6 +343,7 @@
                         <outlet property="btnVideo" destination="kjw-gF-8Nl" id="nsr-fX-bzM"/>
                         <outlet property="controlCameraBG" destination="iAe-yw-qX0" id="pA7-ib-LnD"/>
                         <outlet property="controlPhotoGallery" destination="oWv-ZU-wgP" id="Dxp-6y-LBp"/>
+                        <outlet property="heightConstraintCameraTransperent" destination="HVF-DL-ZOE" id="Khc-7u-MML"/>
                         <outlet property="imgCameraFlash" destination="eKp-aH-RGm" id="Sgc-61-zId"/>
                         <outlet property="imgCameraTimer" destination="ZVV-sB-LVR" id="ixs-1b-lEQ"/>
                         <outlet property="imgNightMode" destination="h7g-RU-sKp" id="eGi-UT-Roq"/>
@@ -351,6 +353,7 @@
                         <outlet property="viewCameraTransperant" destination="pat-F8-vyC" id="994-sd-LRe"/>
                         <outlet property="viewPhotoCaptureBG" destination="GSG-Uh-GjR" id="VGC-Ay-EWd"/>
                         <outlet property="viewVideoCaptureBG" destination="qPG-gX-ZXM" id="mZC-z6-0ed"/>
+                        <outlet property="widthConstraintCameraTransperent" destination="qfR-3K-JqN" id="vEM-az-DfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

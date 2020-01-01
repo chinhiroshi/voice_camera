@@ -58,16 +58,6 @@ class SettingsVC: UIViewController {
     }
     func initialization() {
         
-        UserDefaults.standard.getSettingStartRecordingVideo()
-        
-        UserDefaults.standard.getSettingStopRecordingVideo()
-        
-        UserDefaults.standard.getSettingTakePhoto()
-        
-        UserDefaults.standard.getSettingReverseCamera()
-        
-        UserDefaults.standard.getSettingCloseHeyCamera()
-        
         //Voice Command
         var arrSettingsVoiceCommands = [ModalSettingsSubClass]()
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
