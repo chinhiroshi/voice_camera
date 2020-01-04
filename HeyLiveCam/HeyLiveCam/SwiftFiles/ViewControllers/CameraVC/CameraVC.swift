@@ -79,7 +79,7 @@ class CameraVC: UIViewController {
     let speechRecognizer        = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     var recognitionRequest      : SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask         : SFSpeechRecognitionTask?
-    let audioEngine             = AVAudioEngine()
+    var audioEngine             = AVAudioEngine()
     
     //TODO: - Override Methods
     override func viewDidLoad() {
@@ -96,6 +96,9 @@ class CameraVC: UIViewController {
         
         //Add Observers
         self.addObservers()
+        
+        //Setup Speech
+        self.setupSpeech()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -114,13 +117,13 @@ class CameraVC: UIViewController {
             self.timerCameraAuto.invalidate()
         }
         
+        //Stop Recording
+        self.stopRecording()
+        
         //Remove Observers
         self.removeObservers()
     }
     func initialization() {
-        
-        //Setup Speech
-        self.setupSpeech()
         
         //Hide Blur View
         self.hideBlurView(isAnimated: true)
@@ -138,7 +141,7 @@ class CameraVC: UIViewController {
         arrTimerList.append(ModelPopupOver.init(isSelected: true, title: "Off", id: "0", isSelectionTouch: true))
         arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "3s", id: "1", isSelectionTouch: true))
         arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "10s", id: "2", isSelectionTouch: true))
-     
+        
         //Hide Photo Gallery Button
         self.controlPhotoGallery.isHidden = true
         self.lblCameraTimer.text = ""
@@ -147,24 +150,38 @@ class CameraVC: UIViewController {
         self.updateCameraButton(type: 1, isAnimated: true)
         
     }
+    func cameraTappedAnimation(isAnimated:Bool) {
+        print("cameraTappedAnimation")
+        //Tapped Event
+        UIView.animate(withDuration: 0.1,
+        animations: {
+            self.viewCameraTransperant.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.view.layoutIfNeeded()
+        },
+        completion: { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.viewCameraTransperant.transform = CGAffineTransform.identity
+            }
+        })
+    }
     func updateCameraButton(type:Int,isAnimated:Bool) {
         
         if type == 1 {
-            
+            print("AAAAA")
             self.viewCameraTransperant.layer.cornerRadius = 25
             self.widthConstraintCameraTransperent.constant = 50
             self.heightConstraintCameraTransperent.constant = 50
             self.viewCameraTransperant.backgroundColor = .white
             
         } else if type == 2 {
-            
+            print("BBBBB")
             self.viewCameraTransperant.layer.cornerRadius = 25
             self.widthConstraintCameraTransperent.constant = 50
             self.heightConstraintCameraTransperent.constant = 50
             self.viewCameraTransperant.backgroundColor = .red
             
         } else if type == 3 {
-                   
+            print("CCCCC")
             self.viewCameraTransperant.layer.cornerRadius = 7
             self.widthConstraintCameraTransperent.constant = 30
             self.heightConstraintCameraTransperent.constant = 30
@@ -308,6 +325,7 @@ extension CameraVC {
 
         self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
 
+        audioEngine = AVAudioEngine()
         let inputNode = audioEngine.inputNode
 
         guard let recognitionRequest = recognitionRequest else {
@@ -373,7 +391,6 @@ extension CameraVC {
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
         }
-
         self.audioEngine.prepare()
 
         do {
@@ -686,13 +703,23 @@ extension CameraVC {
             outputURL = tempURL()
             movieOutput.startRecording(to: outputURL, recordingDelegate: self)
             
+            //Update Camera Button
+            self.updateCameraButton(type: 3, isAnimated: true)
+            
+            //Start Speech Recording
+            self.startSpeechRecording()
+            
         } else {
-            stopRecording()
+            
+            //Stop Recording
+            self.stopRecording()
         }
     }
     @objc func stopRecording() {
         if movieOutput.isRecording == true {
             movieOutput.stopRecording()
+            //Update Camera Button
+            self.updateCameraButton(type: 2, isAnimated: true)
         }
     }
     @objc func capturePhoto() {
@@ -826,6 +853,9 @@ extension CameraVC {
             isPhotoCameraDisplay = false
             self.updateButtons()
             
+            //Camera Tapped Animation
+            self.cameraTappedAnimation(isAnimated: isPlayVideo)
+            
             if(isPlayVideo == true) {
                 if(self.timerPlayVideo != nil) {
                     self.timerPlayVideo.invalidate()
@@ -865,16 +895,8 @@ extension CameraVC {
     }
     @IBAction func tappedOnCamera(_ sender: Any) {
         
-        //Tapped Event
-        UIView.animate(withDuration: 0.1,
-        animations: {
-            self.viewCameraTransperant.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        },
-        completion: { _ in
-            UIView.animate(withDuration: 0.1) {
-                self.viewCameraTransperant.transform = CGAffineTransform.identity
-            }
-        })
+        //Camera Tapped Animation
+        self.cameraTappedAnimation(isAnimated: true)
         
         if(self.isPhotoCameraDisplay) {
             
@@ -971,7 +993,6 @@ extension CameraVC {
         //Redirect To Settings Screen
         self.redirectToSettingsScreen()
     }
-    
 }
 //MARK: - AV Capture Photo Capture Delegate
 extension CameraVC : AVCapturePhotoCaptureDelegate {
