@@ -23,7 +23,6 @@ class SpeechToTextVC: UIViewController {
     var recognitionTask         : SFSpeechRecognitionTask?
     let audioEngine             = AVAudioEngine()
     
-    
     //TODO: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()

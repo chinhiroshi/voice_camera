@@ -17,17 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Set Default Settings
         if(UserDefaults.standard.isFirstTimeLoadApp() == false) {
-            UserDefaults.standard.setFirstTimeLoadApp(value: true)
             
+            //Set Current Device Language
+            if let currentDeviceLanguage = Locale.current.languageCode {
+                Bundle.setLanguage(lang: currentDeviceLanguage)
+            } else {
+                Bundle.setLanguage(lang: "en")
+            }
+            
+            UserDefaults.standard.setFirstTimeLoadApp(value: true)
             UserDefaults.standard.setSettingCaptureAudioWithVideo(value: true)
             UserDefaults.standard.setSettingKeepScreenAwake(value: true)
             UserDefaults.standard.setSettingStoreGeolocationOnMedia(value: true)
+            UserDefaults.standard.setSettingVideoResolution(value: true)
             
-            UserDefaults.standard.setSettingStartRecordingVideo(value: "START")
-            UserDefaults.standard.setSettingStopRecordingVideo(value: "STOP")
-            UserDefaults.standard.setSettingTakePhoto(value: "IMAGE")
-            UserDefaults.standard.setSettingReverseCamera(value: "REVERSE")
-            UserDefaults.standard.setSettingCloseHeyCamera(value: "CLOSE APP")
+            UserDefaults.standard.setSettingStartRecordingVideo(value: "START".getLocalized())
+            UserDefaults.standard.setSettingStopRecordingVideo(value: "STOP".getLocalized())
+            UserDefaults.standard.setSettingTakePhoto(value: "IMAGE".getLocalized())
+            UserDefaults.standard.setSettingReverseCamera(value: "REVERSE".getLocalized())
+            UserDefaults.standard.setSettingCloseHeyCamera(value: "CLOSE APP".getLocalized())
+            
+            UserDefaults.standard.setSettingCameraSoundEffect(value: true)
+            UserDefaults.standard.setSettingTrimTheEndOfVideos(value: 0)
         }
         return true
     }
@@ -37,7 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       return true
     }
-   
+    func resetApp() {
+       UIApplication.shared.windows[0].rootViewController = UIStoryboard(
+           name: "Main",
+           bundle: nil
+           ).instantiateInitialViewController()
+    }
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

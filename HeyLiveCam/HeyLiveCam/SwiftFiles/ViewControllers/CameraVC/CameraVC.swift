@@ -14,6 +14,8 @@ import Speech
 import AVKit
 import IntentsUI
 import Intents
+import MobileCoreServices
+import AudioToolbox
 
 //MARK: - Camera View Controller
 class CameraVC: UIViewController {
@@ -48,8 +50,10 @@ class CameraVC: UIViewController {
     
     //Video Capture
     var isPhotoCameraDisplay = true
-    let captureSession = AVCaptureSession()
-    let movieOutput = AVCaptureMovieFileOutput()
+    var isVideoResolutionHigh = true
+    var isSettingCaptureAudioWithVideo = true
+    var captureSession = AVCaptureSession()
+    var movieOutput = AVCaptureMovieFileOutput()
     var previewLayer: AVCaptureVideoPreviewLayer!
     var activeInput: AVCaptureDeviceInput!
     var outputURL: URL!
@@ -70,6 +74,8 @@ class CameraVC: UIViewController {
     var strTakePhoto = ""
     var strReverseCamera = ""
     var strCloseHeyCamera = ""
+    var isCameraSoundEffects = true
+    let cameraShutterSoundID: SystemSoundID = 1108
     
     //Speech to text
     var strSpeechText = ""
@@ -87,6 +93,7 @@ class CameraVC: UIViewController {
         
         //Initialization
         self.initialization()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -94,20 +101,36 @@ class CameraVC: UIViewController {
         //Change statusbar color
         UIApplication.shared.statusBarStyle = .default
         
-        //Add Observers
-        self.addObservers()
-        
-        //Setup Speech
-        self.setupSpeech()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        //Set All Text
+        self.setAllText()
         
         self.strStartRecordingVideo = UserDefaults.standard.getSettingStartRecordingVideo()
         self.strStopRecordingVideo = UserDefaults.standard.getSettingStopRecordingVideo()
         self.strTakePhoto = UserDefaults.standard.getSettingTakePhoto()
         self.strReverseCamera = UserDefaults.standard.getSettingReverseCamera()
         self.strCloseHeyCamera = UserDefaults.standard.getSettingCloseHeyCamera()
+        self.isCameraSoundEffects = UserDefaults.standard.isSettingCameraSoundEffect()
+        self.isSettingCaptureAudioWithVideo = UserDefaults.standard.isSettingCaptureAudioWithVideo()
+        self.isVideoResolutionHigh = UserDefaults.standard.isSettingVideoResolution()
+        
+        //Add Observers
+        self.addObservers()
+        
+        //Setup Speech
+        self.setupSpeech()
+        
+        if(self.isPhotoCameraDisplay == false) {
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                if setupSession() {
+                    setupPreview()
+                    startSession()
+                }
+            }
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,8 +140,15 @@ class CameraVC: UIViewController {
             self.timerCameraAuto.invalidate()
         }
         
-        //Stop Recording
-        self.stopRecording()
+        if(movieOutput.isRecording == true) {
+            
+            //Stop Recording
+            self.stopRecording()
+            
+            //Update Camera Button
+            self.updateCameraButton(type: 2, isAnimated: true)
+            
+        }
         
         //Remove Observers
         self.removeObservers()
@@ -132,16 +162,6 @@ class CameraVC: UIViewController {
         self.controlCameraBG.layer.borderColor = UIColor.white.cgColor
         self.controlCameraBG.layer.cornerRadius = 34
         
-        //Flash Mode
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "Auto", id: "0", isSelectionTouch: true))
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "On", id: "1", isSelectionTouch: true))
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: true, title: "Off", id: "2", isSelectionTouch: true))
-        
-        //Timer Mode
-        arrTimerList.append(ModelPopupOver.init(isSelected: true, title: "Off", id: "0", isSelectionTouch: true))
-        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "3s", id: "1", isSelectionTouch: true))
-        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "10s", id: "2", isSelectionTouch: true))
-        
         //Hide Photo Gallery Button
         self.controlPhotoGallery.isHidden = true
         self.lblCameraTimer.text = ""
@@ -149,6 +169,29 @@ class CameraVC: UIViewController {
         //Update Camera Button
         self.updateCameraButton(type: 1, isAnimated: true)
         
+    }
+    func setAllText() {
+        
+        //Button
+        self.btnPhoto.setTitle("PHOTO".getLocalized(), for: .normal)
+        self.btnVideo.setTitle("VIDEO".getLocalized(), for: .normal)
+        
+        //Flash Mode
+        arrFlashModeList.removeAll()
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "Auto".getLocalized(), id: "0", isSelectionTouch: true))
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "On".getLocalized(), id: "1", isSelectionTouch: true))
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: true, title: "Off".getLocalized(), id: "2", isSelectionTouch: true))
+        
+        //Timer Mode
+        arrTimerList.removeAll()
+        arrTimerList.append(ModelPopupOver.init(isSelected: true, title: "Off".getLocalized(), id: "0", isSelectionTouch: true))
+        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "3s".getLocalized(), id: "1", isSelectionTouch: true))
+        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "10s".getLocalized(), id: "2", isSelectionTouch: true))
+    }
+    func cameraSoundEffect() {
+        if(self.isCameraSoundEffects == true) {
+            AudioServicesPlaySystemSound(cameraShutterSoundID)
+        }
     }
     func cameraTappedAnimation(isAnimated:Bool) {
         print("cameraTappedAnimation")
@@ -167,21 +210,18 @@ class CameraVC: UIViewController {
     func updateCameraButton(type:Int,isAnimated:Bool) {
         
         if type == 1 {
-            print("AAAAA")
             self.viewCameraTransperant.layer.cornerRadius = 25
             self.widthConstraintCameraTransperent.constant = 50
             self.heightConstraintCameraTransperent.constant = 50
             self.viewCameraTransperant.backgroundColor = .white
             
         } else if type == 2 {
-            print("BBBBB")
             self.viewCameraTransperant.layer.cornerRadius = 25
             self.widthConstraintCameraTransperent.constant = 50
             self.heightConstraintCameraTransperent.constant = 50
             self.viewCameraTransperant.backgroundColor = .red
             
         } else if type == 3 {
-            print("CCCCC")
             self.viewCameraTransperant.layer.cornerRadius = 7
             self.widthConstraintCameraTransperent.constant = 30
             self.heightConstraintCameraTransperent.constant = 30
@@ -565,6 +605,7 @@ extension CameraVC:AVCaptureFileOutputRecordingDelegate {
 extension CameraVC {
     func setupPreview() {
          // Configure previewLayer
+        
          previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
          previewLayer.frame = viewVideoCaptureBG.bounds
          previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
@@ -572,7 +613,15 @@ extension CameraVC {
      }
      //MARK:- Setup Camera
      func setupSession() -> Bool {
-        captureSession.sessionPreset = AVCaptureSession.Preset.high
+        
+        captureSession = AVCaptureSession()
+        movieOutput = AVCaptureMovieFileOutput()
+        
+        if(self.isVideoResolutionHigh == true) {
+            captureSession.sessionPreset = AVCaptureSession.Preset.high
+        } else {
+            captureSession.sessionPreset = AVCaptureSession.Preset.medium
+        }
         // Setup Camera
         //let camera = AVCaptureDevice.default(for: AVMediaType.video)!
         
@@ -615,19 +664,25 @@ extension CameraVC {
             print("Error setting device video input: \(error)")
             return false
         }
-        // Setup Microphone
-        let microphone = AVCaptureDevice.default(for: AVMediaType.audio)!
-        do {
-            let micInput = try AVCaptureDeviceInput(device: microphone)
-            if captureSession.canAddInput(micInput) {
-                captureSession.addInput(micInput)
+        
+        if(self.isSettingCaptureAudioWithVideo == true) {
+            
+            // Setup Microphone
+            let microphone = AVCaptureDevice.default(for: AVMediaType.audio)!
+            do {
+                let micInput = try AVCaptureDeviceInput(device: microphone)
+                if captureSession.canAddInput(micInput) {
+                    captureSession.addInput(micInput)
+                }
+            } catch {
+                print("Error setting device audio input: \(error)")
+                return false
             }
-        } catch {
-            print("Error setting device audio input: \(error)")
-            return false
         }
+        
         // Movie output
         if captureSession.canAddOutput(movieOutput) {
+            
             captureSession.addOutput(movieOutput)
         }
         return true
@@ -723,6 +778,9 @@ extension CameraVC {
         }
     }
     @objc func capturePhoto() {
+        
+        //Camera Sound Effect
+        self.cameraSoundEffect()
         
         self.showBlurView(isAnimated: true)
         
@@ -881,6 +939,7 @@ extension CameraVC {
         
         //Redirect To Photo Gallery
         self.redirectToPhotoGallery()
+        
     }
     @IBAction func tappedOnTakePhoto(_ sender: Any) {
         
@@ -992,6 +1051,9 @@ extension CameraVC {
         
         //Redirect To Settings Screen
         self.redirectToSettingsScreen()
+        
+        //Redirect To In App Purchase Screen
+        //self.redirectToInAppPurchaseScreen()
     }
 }
 //MARK: - AV Capture Photo Capture Delegate

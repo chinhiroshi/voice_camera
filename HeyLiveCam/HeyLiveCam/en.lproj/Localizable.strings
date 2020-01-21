@@ -1,0 +1,94 @@
+/* 
+  Localizable.strings
+  HeyLiveCam
+
+  Created by Shree on 20/01/20.
+  Copyright © 2020 Shree. All rights reserved.
+*/
+
+
+//======================= Help Screen =======================
+
+//Cell 1 Data
+"Voice commands not working?" = "Voice commands not working?";
+"If voice commands are not working for you please force close the app and re-open it. Also make sure that your Wi-Fi or cellular data connection is online and good. Poor connectivity can cause the speech recognition to fail." = "If voice commands are not working for you please force close the app and re-open it. Also make sure that your Wi-Fi or cellular data connection is online and good. Poor connectivity can cause the speech recognition to fail.";
+
+//Cell 2 Data
+"How do I \"un-reverse\" the camera?" = "How do I \"un-reverse\" the camera?";
+"The voice command to reverse the camera will toggle the front and back camera. Some users have not been aware that they can return to the back facing camera by saying reverse again." = "The voice command to reverse the camera will toggle the front and back camera. Some users have not been aware that they can return to the back facing camera by saying reverse again.";
+
+"Why are Siri Shortcuts not available for me?" = "Why are Siri Shortcuts not available for me?";
+"Siri Shortcuts functionality is only available in iOS 12 and later." = "Siri Shortcuts functionality is only available in iOS 12 and later.";
+
+//Title
+"Help" = "Help";
+
+
+//======================= Settings Screen =======================
+
+"Settings" = "Settings";
+"Start Recording Video" = "Start Recording Video";
+"Stop Recording Video" = "Stop Recording Video";
+"Take Photo" = "Take Photo";
+"Reverse Camera" = "Reverse Camera";
+"Close Hey Camera" = "Close Hey Camera";
+"Voice Commands" = "Voice Commands";
+"1080p HD at 30 fps" = "1080p HD at 30 fps";
+"720p HD at 30 fps" = "720p HD at 30 fps";
+"Video Resolution" = "Video Resolution";
+"Trim the end of videos" = "Trim the end of videos";
+"Do not trim" = "Do not trim";
+"Capture audio with videos" = "Capture audio with videos";
+"Language" = "Language";
+"English" = "English";
+"Restore Purchases" = "Restore Purchases";
+"Camera Sound Effects" = "Camera Sound Effects";
+"Share This App" = "Share This App";
+"Rate This App" = "Rate This App";
+"Send Feedback" = "Send Feedback";
+"Miscellaneous" = "Miscellaneous";
+"Japanese" = "Japanese";
+"Cancel" = "Cancel";
+"You can use this feature to remove a voice command from the end of a video." = "You can use this feature to remove a voice command from the end of a video.";
+"Do not trim" = "Do not trim";
+"1 second" = "1 second";
+"2 seconds" = "2 seconds";
+"3 seconds" = "3 seconds";
+"Hey Live Cam..." = "Hey Live Cam...";
+"Video Settings" = "Video Settings";
+
+
+//======================= AppDelegate =======================
+
+"START" = "START";
+"STOP" = "STOP";
+"IMAGE" = "IMAGE";
+"REVERSE" = "REVERSE";
+"CLOSE APP" = "CLOSE APP";
+
+
+//======================= Camera Screen =======================
+
+
+"PHOTO" = "PHOTO";
+"VIDEO" = "VIDEO";
+"On" = "On";
+"Off" = "Off";
+"Auto" = "Auto";
+"3s" = "3s";
+"10s" = "10s";
+
+
+//======================= VoiceTextUpdate Screen =======================
+
+"Enter a pharse to use for starting a video recording." = "Enter a pharse to use for starting a video recording.";
+"Enter a pharse to use for stopping a video recording." = "Enter a pharse to use for stopping a video recording.";
+"Enter a pharse to use for taking a photo." = "Enter a pharse to use for taking a photo.";
+"Enter a pharse to use for reversing the camera." = "Enter a pharse to use for reversing the camera.";
+"Enter a pharse to use for closing Hey Camera(useful to get back to sign)." = "Enter a pharse to use for closing Hey Camera(useful to get back to sign).";
+
+
+//======================= InAppPurchaseVC Screen =======================
+
+"Purchase Unlimited - ₹ " = "Purchase Unlimited - ₹ ";
+"You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos." = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos.";

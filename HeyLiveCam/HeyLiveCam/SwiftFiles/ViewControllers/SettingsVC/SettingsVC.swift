@@ -6,13 +6,16 @@
 //  Copyright © 2019 Shree. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import MessageUI
 
 //MARK: - Settings View Controller
 class SettingsVC: UIViewController {
 
     //TODO: - Outlet Declaration
     @IBOutlet var tblSettings: UITableView!
+    @IBOutlet var lblHeaderTitle: UILabel!
     
     //TODO: - Variable Declaration
     var arrSettings = [ModalSettings]()
@@ -23,6 +26,10 @@ class SettingsVC: UIViewController {
     var strTakePhoto = ""
     var strReverseCamera = ""
     var strCloseHeyCamera = ""
+    
+    var isCameraSoundEffects = true
+    var isVideoResolutionHigh = true
+    var trimTheEndOfVideos = 0
     
     //TODO: - Override Methods
     override func viewDidLoad() {
@@ -48,21 +55,34 @@ class SettingsVC: UIViewController {
             self.strReverseCamera = UserDefaults.standard.getSettingReverseCamera()
             self.strCloseHeyCamera = UserDefaults.standard.getSettingCloseHeyCamera()
             
+            self.isVideoResolutionHigh = UserDefaults.standard.isSettingVideoResolution()
+            self.isCameraSoundEffects = UserDefaults.standard.isSettingCameraSoundEffect()
+            self.trimTheEndOfVideos = UserDefaults.standard.getSettingTrimTheEndOfVideos()
+            
             self.arrSettings[0].arrSettings[0].strSubTitle = strStartRecordingVideo
             self.arrSettings[0].arrSettings[1].strSubTitle = strStopRecordingVideo
             self.arrSettings[0].arrSettings[2].strSubTitle = strTakePhoto
             self.arrSettings[0].arrSettings[3].strSubTitle = strReverseCamera
             self.arrSettings[0].arrSettings[4].strSubTitle = strCloseHeyCamera
+            
+            arrSettings[2].arrSettings[1].isSwitchOn = self.isCameraSoundEffects
         }
         self.tblSettings.reloadData()
     }
     func initialization() {
         
+        self.lblHeaderTitle.text = "Settings".getLocalized()
+        
+        self.isVideoResolutionHigh = UserDefaults.standard.isSettingVideoResolution()
+        self.trimTheEndOfVideos = UserDefaults.standard.getSettingTrimTheEndOfVideos()
+        var strVersionNumber = ""
+        strVersionNumber = "v"+(Bundle.main.releaseVersionNumber ?? "") + ""
+        
         //Voice Command
         var arrSettingsVoiceCommands = [ModalSettingsSubClass]()
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
             [
-                "title":"Start Recording Video",
+                "title":"Start Recording Video".getLocalized(),
                 "subTitle":UserDefaults.standard.getSettingStartRecordingVideo(),
                 "photo":"imgSettingsVideo",
                 "displayDescription":true
@@ -71,7 +91,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Stop Recording Video",
+            "title":"Stop Recording Video".getLocalized(),
             "subTitle":UserDefaults.standard.getSettingStopRecordingVideo(),
             "photo":"imgSettingsStop",
             "displayDescription":true
@@ -80,7 +100,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Take Photo",
+            "title":"Take Photo".getLocalized(),
             "subTitle":UserDefaults.standard.getSettingTakePhoto(),
             "photo":"imgSettingsCamera",
             "displayDescription":true
@@ -89,7 +109,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Reverse Camera",
+            "title":"Reverse Camera".getLocalized(),
             "subTitle":UserDefaults.standard.getSettingReverseCamera(),
             "photo":"imgSettingsReverse",
             "displayDescription":true
@@ -98,17 +118,17 @@ class SettingsVC: UIViewController {
         
         arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Close Hey Camera",
+            "title":"Close Hey Camera".getLocalized(),
             "subTitle":UserDefaults.standard.getSettingCloseHeyCamera(),
             "photo":"imgSettingsClose",
             "displayDescription":true
         ]
         , cellType: .rightArrowCell))
         
-        arrSettings.append(ModalSettings.init(strSectionName: "Voice Commands", arrSettings: arrSettingsVoiceCommands))
+        arrSettings.append(ModalSettings.init(strSectionName: "Voice Commands".getLocalized(), arrSettings: arrSettingsVoiceCommands))
         
         //Siri Shortcuts
-        var arrSettingsSiriShortcuts = [ModalSettingsSubClass]()
+        /*var arrSettingsSiriShortcuts = [ModalSettingsSubClass]()
         arrSettingsSiriShortcuts.append(ModalSettingsSubClass.init(dictData:
             [
                 "title":"Take Photo",
@@ -127,14 +147,21 @@ class SettingsVC: UIViewController {
         ]
         , cellType: .plusIconCell))
         
-        arrSettings.append(ModalSettings.init(strSectionName: "Siri Shortcuts", arrSettings: arrSettingsSiriShortcuts))
+        arrSettings.append(ModalSettings.init(strSectionName: "Siri Shortcuts", arrSettings: arrSettingsSiriShortcuts))*/
+        
+        var strVideoResolutionHigh = ""
+        if(self.isVideoResolutionHigh == true) {
+            strVideoResolutionHigh = "1080p HD at 30 fps".getLocalized()
+        } else {
+            strVideoResolutionHigh = "720p HD at 30 fps".getLocalized()
+        }
         
         //Video Settings
         var arrSettingsVideoSettings = [ModalSettingsSubClass]()
         arrSettingsVideoSettings.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Video Resolution",
-            "subTitle":"1080p HD at 30 fps",
+            "title":"Video Resolution".getLocalized(),
+            "subTitle":strVideoResolutionHigh,
             "photo":"imgSettingsVideoResolution",
             "displayDescription":true
         ]
@@ -142,8 +169,8 @@ class SettingsVC: UIViewController {
         
         arrSettingsVideoSettings.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Trim the end of videos",
-            "subTitle":"Do not trim",
+            "title":"Trim the end of videos".getLocalized(),
+            "subTitle":"Do not trim".getLocalized(),
             "photo":"imgSettingsTrim",
             "displayDescription":true
         ]
@@ -151,32 +178,41 @@ class SettingsVC: UIViewController {
         
         arrSettingsVideoSettings.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Capture audio with videos",
+            "title":"Capture audio with videos".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsCaptureAudio",
             "displayDescription":false
         ]
         , cellType: .switchButtonCell))
         
-        arrSettingsVideoSettings.append(ModalSettingsSubClass.init(dictData:
+        /*arrSettingsVideoSettings.append(ModalSettingsSubClass.init(dictData:
         [
             "title":"Keep screen awake",
             "subTitle":"",
             "photo":"imgSettingsMobile",
             "displayDescription":false
         ]
-        , cellType: .switchButtonCell))
+        , cellType: .switchButtonCell))*/
         
-        arrSettings.append(ModalSettings.init(strSectionName: "Video Settings", arrSettings: arrSettingsVideoSettings))
+        arrSettings.append(ModalSettings.init(strSectionName: "Video Settings".getLocalized(), arrSettings: arrSettingsVideoSettings))
         
-        arrSettings[2].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingCaptureAudioWithVideo()
-        arrSettings[2].arrSettings[3].isSwitchOn = UserDefaults.standard.isSettingKeepScreenAwake()
+        arrSettings[1].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingCaptureAudioWithVideo()
+        //arrSettings[1].arrSettings[3].isSwitchOn = UserDefaults.standard.isSettingKeepScreenAwake()
         
         //Miscellaneous
         var arrSettingsMiscellaneous = [ModalSettingsSubClass]()
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Restore Purchases",
+            "title":"Language".getLocalized(),
+            "subTitle":"English".getLocalized(),
+            "photo":"imgLanguageIcon",
+            "displayDescription":true
+        ]
+        , cellType: .rightArrowCell))
+        
+        arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
+        [
+            "title":"Restore Purchases".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsRestore",
             "displayDescription":false
@@ -185,25 +221,25 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Camera Sound Effects",
+            "title":"Camera Sound Effects".getLocalized(),
             "subTitle":"",
             "photo":"imgCameraSound",
             "displayDescription":false
         ]
-        , cellType: .rightArrowCell))
+        , cellType: .switchButtonCell))
         
-        arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
+        /*arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
             "title":"Store Geolocation on Media",
             "subTitle":"",
             "photo":"imgSettingsLocation",
             "displayDescription":false
         ]
-        , cellType: .switchButtonCell))
+        , cellType: .switchButtonCell))*/
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Share This App",
+            "title":"Share This App".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsShare",
             "displayDescription":false
@@ -212,7 +248,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Rate This App",
+            "title":"Rate This App".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsLike",
             "displayDescription":false
@@ -221,7 +257,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Help",
+            "title":"Help".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsHelp",
             "displayDescription":false
@@ -230,7 +266,7 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"Send Feedback",
+            "title":"Send Feedback".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsSend",
             "displayDescription":false
@@ -239,24 +275,133 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
-            "title":"v2.0.3.2",
+            "title":strVersionNumber,
             "subTitle":"",
             "photo":"imgSettingsSend",
             "displayDescription":false
         ]
         , cellType: .plainCell))
         
-        arrSettings.append(ModalSettings.init(strSectionName: "Miscellaneous", arrSettings: arrSettingsMiscellaneous))
-        arrSettings[3].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingStoreGeolocationOnMedia()
+        arrSettings.append(ModalSettings.init(strSectionName: "Miscellaneous".getLocalized(), arrSettings: arrSettingsMiscellaneous))
+        arrSettings[2].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingCameraSoundEffect()
+        //arrSettings[2].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingStoreGeolocationOnMedia()
         
         self.tblSettings.reloadData()
     }
+    func openLanguageSelectionPopup() {
+        let optionMenu = UIAlertController(title: nil, message: "Language".getLocalized(), preferredStyle: .actionSheet)
+        let actionEnglish = UIAlertAction(title: "English".getLocalized(), style: .default) { action -> Void in
+            print("English")
+            Bundle.setLanguage(lang: "en")
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.arrSettings[2].arrSettings[0].strSubTitle = "English".getLocalized()
+                self.tblSettings.reloadData()
+                
+                //Redirect To Back Screen
+                self.redirectToBackScreen()
+            }
+            
+            //Set Setting Video Resolution
+            //UserDefaults.standard.setSettingVideoResolution(value: true)
+        }
+        let actionJapanese = UIAlertAction(title: "Japanese".getLocalized(), style: .default) { action -> Void in
+            print("Japanese")
+            
+            Bundle.setLanguage(lang: "ja")
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                self.arrSettings[2].arrSettings[0].strSubTitle = "Japanese".getLocalized()
+                self.tblSettings.reloadData()
+                
+                //Redirect To Back Screen
+                self.redirectToBackScreen()
+            }
+            
+            //Set Setting Video Resolution
+            //UserDefaults.standard.setSettingVideoResolution(value: false)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".getLocalized(), style: .cancel)
+        optionMenu.addAction(actionEnglish)
+        optionMenu.addAction(actionJapanese)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    func openVideoResolutionPopup() {
+        let optionMenu = UIAlertController(title: nil, message: "Video Resolution".getLocalized(), preferredStyle: .actionSheet)
+        let actionHighResolution = UIAlertAction(title: "1080p HD at 30 fps".getLocalized(), style: .default) { action -> Void in
+            print("High Resolution")
+            self.arrSettings[1].arrSettings[0].strSubTitle = "1080p HD at 30 fps".getLocalized()
+            self.tblSettings.reloadData()
+            
+            //Set Setting Video Resolution
+            self.isVideoResolutionHigh = true
+            UserDefaults.standard.setSettingVideoResolution(value: true)
+        }
+        let actionMediamResolution = UIAlertAction(title: "720p HD at 30 fps".getLocalized(), style: .default) { action -> Void in
+            print("Mediam Resolution")
+            self.arrSettings[1].arrSettings[0].strSubTitle = "720p HD at 30 fps".getLocalized()
+            self.tblSettings.reloadData()
+            
+            //Set Setting Video Resolution
+            self.isVideoResolutionHigh = false
+            UserDefaults.standard.setSettingVideoResolution(value: false)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".getLocalized(), style: .cancel)
+        optionMenu.addAction(actionHighResolution)
+        optionMenu.addAction(actionMediamResolution)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    func openTrimTheEndOfVideos() {
+        let optionMenu = UIAlertController(title: nil, message: "You can use this feature to remove a voice command from the end of a video.".getLocalized(), preferredStyle: .actionSheet)
+        let actionDoNotTrim = UIAlertAction(title: "Do not trim".getLocalized(), style: .default) { action -> Void in
+            print("Do not trim")
+            
+            self.arrSettings[1].arrSettings[1].strSubTitle = "Do not trim".getLocalized()
+            self.tblSettings.reloadData()
+        }
+        let action_1_second = UIAlertAction(title: "1 second".getLocalized(), style: .default) { action -> Void in
+            print("1 second")
+            self.arrSettings[1].arrSettings[1].strSubTitle = "1 second".getLocalized()
+            self.tblSettings.reloadData()
+        }
+        let action_2_second = UIAlertAction(title: "2 seconds".getLocalized(), style: .default) { action -> Void in
+            print("2 seconds")
+            self.arrSettings[1].arrSettings[1].strSubTitle = "2 seconds".getLocalized()
+            self.tblSettings.reloadData()
+        }
+        let action_3_second = UIAlertAction(title: "3 seconds".getLocalized(), style: .default) { action -> Void in
+            print("3 seconds")
+            self.arrSettings[1].arrSettings[1].strSubTitle = "3 seconds".getLocalized()
+            self.tblSettings.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel".getLocalized(), style: .cancel)
+        optionMenu.addAction(actionDoNotTrim)
+        optionMenu.addAction(action_1_second)
+        optionMenu.addAction(action_2_second)
+        optionMenu.addAction(action_3_second)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
     func openShareBox() {
-        let text = "Hey Live Cam..."
+        let text = "Hey Live Cam...".getLocalized()
             let textShare = [ text ]
             let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)
+    }
+    func rateThisApp() {
+        guard let url = URL(string: strRateAppUrl) else {
+            return
+        }
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
 //MARK: - UITableViewDelegate
@@ -327,6 +472,7 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
            cell.lblSingleLineTitle.textAlignment = .left
            
            cell.switchSetting.isHidden = false
+            cell.switchSetting.isOn = data.isSwitchOn
            cell.imgSettingIcon.isHidden = false
            cell.imgRightIcon.isHidden = true
            cell.imgRightIcon.image = UIImage.init(named: "imgPlusIcon")
@@ -356,6 +502,7 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
         
+        //Voice Commands
         if indexPath.section == 0 {
             
             //Redirect To Voice Text Update Screen
@@ -374,16 +521,46 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
             //Redirect To Voice Text Update Screen
             self.redirectToVoiceTextUpdateScreen(cellSettingsSelected: self.cellSettingsSelected)
             
-        } else if(indexPath.section == 3) {
+        } else if(indexPath.section == 1) {
+           //Video Settings
             
-            if(indexPath.row == 3) {
+            if(indexPath.row == 0) {
+                //Video Resolution
                 
+                //Open Video Resolution Popup
+                self.openVideoResolutionPopup()
+                
+            } else if(indexPath.row == 1) {
+                //Trim the end of videos
+                
+                //Open Trim The End Of Videos
+                self.openTrimTheEndOfVideos()
+            }
+        } else if(indexPath.section == 2) {
+            //Miscellaneous
+            if(indexPath.row == 0) {
+                    
+                //Open Language Selection Popup
+                self.openLanguageSelectionPopup()
+                
+            } else if(indexPath.row == 3) {
+                    
+                //Share this app
                 self.openShareBox()
                 
+            } else if(indexPath.row == 4) {
+            
+                //Rate This App
+                self.rateThisApp()
             } else if(indexPath.row == 5) {
                 
                 //Redirect To Help Screen
                 self.redirectToHelpScreen()
+                
+            } else if(indexPath.row == 6) {
+                
+                //Send Feedback
+                self.sendFeedback()
             }
         }
     }
@@ -420,21 +597,25 @@ extension SettingsVC {
         let switchStatus = sender as! UISwitch
         print("switchStatus : ",switchStatus.tag)
         let index = switchStatus.tag
-        if(index>=200 && index<300) {
+        if(index>=100 && index<200) {
+            let finalIndex = index-100
+            self.arrSettings[1].arrSettings[finalIndex].isSwitchOn = !self.arrSettings[1].arrSettings[finalIndex].isSwitchOn
+            
+            if(finalIndex == 2) {
+                UserDefaults.standard.setSettingCaptureAudioWithVideo(value: self.arrSettings[1].arrSettings[finalIndex].isSwitchOn)
+            }/* else if(finalIndex == 3) {
+                UserDefaults.standard.setSettingKeepScreenAwake(value: self.arrSettings[1].arrSettings[finalIndex].isSwitchOn)
+            }*/
+            
+        } else if(switchStatus.tag>=200) {
             let finalIndex = index-200
             self.arrSettings[2].arrSettings[finalIndex].isSwitchOn = !self.arrSettings[2].arrSettings[finalIndex].isSwitchOn
             
-            if(finalIndex == 2) {
-                UserDefaults.standard.setSettingCaptureAudioWithVideo(value: self.arrSettings[2].arrSettings[finalIndex].isSwitchOn)
-            } else if(finalIndex == 3) {
-                UserDefaults.standard.setSettingKeepScreenAwake(value: self.arrSettings[2].arrSettings[finalIndex].isSwitchOn)
-            }
-            
-        } else if(switchStatus.tag>=300) {
-            let finalIndex = index-300
-            self.arrSettings[3].arrSettings[finalIndex].isSwitchOn = !self.arrSettings[3].arrSettings[finalIndex].isSwitchOn
-            
-            UserDefaults.standard.setSettingStoreGeolocationOnMedia(value: self.arrSettings[3].arrSettings[finalIndex].isSwitchOn)
+            if finalIndex == 1 {
+                UserDefaults.standard.setSettingCameraSoundEffect(value: self.arrSettings[2].arrSettings[finalIndex].isSwitchOn)
+            }/* else if (finalIndex == 2) {
+                UserDefaults.standard.setSettingStoreGeolocationOnMedia(value: self.arrSettings[2].arrSettings[finalIndex].isSwitchOn)
+            }*/
         }
         
         self.tblSettings.reloadData()
@@ -458,7 +639,28 @@ extension SettingsVC {
         self.navigationController?.pushViewController(vcHelp, animated: true)
     }
 }
-
+//MARK: - MFMailComposeViewControllerDelegate
+extension SettingsVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+      controller.dismiss(animated: true)
+    }
+    func sendFeedback() {
+       
+        let strRecipients = "mailto:\(strSendFeedBackMailID)?cc=&subject=\(strSendFeedBackMailSubject)";
+        let strBody = "&body=";
+        let strEmail = strRecipients + strBody
+        if let strFinalUrl = strEmail.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            
+            if let urlEmail = URL.init(string: strFinalUrl) {
+               if #available(iOS 10.0, *) {
+                   UIApplication.shared.open(urlEmail, options: [:], completionHandler: nil)
+               } else {
+                   UIApplication.shared.openURL(urlEmail)
+               }
+            }
+        }
+    }
+}
 
 //MARK: - TableViewCell
 class CellSettings:UITableViewCell {

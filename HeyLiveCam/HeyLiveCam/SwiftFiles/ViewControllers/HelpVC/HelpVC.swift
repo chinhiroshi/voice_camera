@@ -13,6 +13,7 @@ class HelpVC: UIViewController {
 
     //TODO: - Oultlet Declaration
     @IBOutlet var tblHelpList: UITableView!
+    @IBOutlet var lblHeaderTitle: UILabel!
     
     
     //TODO: - Variable Declaration
@@ -26,23 +27,33 @@ class HelpVC: UIViewController {
         //Initialization
         self.initialization()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //Expand Section
+        self.expandSection(section: 0)
+    }
     func initialization() {
+        
+        //Set Header Title
+        self.lblHeaderTitle.text = "Help".getLocalized()
         
         tblHelpList.rowHeight = UITableView.automaticDimension
         tblHelpList.estimatedRowHeight = UITableView.automaticDimension
         
         var arrHelpCell1 = [ModalHelpDataObject]()
-        arrHelpCell1.append(ModalHelpDataObject.init(strDescription: "If voice commands are not working for you please force close the app and re-open it. Also make sure that your Wi-Fi or cellular data connection is online and good. Poor connectivity can cause the speech recognition to fail."))
-        self.arrHelp.append(ModalHelpData.init(strTitle: "Voice commands not working?", arrHelp: arrHelpCell1,isExpandable: false))
+        arrHelpCell1.append(ModalHelpDataObject.init(strDescription: "If voice commands are not working for you please force close the app and re-open it. Also make sure that your Wi-Fi or cellular data connection is online and good. Poor connectivity can cause the speech recognition to fail.".getLocalized()))
+        self.arrHelp.append(ModalHelpData.init(strTitle: "Voice commands not working?".getLocalized(), arrHelp: arrHelpCell1,isExpandable: true))
         
         var arrHelpCell2 = [ModalHelpDataObject]()
-        arrHelpCell2.append(ModalHelpDataObject.init(strDescription: "The voice command to reverse the camera will toggle the front and back camera. Some users have not been aware that they can return to the back facing camera by saying reverse again."))
-        self.arrHelp.append(ModalHelpData.init(strTitle: "How do I \"un-reverse\" the camera?", arrHelp: arrHelpCell2,isExpandable: false))
+        arrHelpCell2.append(ModalHelpDataObject.init(strDescription: "The voice command to reverse the camera will toggle the front and back camera. Some users have not been aware that they can return to the back facing camera by saying reverse again.".getLocalized()))
+        self.arrHelp.append(ModalHelpData.init(strTitle: "How do I \"un-reverse\" the camera?".getLocalized(), arrHelp: arrHelpCell2,isExpandable: false))
         
         var arrHelpCell3 = [ModalHelpDataObject]()
-        arrHelpCell3.append(ModalHelpDataObject.init(strDescription: "Siri Shortcuts functionality is only available in iOS 12 and later."))
-        self.arrHelp.append(ModalHelpData.init(strTitle: "Why are Siri Shortcuts not available for me?", arrHelp: arrHelpCell3,isExpandable: false))
+        arrHelpCell3.append(ModalHelpDataObject.init(strDescription: "Siri Shortcuts functionality is only available in iOS 12 and later.".getLocalized()))
+        self.arrHelp.append(ModalHelpData.init(strTitle: "Why are Siri Shortcuts not available for me?".getLocalized(), arrHelp: arrHelpCell3,isExpandable: false))
         
+        self.tblHelpList.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,6 +138,10 @@ extension HelpVC:UITableViewDelegate,UITableViewDataSource {
         let v = sender?.view!
         guard let section = v?.tag else { return }
         
+        //Expand Section
+        self.expandSection(section: section)
+    }
+    func expandSection(section:Int) {
         if(section >= 0) {
             self.arrHelp[section].isExpandable = !self.arrHelp[section].isExpandable
             

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="har-r4-PRm">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -402,6 +401,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wba-Rf-dX7"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rzB-OE-N5h"/>
                     <connections>
                         <outlet property="btnStart" destination="Y9x-2g-EMM" id="fzW-XY-x96"/>
                         <outlet property="txtViewDescription" destination="Rc6-ax-f9M" id="ek0-dX-aG4"/>
@@ -546,6 +546,7 @@
                     </view>
                     <connections>
                         <outlet property="lblDescription" destination="Jcf-JO-O9q" id="ubS-49-IT2"/>
+                        <outlet property="lblTitleSettings" destination="muL-4m-IkX" id="48j-Ml-06e"/>
                         <outlet property="txtName" destination="Sbo-aY-m7M" id="XLj-l4-vIU"/>
                         <outlet property="viewTextBG" destination="w6Q-oC-mDE" id="7ba-jS-b7E"/>
                     </connections>
@@ -693,6 +694,7 @@
                         <viewLayoutGuide key="safeArea" id="Cb2-Es-dGF"/>
                     </view>
                     <connections>
+                        <outlet property="lblHeaderTitle" destination="Zme-Uq-lmN" id="jKE-d0-MyJ"/>
                         <outlet property="tblHelpList" destination="Th6-9k-7By" id="ehf-a4-s0Y"/>
                     </connections>
                 </viewController>
@@ -709,7 +711,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ibb-jp-XFh"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SA8-Jh-mQ5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acc-el-Wvd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -920,6 +922,7 @@
                     <navigationItem key="navigationItem" id="QTR-TH-xir"/>
                     <connections>
                         <outlet property="controlPurchaseUnlimited" destination="hhW-jM-qmJ" id="LDa-uL-Eeq"/>
+                        <outlet property="lblDescription" destination="by8-qh-9FN" id="fh9-AV-nSV"/>
                         <outlet property="lblPurchaseUnlimited" destination="97E-Np-B2l" id="ON1-PD-voZ"/>
                     </connections>
                 </viewController>
@@ -1197,6 +1200,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Umo-TY-AfI"/>
                     <connections>
+                        <outlet property="lblHeaderTitle" destination="lqA-Th-WXs" id="zaV-ob-KRt"/>
                         <outlet property="tblSettings" destination="fSD-XX-i6e" id="BNJ-O0-oTW"/>
                     </connections>
                 </viewController>

@@ -1,0 +1,94 @@
+/* 
+  Localizable.strings
+  HeyLiveCam
+
+  Created by Shree on 20/01/20.
+  Copyright © 2020 Shree. All rights reserved.
+*/
+
+
+//======================= Help Screen =======================
+
+//Cell 1 Data
+"Voice commands not working?" = "音声コマンドが機能しませんか？";
+"If voice commands are not working for you please force close the app and re-open it. Also make sure that your Wi-Fi or cellular data connection is online and good. Poor connectivity can cause the speech recognition to fail." = "音声コマンドが機能しない場合は、アプリを強制終了してから再度開いてください。 また、Wi-Fiまたはセルラーデータ接続がオンラインで良好であることを確認してください。 接続性が悪いと、音声認識が失敗する場合があります。";
+
+//Cell 2 Data
+"How do I \"un-reverse\" the camera?" = "カメラを「逆に戻す」方法は？";
+"The voice command to reverse the camera will toggle the front and back camera. Some users have not been aware that they can return to the back facing camera by saying reverse again." = "カメラを逆にする音声コマンドは、前面カメラと背面カメラを切り替えます。 一部のユーザーは、逆に言うことで背面カメラに戻ることができることに気づいていません。";
+
+"Why are Siri Shortcuts not available for me?" = "Siriショートカットが利用できないのはなぜですか？";
+"Siri Shortcuts functionality is only available in iOS 12 and later." = "Siriショートカット機能は、iOS 12以降でのみ使用できます。";
+
+//Title
+"Help" = "助けて";
+
+
+//======================= Settings Screen =======================
+
+"Settings" = "設定";
+"Start Recording Video" = "ビデオの録画を開始";
+"Stop Recording Video" = "ビデオの録画を停止";
+"Take Photo" = "写真を撮る";
+"Reverse Camera" = "リバースカメラ";
+"Close Hey Camera" = "カメラを閉じる";
+"Voice Commands" = "音声コマンド";
+"1080p HD at 30 fps" = "30 fpsで1080p HD";
+"720p HD at 30 fps" = "30 fpsで720p HD";
+"Video Resolution" = "ビデオ解像度";
+"Trim the end of videos" = "ビデオの終わりをトリミング";
+"Do not trim" = "トリムしないでください";
+"Capture audio with videos" = "ビデオでオーディオをキャプチャする";
+"Language" = "言語";
+"English" = "英語";
+"Restore Purchases" = "購入を復元";
+"Camera Sound Effects" = "カメラの効果音";
+"Share This App" = "このアプリを共有する";
+"Rate This App" = "このアプリを評価する";
+"Send Feedback" = "フィードバックを送信";
+"Miscellaneous" = "その他";
+"Japanese" = "日本語";
+"Cancel" = "キャンセル";
+"You can use this feature to remove a voice command from the end of a video." = "この機能を使用して、ビデオの最後から音声コマンドを削除できます。";
+"Do not trim" = "トリムしないでください";
+"1 second" = "1秒";
+"2 seconds" = "2秒";
+"3 seconds" = "3秒";
+"Hey Live Cam..." = "ちょっとライブカム...";
+"Video Settings" = "ビデオ設定";
+
+
+//======================= AppDelegate =======================
+
+"START" = "開始";
+"STOP" = "やめる";
+"IMAGE" = "画像";
+"REVERSE" = "逆";
+"CLOSE APP" = "アプリを閉じる";
+
+
+//======================= Camera Screen =======================
+
+
+"PHOTO" = "写真";
+"VIDEO" = "ビデオ";
+"On" = "オン";
+"Off" = "オフ";
+"Auto" = "オート";
+"3s" = "3秒";
+"10s" = "10代";
+
+
+//======================= VoiceTextUpdate Screen =======================
+
+"Enter a pharse to use for starting a video recording." = "ビデオ録画の開始に使用するフレーズを入力します。";
+"Enter a pharse to use for stopping a video recording." = "ビデオ録画の停止に使用するフレーズを入力します。";
+"Enter a pharse to use for taking a photo." = "写真の撮影に使用するフレーズを入力します。";
+"Enter a pharse to use for reversing the camera." = "カメラの反転に使用するフレーズを入力します。";
+"Enter a pharse to use for closing Hey Camera(useful to get back to sign)." = "カメラを閉じるために使用するフレーズを入力します（サインに戻るのに便利です）。";
+
+
+//======================= InAppPurchaseVC Screen =======================
+
+"Purchase Unlimited - ₹ " = "無制限で購入-£";
+"You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos." = "無料版で許可されているキャプチャの最大数に達しました。 Unlimitedを購入して、写真やビデオのキャプチャを続けてください。";

@@ -1,0 +1,47 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5ac-T4-OtL"; */
+"5ac-T4-OtL.text" = "Label";
+
+/* Class = "UILabel"; text = "Purchase Unlimited - ₹ 79.00"; ObjectID = "97E-Np-B2l"; */
+"97E-Np-B2l.text" = "Purchase Unlimited - ₹ 79.00";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "G08-6w-Wy6"; */
+"G08-6w-Wy6.text" = "10";
+
+/* Class = "UILabel"; text = "Enter a phrase to use for starting a video recording."; ObjectID = "Jcf-JO-O9q"; */
+"Jcf-JO-O9q.text" = "Enter a phrase to use for starting a video recording.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Jg0-xc-Oas"; */
+"Jg0-xc-Oas.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NE8-6U-8CN"; */
+"NE8-6U-8CN.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Start Recording"; ObjectID = "Y9x-2g-EMM"; */
+"Y9x-2g-EMM.normalTitle" = "Start Recording";
+
+/* Class = "UILabel"; text = "Help"; ObjectID = "Zme-Uq-lmN"; */
+"Zme-Uq-lmN.text" = "Help";
+
+/* Class = "UILabel"; text = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos."; ObjectID = "by8-qh-9FN"; */
+"by8-qh-9FN.text" = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos.";
+
+/* Class = "UILabel"; text = "India"; ObjectID = "ioA-1X-ocb"; */
+"ioA-1X-ocb.text" = "India";
+
+/* Class = "UIButton"; normalTitle = "VIDEO"; ObjectID = "kjw-gF-8Nl"; */
+"kjw-gF-8Nl.normalTitle" = "VIDEO";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "lqA-Th-WXs"; */
+"lqA-Th-WXs.text" = "Settings";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "muL-4m-IkX"; */
+"muL-4m-IkX.text" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mux-xA-VEW"; */
+"mux-xA-VEW.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "PHOTO"; ObjectID = "qut-Qg-a0i"; */
+"qut-Qg-a0i.normalTitle" = "PHOTO";
+
+

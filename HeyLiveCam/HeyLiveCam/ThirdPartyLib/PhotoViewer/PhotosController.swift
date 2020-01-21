@@ -163,6 +163,7 @@ extension PhotosController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.Identifier, for: indexPath) as! PhotoCell
         cell.photo = self.photo(at: indexPath)
+        let image = cell.imageView.image ?? UIImage()
         cell.photo?.placeholder = cell.imageView.image ?? UIImage()
 
         return cell

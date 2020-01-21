@@ -20,9 +20,12 @@ enum UserDefaultsKeys : String {
     case settingTakePhoto
     case settingReverseCamera
     case settingCloseHeyCamera
+    case settingCameraSoundEffects
+    case settingVideoResolution
+    case settingTrimTheEndOfVideos
 }
 
-extension UserDefaults{
+extension UserDefaults {
 
     //MARK: First Time Load App
     func setFirstTimeLoadApp(value: Bool) {
@@ -104,5 +107,32 @@ extension UserDefaults{
     }
     func getSettingCloseHeyCamera()-> String {
         return string(forKey: UserDefaultsKeys.settingCloseHeyCamera.rawValue) ?? ""
+    }
+    
+    //MARK: Camera Sound Effect
+    func setSettingCameraSoundEffect(value: Bool) {
+        set(value, forKey: UserDefaultsKeys.settingCameraSoundEffects.rawValue)
+        synchronize()
+    }
+    func isSettingCameraSoundEffect()-> Bool {
+        return bool(forKey: UserDefaultsKeys.settingCameraSoundEffects.rawValue)
+    }
+    
+    //MARK: Setting Video Resolution
+    func setSettingVideoResolution(value: Bool) {
+        set(value, forKey: UserDefaultsKeys.settingVideoResolution.rawValue)
+        synchronize()
+    }
+    func isSettingVideoResolution()-> Bool {
+        return bool(forKey: UserDefaultsKeys.settingVideoResolution.rawValue)
+    }
+    
+    //MARK: - Setting Trim The End Of Videos
+    func setSettingTrimTheEndOfVideos(value: Int) {
+        set(value, forKey: UserDefaultsKeys.settingTrimTheEndOfVideos.rawValue)
+        synchronize()
+    }
+    func getSettingTrimTheEndOfVideos()-> Int {
+        return integer(forKey: UserDefaultsKeys.settingTrimTheEndOfVideos.rawValue)
     }
 }

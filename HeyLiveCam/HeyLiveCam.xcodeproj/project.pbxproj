@@ -18,18 +18,18 @@
 		F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4559F0023B3193000E5BD30 /* UserDefaultData.swift */; };
 		F456CC9A23B5B386006C3C82 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F456CC9923B5B386006C3C82 /* Photos.framework */; };
 		F456CC9C23B5B38F006C3C82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F456CC9B23B5B38F006C3C82 /* Foundation.framework */; };
+		F46166B623D2C7B50000A26F /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46166B523D2C7B50000A26F /* BundleExtension.swift */; };
+		F4656FE323D155DB005F1380 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE223D155DB005F1380 /* MobileCoreServices.framework */; };
+		F4656FE523D16F00005F1380 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE423D16F00005F1380 /* MessageUI.framework */; };
+		F4656FE723D1A993005F1380 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE623D1A993005F1380 /* AudioToolbox.framework */; };
 		F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFE623AC831D00DED004 /* AVFoundation.framework */; };
 		F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */; };
 		F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEB23ACD32400DED004 /* Speech.framework */; };
 		F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFED23ACD43300DED004 /* AVKit.framework */; };
 		F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEF23ACD43900DED004 /* UIKit.framework */; };
 		F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFF323ACEC3800DED004 /* UIImageExtension.swift */; };
-		F4A3B73A23BB546C00DB13C5 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3B73923BB546C00DB13C5 /* IntentHandler.swift */; };
-		F4A3B74223BB546C00DB13C5 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A3B74123BB546C00DB13C5 /* IntentsUI.framework */; };
-		F4A3B74523BB546C00DB13C5 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3B74423BB546C00DB13C5 /* IntentViewController.swift */; };
-		F4A3B74823BB546C00DB13C5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A3B74623BB546C00DB13C5 /* MainInterface.storyboard */; };
-		F4A3B74C23BB546C00DB13C5 /* HeyLiveCamSiriUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4A3B74023BB546C00DB13C5 /* HeyLiveCamSiriUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F4A3B74F23BB546C00DB13C5 /* HeyLiveCamSiri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4A3B73723BB546C00DB13C5 /* HeyLiveCamSiri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F4A04FE623D5A9FD00132A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4A04FE823D5A9FD00132A3A /* Localizable.strings */; };
+		F4A04FEB23D5AD6900132A3A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A04FEA23D5AD6900132A3A /* StringExtension.swift */; };
 		F4A4320D23B8769C001787A5 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A431FF23B8769A001787A5 /* 0.jpg */; };
 		F4A4320E23B8769C001787A5 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4A4320023B8769A001787A5 /* 1.jpg */; };
 		F4A4320F23B8769C001787A5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4320123B8769A001787A5 /* HeaderView.swift */; };
@@ -67,28 +67,8 @@
 		F4B0D8FD23AE394B007F0380 /* InAppPurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8FC23AE394B007F0380 /* InAppPurchaseVC.swift */; };
 		F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */; };
 		F4B1BF9223BB681A00FB60A5 /* ConstantFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BF9123BB681A00FB60A5 /* ConstantFile.swift */; };
-		F4B1BF9423BB6B6700FB60A5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BF9323BB6B6700FB60A5 /* Intents.intentdefinition */; };
 		F4B1BF9623BB706000FB60A5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B1BF9523BB706000FB60A5 /* SpriteKit.framework */; };
-		F4B1BF9723BB77B100FB60A5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BF9323BB6B6700FB60A5 /* Intents.intentdefinition */; };
-		F4B1BF9823BB77B100FB60A5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BF9323BB6B6700FB60A5 /* Intents.intentdefinition */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F4A3B74A23BB546C00DB13C5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F443916A23AB658C004349F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F4A3B73F23BB546C00DB13C5;
-			remoteInfo = HeyLiveCamSiriUI;
-		};
-		F4A3B74D23BB546C00DB13C5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F443916A23AB658C004349F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F4A3B73623BB546C00DB13C5;
-			remoteInfo = HeyLiveCamSiri;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F4A3B75023BB546C00DB13C5 /* Embed App Extensions */ = {
@@ -97,8 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F4A3B74F23BB546C00DB13C5 /* HeyLiveCamSiri.appex in Embed App Extensions */,
-				F4A3B74C23BB546C00DB13C5 /* HeyLiveCamSiriUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,20 +99,22 @@
 		F4559F0023B3193000E5BD30 /* UserDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
 		F456CC9923B5B386006C3C82 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		F456CC9B23B5B38F006C3C82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F46166B523D2C7B50000A26F /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		F4656FE223D155DB005F1380 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F4656FE423D16F00005F1380 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F4656FE623D1A993005F1380 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F497CFE623AC831D00DED004 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextVC.swift; sourceTree = "<group>"; };
 		F497CFEB23ACD32400DED004 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		F497CFED23ACD43300DED004 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		F497CFEF23ACD43900DED004 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F497CFF323ACEC3800DED004 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		F4A3B73723BB546C00DB13C5 /* HeyLiveCamSiri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HeyLiveCamSiri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4A3B73923BB546C00DB13C5 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		F4A3B73B23BB546C00DB13C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4A3B74023BB546C00DB13C5 /* HeyLiveCamSiriUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HeyLiveCamSiriUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A04FE223D5A14300132A3A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F4A04FE323D5A14400132A3A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		F4A04FE723D5A9FD00132A3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F4A04FE923D5AA1900132A3A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F4A04FEA23D5AD6900132A3A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		F4A3B74123BB546C00DB13C5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		F4A3B74423BB546C00DB13C5 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
-		F4A3B74723BB546C00DB13C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F4A3B74923BB546C00DB13C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A431FF23B8769A001787A5 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		F4A4320023B8769A001787A5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		F4A4320123B8769A001787A5 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -172,7 +152,6 @@
 		F4B0D8FC23AE394B007F0380 /* InAppPurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseVC.swift; sourceTree = "<group>"; };
 		F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F4B1BF9123BB681A00FB60A5 /* ConstantFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantFile.swift; sourceTree = "<group>"; };
-		F4B1BF9323BB6B6700FB60A5 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		F4B1BF9523BB706000FB60A5 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -184,26 +163,14 @@
 				F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */,
 				F456CC9C23B5B38F006C3C82 /* Foundation.framework in Frameworks */,
 				F456CC9A23B5B386006C3C82 /* Photos.framework in Frameworks */,
+				F4656FE723D1A993005F1380 /* AudioToolbox.framework in Frameworks */,
 				F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */,
 				F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */,
 				F497CFEE23ACD43300DED004 /* AVKit.framework in Frameworks */,
+				F4656FE523D16F00005F1380 /* MessageUI.framework in Frameworks */,
+				F4656FE323D155DB005F1380 /* MobileCoreServices.framework in Frameworks */,
 				F4B1BF9623BB706000FB60A5 /* SpriteKit.framework in Frameworks */,
 				3C3B46C337230E5CDD211268 /* Pods_HeyLiveCam.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73423BB546C00DB13C5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73D23BB546C00DB13C5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4A3B74223BB546C00DB13C5 /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,8 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				F443917423AB658C004349F8 /* HeyLiveCam */,
-				F4A3B73823BB546C00DB13C5 /* HeyLiveCamSiri */,
-				F4A3B74323BB546C00DB13C5 /* HeyLiveCamSiriUI */,
 				F443917323AB658C004349F8 /* Products */,
 				F497CFE523AC831D00DED004 /* Frameworks */,
 				DA232242C866599B06645ACB /* Pods */,
@@ -235,8 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				F443917223AB658C004349F8 /* HeyLiveCam.app */,
-				F4A3B73723BB546C00DB13C5 /* HeyLiveCamSiri.appex */,
-				F4A3B74023BB546C00DB13C5 /* HeyLiveCamSiriUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,7 +207,6 @@
 		F443917423AB658C004349F8 /* HeyLiveCam */ = {
 			isa = PBXGroup;
 			children = (
-				F4B1BF9323BB6B6700FB60A5 /* Intents.intentdefinition */,
 				F4A431FD23B87653001787A5 /* ThirdPartyLib */,
 				F497CFF123ACEC1000DED004 /* LTL_Library */,
 				F443918F23AB6661004349F8 /* Storyboard */,
@@ -252,6 +214,7 @@
 				F443918123AB658E004349F8 /* Assets.xcassets */,
 				F443918623AB658E004349F8 /* Info.plist */,
 				F443917E23AB658C004349F8 /* HeyLiveCam.xcdatamodeld */,
+				F4A04FE823D5A9FD00132A3A /* Localizable.strings */,
 			);
 			path = HeyLiveCam;
 			sourceTree = "<group>";
@@ -325,6 +288,9 @@
 		F497CFE523AC831D00DED004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4656FE623D1A993005F1380 /* AudioToolbox.framework */,
+				F4656FE423D16F00005F1380 /* MessageUI.framework */,
+				F4656FE223D155DB005F1380 /* MobileCoreServices.framework */,
 				F4B1BF9523BB706000FB60A5 /* SpriteKit.framework */,
 				F456CC9B23B5B38F006C3C82 /* Foundation.framework */,
 				F456CC9923B5B386006C3C82 /* Photos.framework */,
@@ -360,27 +326,10 @@
 			isa = PBXGroup;
 			children = (
 				F497CFF323ACEC3800DED004 /* UIImageExtension.swift */,
+				F46166B523D2C7B50000A26F /* BundleExtension.swift */,
+				F4A04FEA23D5AD6900132A3A /* StringExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		F4A3B73823BB546C00DB13C5 /* HeyLiveCamSiri */ = {
-			isa = PBXGroup;
-			children = (
-				F4A3B73923BB546C00DB13C5 /* IntentHandler.swift */,
-				F4A3B73B23BB546C00DB13C5 /* Info.plist */,
-			);
-			path = HeyLiveCamSiri;
-			sourceTree = "<group>";
-		};
-		F4A3B74323BB546C00DB13C5 /* HeyLiveCamSiriUI */ = {
-			isa = PBXGroup;
-			children = (
-				F4A3B74423BB546C00DB13C5 /* IntentViewController.swift */,
-				F4A3B74623BB546C00DB13C5 /* MainInterface.storyboard */,
-				F4A3B74923BB546C00DB13C5 /* Info.plist */,
-			);
-			path = HeyLiveCamSiriUI;
 			sourceTree = "<group>";
 		};
 		F4A431FD23B87653001787A5 /* ThirdPartyLib */ = {
@@ -517,47 +466,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				F4A3B74B23BB546C00DB13C5 /* PBXTargetDependency */,
-				F4A3B74E23BB546C00DB13C5 /* PBXTargetDependency */,
 			);
 			name = HeyLiveCam;
 			productName = HeyLiveCam;
 			productReference = F443917223AB658C004349F8 /* HeyLiveCam.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F4A3B73623BB546C00DB13C5 /* HeyLiveCamSiri */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4A3B75623BB546C00DB13C5 /* Build configuration list for PBXNativeTarget "HeyLiveCamSiri" */;
-			buildPhases = (
-				F4A3B73323BB546C00DB13C5 /* Sources */,
-				F4A3B73423BB546C00DB13C5 /* Frameworks */,
-				F4A3B73523BB546C00DB13C5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HeyLiveCamSiri;
-			productName = HeyLiveCamSiri;
-			productReference = F4A3B73723BB546C00DB13C5 /* HeyLiveCamSiri.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		F4A3B73F23BB546C00DB13C5 /* HeyLiveCamSiriUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4A3B75523BB546C00DB13C5 /* Build configuration list for PBXNativeTarget "HeyLiveCamSiriUI" */;
-			buildPhases = (
-				F4A3B73C23BB546C00DB13C5 /* Sources */,
-				F4A3B73D23BB546C00DB13C5 /* Frameworks */,
-				F4A3B73E23BB546C00DB13C5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = HeyLiveCamSiriUI;
-			productName = HeyLiveCamSiriUI;
-			productReference = F4A3B74023BB546C00DB13C5 /* HeyLiveCamSiriUI.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -572,12 +485,6 @@
 					F443917123AB658C004349F8 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
-					F4A3B73623BB546C00DB13C5 = {
-						CreatedOnToolsVersion = 11.2.1;
-					};
-					F4A3B73F23BB546C00DB13C5 = {
-						CreatedOnToolsVersion = 11.2.1;
-					};
 				};
 			};
 			buildConfigurationList = F443916D23AB658C004349F8 /* Build configuration list for PBXProject "HeyLiveCam" */;
@@ -587,6 +494,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = F443916923AB658C004349F8;
 			productRefGroup = F443917323AB658C004349F8 /* Products */;
@@ -594,8 +502,6 @@
 			projectRoot = "";
 			targets = (
 				F443917123AB658C004349F8 /* HeyLiveCam */,
-				F4A3B73623BB546C00DB13C5 /* HeyLiveCamSiri */,
-				F4A3B73F23BB546C00DB13C5 /* HeyLiveCamSiriUI */,
 			);
 		};
 /* End PBXProject section */
@@ -606,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4A4321923B8769C001787A5 /* clear.png in Resources */,
+				F4A04FE623D5A9FD00132A3A /* Localizable.strings in Resources */,
 				F4A4321A23B8769C001787A5 /* 5.png in Resources */,
 				F4A4322C23B877EC001787A5 /* Viewer.xcassets in Resources */,
 				F4A4321123B8769C001787A5 /* 2.jpg in Resources */,
@@ -616,21 +523,6 @@
 				F443917D23AB658C004349F8 /* Main.storyboard in Resources */,
 				F4A4320E23B8769C001787A5 /* 1.jpg in Resources */,
 				F4A4321823B8769C001787A5 /* 3.jpg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73523BB546C00DB13C5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73E23BB546C00DB13C5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4A3B74823BB546C00DB13C5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,7 +576,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4A4323023B877EC001787A5 /* UIImage+CenteredFrame.swift in Sources */,
-				F4B1BF9423BB6B6700FB60A5 /* Intents.intentdefinition in Sources */,
 				F4A4322A23B877EC001787A5 /* Viewable.swift in Sources */,
 				F4A4323723B877EC001787A5 /* ViewableControllerContainer.swift in Sources */,
 				F4A4323423B877EC001787A5 /* UIViewController+Window.swift in Sources */,
@@ -700,6 +591,7 @@
 				F4A4321623B8769C001787A5 /* PhotosController.swift in Sources */,
 				F443918023AB658C004349F8 /* HeyLiveCam.xcdatamodeld in Sources */,
 				F4A4323123B877EC001787A5 /* DefaultHeaderView.swift in Sources */,
+				F4A04FEB23D5AD6900132A3A /* StringExtension.swift in Sources */,
 				F4A4322D23B877EC001787A5 /* ViewerAssets.swift in Sources */,
 				F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */,
 				F4A4321023B8769C001787A5 /* PopupController.swift in Sources */,
@@ -720,47 +612,18 @@
 				F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */,
 				F4A4321223B8769C001787A5 /* FooterView.swift in Sources */,
 				F4B1BF9223BB681A00FB60A5 /* ConstantFile.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73323BB546C00DB13C5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4B1BF9723BB77B100FB60A5 /* Intents.intentdefinition in Sources */,
-				F4A3B73A23BB546C00DB13C5 /* IntentHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4A3B73C23BB546C00DB13C5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4B1BF9823BB77B100FB60A5 /* Intents.intentdefinition in Sources */,
-				F4A3B74523BB546C00DB13C5 /* IntentViewController.swift in Sources */,
+				F46166B623D2C7B50000A26F /* BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F4A3B74B23BB546C00DB13C5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F4A3B73F23BB546C00DB13C5 /* HeyLiveCamSiriUI */;
-			targetProxy = F4A3B74A23BB546C00DB13C5 /* PBXContainerItemProxy */;
-		};
-		F4A3B74E23BB546C00DB13C5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F4A3B73623BB546C00DB13C5 /* HeyLiveCamSiri */;
-			targetProxy = F4A3B74D23BB546C00DB13C5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F443917B23AB658C004349F8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F443917C23AB658C004349F8 /* Base */,
+				F4A04FE323D5A14400132A3A /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -769,16 +632,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				F443918423AB658E004349F8 /* Base */,
+				F4A04FE223D5A14300132A3A /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		F4A3B74623BB546C00DB13C5 /* MainInterface.storyboard */ = {
+		F4A04FE823D5A9FD00132A3A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F4A3B74723BB546C00DB13C5 /* Base */,
+				F4A04FE723D5A9FD00132A3A /* en */,
+				F4A04FE923D5AA1900132A3A /* ja */,
 			);
-			name = MainInterface.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -788,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -848,6 +714,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -902,7 +769,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -925,7 +791,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -941,86 +806,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		F4A3B75123BB546C00DB13C5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
-				INFOPLIST_FILE = HeyLiveCamSiri/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam.HeyLiveCamSiri;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F4A3B75223BB546C00DB13C5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
-				INFOPLIST_FILE = HeyLiveCamSiri/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam.HeyLiveCamSiri;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F4A3B75323BB546C00DB13C5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
-				INFOPLIST_FILE = HeyLiveCamSiriUI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam.HeyLiveCamSiriUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F4A3B75423BB546C00DB13C5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
-				INFOPLIST_FILE = HeyLiveCamSiriUI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam.HeyLiveCamSiriUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1041,24 +826,6 @@
 			buildConfigurations = (
 				F443918A23AB658E004349F8 /* Debug */,
 				F443918B23AB658E004349F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4A3B75523BB546C00DB13C5 /* Build configuration list for PBXNativeTarget "HeyLiveCamSiriUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F4A3B75323BB546C00DB13C5 /* Debug */,
-				F4A3B75423BB546C00DB13C5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4A3B75623BB546C00DB13C5 /* Build configuration list for PBXNativeTarget "HeyLiveCamSiri" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F4A3B75123BB546C00DB13C5 /* Debug */,
-				F4A3B75223BB546C00DB13C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

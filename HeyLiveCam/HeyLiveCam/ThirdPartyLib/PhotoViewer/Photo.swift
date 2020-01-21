@@ -119,8 +119,22 @@ class Photo: Viewable {
                 }
             })
         }
-
-        return sections.reversed()
+        /*print("========================")
+        print("Sort Before")
+        for (index, section) in sections.enumerated() {
+            print("index : ",index)
+            print("section : ",section.groupedDate)
+        }*/
+        //sections.reversed()
+        let arrSection = sections.sorted(by: { $0.groupedDate > $1.groupedDate })
+        /*print("========================")
+        print("Sort After")
+        for (index, section) in arrSection.enumerated() {
+            print("index : ",index)
+            print("section : ",section.groupedDate)
+        }*/
+        
+        return arrSection
     }
 
     static func thumbnail(for asset: PHAsset) -> UIImage? {
@@ -142,7 +156,6 @@ class Photo: Viewable {
 
             returnedImage = image
         }
-
         return returnedImage
     }
 

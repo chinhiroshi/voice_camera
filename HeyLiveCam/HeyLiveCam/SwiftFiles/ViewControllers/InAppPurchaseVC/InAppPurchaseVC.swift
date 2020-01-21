@@ -14,7 +14,7 @@ class InAppPurchaseVC: UIViewController {
     //TODO: - Outlet Declaration
     @IBOutlet var controlPurchaseUnlimited: UIControl!
     @IBOutlet var lblPurchaseUnlimited: UILabel!
-    
+    @IBOutlet var lblDescription: UILabel!
     
     //TODO: - Variable Declaration
     var strRupees = "79.00"
@@ -30,7 +30,8 @@ class InAppPurchaseVC: UIViewController {
     func initialization() {
         
         controlPurchaseUnlimited.layer.cornerRadius = 8
-        lblPurchaseUnlimited.text = "Purchase Unlimited - ₹ " + strRupees;
+        lblPurchaseUnlimited.text = "Purchase Unlimited - ₹ ".getLocalized() + strRupees;
+        lblDescription.text = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos.".getLocalized()
     }
 }
 //MARK: - Tapped Event

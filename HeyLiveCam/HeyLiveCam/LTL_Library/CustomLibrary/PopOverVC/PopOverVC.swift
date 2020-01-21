@@ -38,6 +38,7 @@ class ModelPopupOver {
         self.title = ""
         self.id = ""
         self.isSelectionTouch = true
+        
     }
 }
 

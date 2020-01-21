@@ -15,6 +15,7 @@ class VoiceTextUpdateVC: UIViewController {
     @IBOutlet var viewTextBG: UIView!
     @IBOutlet var txtName: UITextField!
     @IBOutlet var lblDescription: UILabel!
+    @IBOutlet var lblTitleSettings: UILabel!
     
     //TODO: - Variable Declaration
     var cellSettingsSelected = SettingsSelected.none
@@ -54,32 +55,34 @@ class VoiceTextUpdateVC: UIViewController {
     }
     func initialization() {
         
+        self.lblTitleSettings.text = "Settings".getLocalized()
+        
         self.viewTextBG.layer.borderWidth = 1
         self.viewTextBG.layer.borderColor = UIColor.init(red: 154/255, green: 154/255, blue: 154/255, alpha: 1.0).cgColor
         
         if(self.cellSettingsSelected == .startRecordingVideo) {
             
-            self.strDescription = "Enter a pharse to use for starting a video recording."
+            self.strDescription = "Enter a pharse to use for starting a video recording.".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingStartRecordingVideo()
             
         } else if(self.cellSettingsSelected == .stopRecordingVideo) {
             
-            self.strDescription = "Enter a pharse to use for stopping a video recording."
+            self.strDescription = "Enter a pharse to use for stopping a video recording.".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingStopRecordingVideo()
             
         } else if(self.cellSettingsSelected == .takePhoto) {
             
-            self.strDescription = "Enter a pharse to use for taking a photo."
+            self.strDescription = "Enter a pharse to use for taking a photo.".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingTakePhoto()
             
         } else if(self.cellSettingsSelected == .reverseCamera) {
             
-            self.strDescription = "Enter a pharse to use for reversing the camera."
+            self.strDescription = "Enter a pharse to use for reversing the camera.".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingReverseCamera()
             
         } else if(self.cellSettingsSelected == .closeHeyCamera) {
             
-            self.strDescription = "Enter a pharse to use for closing Hey Camera(useful to get back to sign)."
+            self.strDescription = "Enter a pharse to use for closing Hey Camera(useful to get back to sign).".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingCloseHeyCamera()
 
         }
