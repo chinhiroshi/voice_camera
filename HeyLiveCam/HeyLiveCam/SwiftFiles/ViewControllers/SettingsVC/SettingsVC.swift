@@ -200,11 +200,18 @@ class SettingsVC: UIViewController {
         //arrSettings[1].arrSettings[3].isSwitchOn = UserDefaults.standard.isSettingKeepScreenAwake()
         
         //Miscellaneous
+        let intLanguageStatus = UserDefaults.standard.getSettingLanguageStatus()
+        var strLanguage = ""
+        if intLanguageStatus == 1 {
+            strLanguage = "English".getLocalized()
+        } else {
+            strLanguage = "Japanese".getLocalized()
+        }
         var arrSettingsMiscellaneous = [ModalSettingsSubClass]()
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
             "title":"Language".getLocalized(),
-            "subTitle":"English".getLocalized(),
+            "subTitle":strLanguage,
             "photo":"imgLanguageIcon",
             "displayDescription":true
         ]
@@ -291,35 +298,37 @@ class SettingsVC: UIViewController {
     func openLanguageSelectionPopup() {
         let optionMenu = UIAlertController(title: nil, message: "Language".getLocalized(), preferredStyle: .actionSheet)
         let actionEnglish = UIAlertAction(title: "English".getLocalized(), style: .default) { action -> Void in
-            print("English")
-            Bundle.setLanguage(lang: "en")
-            let deadlineTime = DispatchTime.now() + .seconds(1)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                self.arrSettings[2].arrSettings[0].strSubTitle = "English".getLocalized()
-                self.tblSettings.reloadData()
-                
-                //Redirect To Back Screen
-                self.redirectToBackScreen()
-            }
             
-            //Set Setting Video Resolution
-            //UserDefaults.standard.setSettingVideoResolution(value: true)
+            let intLanguageStatus = UserDefaults.standard.getSettingLanguageStatus()
+            if intLanguageStatus == 2 {
+                Bundle.setLanguage(lang: "en")
+                UserDefaults.standard.setSettingLanguageStatus(value: 1)
+                let deadlineTime = DispatchTime.now() + .seconds(1)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.arrSettings[2].arrSettings[0].strSubTitle = "English".getLocalized()
+                    self.tblSettings.reloadData()
+                    
+                    //Redirect To Back Screen
+                    self.redirectToBackScreen()
+                }
+            }
         }
         let actionJapanese = UIAlertAction(title: "Japanese".getLocalized(), style: .default) { action -> Void in
-            print("Japanese")
             
-            Bundle.setLanguage(lang: "ja")
-            let deadlineTime = DispatchTime.now() + .seconds(1)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                self.arrSettings[2].arrSettings[0].strSubTitle = "Japanese".getLocalized()
-                self.tblSettings.reloadData()
-                
-                //Redirect To Back Screen
-                self.redirectToBackScreen()
+            let intLanguageStatus = UserDefaults.standard.getSettingLanguageStatus()
+            if intLanguageStatus == 1 {
+               
+                Bundle.setLanguage(lang: "ja")
+                UserDefaults.standard.setSettingLanguageStatus(value: 2)
+                let deadlineTime = DispatchTime.now() + .seconds(1)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    self.arrSettings[2].arrSettings[0].strSubTitle = "Japanese".getLocalized()
+                    self.tblSettings.reloadData()
+                    
+                    //Redirect To Back Screen
+                    self.redirectToBackScreen()
+                }
             }
-            
-            //Set Setting Video Resolution
-            //UserDefaults.standard.setSettingVideoResolution(value: false)
         }
         let cancelAction = UIAlertAction(title: "Cancel".getLocalized(), style: .cancel)
         optionMenu.addAction(actionEnglish)

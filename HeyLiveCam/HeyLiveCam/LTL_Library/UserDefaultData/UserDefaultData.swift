@@ -23,6 +23,7 @@ enum UserDefaultsKeys : String {
     case settingCameraSoundEffects
     case settingVideoResolution
     case settingTrimTheEndOfVideos
+    case settingLanguageStatus
 }
 
 extension UserDefaults {
@@ -134,5 +135,14 @@ extension UserDefaults {
     }
     func getSettingTrimTheEndOfVideos()-> Int {
         return integer(forKey: UserDefaultsKeys.settingTrimTheEndOfVideos.rawValue)
+    }
+    
+    //MARK: - Setting Trim The End Of Videos
+    func setSettingLanguageStatus(value: Int) {
+        set(value, forKey: UserDefaultsKeys.settingLanguageStatus.rawValue)
+        synchronize()
+    }
+    func getSettingLanguageStatus()-> Int {
+        return integer(forKey: UserDefaultsKeys.settingLanguageStatus.rawValue)
     }
 }

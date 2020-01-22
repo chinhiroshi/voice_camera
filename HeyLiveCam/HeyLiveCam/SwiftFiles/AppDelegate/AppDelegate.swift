@@ -20,9 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //Set Current Device Language
             if let currentDeviceLanguage = Locale.current.languageCode {
+                let strLanguage = currentDeviceLanguage.lowercased()
+                if strLanguage == "en" {
+                    UserDefaults.standard.setSettingLanguageStatus(value: 1)
+                } else {
+                    UserDefaults.standard.setSettingLanguageStatus(value: 2)
+                }
                 Bundle.setLanguage(lang: currentDeviceLanguage)
+                
             } else {
                 Bundle.setLanguage(lang: "en")
+                UserDefaults.standard.setSettingLanguageStatus(value: 1)
             }
             
             UserDefaults.standard.setFirstTimeLoadApp(value: true)
