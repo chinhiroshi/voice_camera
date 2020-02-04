@@ -94,6 +94,14 @@ class CameraVC: UIViewController {
         //Initialization
         self.initialization()
         
+        print("==============================")
+        print(CameraControlStatic.video.rawValue)
+        print(CameraControlStatic.photo.rawValue)
+        print(CameraControlStatic.stop.rawValue)
+        print(CameraControlStatic.direction.rawValue)
+        print(CameraControlStatic.closeCamera.rawValue)
+        print("==============================")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -446,32 +454,26 @@ extension CameraVC {
         
         print("SPEECH TEXT PARSSED :",self.strSpeechTextParssed)
         
-        /*var strStartRecordingVideo = ""
-        var strStopRecordingVideo = ""
-        var strTakePhoto = ""
-        var strReverseCamera = ""
-        var strCloseHeyCamera = ""*/
-        
-        if(self.strSpeechTextParssed == self.strReverseCamera) {
+        if(self.strSpeechTextParssed == self.strReverseCamera || self.strSpeechTextParssed == CameraControlStatic.direction.rawValue) {
             
             //Reverse Camera
             self.reverseCamera()
             
-        } else if(self.strSpeechTextParssed == self.strTakePhoto) {
+        } else if(self.strSpeechTextParssed == self.strTakePhoto || self.strSpeechTextParssed == CameraControlStatic.photo.rawValue) {
             
             //Photo Event
             self.photoEvent(isCapturePhoto: true)
             
-        } else if(self.strSpeechTextParssed == self.strStartRecordingVideo) {
+        } else if(self.strSpeechTextParssed == self.strStartRecordingVideo || self.strSpeechTextParssed == CameraControlStatic.video.rawValue) {
                    
             //Video Event
             self.videoEvent(isPlayVideo: true)
             
-        } else if(self.strSpeechTextParssed == self.strStopRecordingVideo) {
+        } else if(self.strSpeechTextParssed == self.strStopRecordingVideo || self.strSpeechTextParssed == CameraControlStatic.stop.rawValue) {
             
             self.stopRecording()
             
-        } else if(self.strSpeechTextParssed == self.strCloseHeyCamera) {
+        } else if(self.strSpeechTextParssed == self.strCloseHeyCamera || self.strSpeechTextParssed == CameraControlStatic.closeCamera.rawValue) {
             
             //Close The App
             self.closeTheApp()
@@ -1150,5 +1152,20 @@ extension CameraVC: UIPopoverPresentationControllerDelegate {
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
+    }
+}
+
+extension UIImage {
+    func toBase64() -> String? {
+        guard let imageData = self.pngData() else { return nil }
+        return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
+    }
+}
+extension String {
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+            return UIImage(data: data)
+        }
+        return nil
     }
 }
