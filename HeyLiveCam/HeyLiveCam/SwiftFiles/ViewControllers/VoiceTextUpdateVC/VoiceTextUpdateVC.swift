@@ -44,6 +44,9 @@ class VoiceTextUpdateVC: UIViewController {
             } else if(self.cellSettingsSelected == .takePhoto) {
                 UserDefaults.standard.setSettingTakePhoto(value: strName ?? "")
                 
+            } else if(self.cellSettingsSelected == .takeLivePhoto) {
+                UserDefaults.standard.setSettingTakeLivePhoto(value: strName ?? "")
+                           
             } else if(self.cellSettingsSelected == .reverseCamera) {
                 UserDefaults.standard.setSettingReverseCamera(value: strName ?? "")
                 
@@ -75,6 +78,11 @@ class VoiceTextUpdateVC: UIViewController {
             self.strDescription = "Enter a pharse to use for taking a photo.".getLocalized()
             self.strTitle = UserDefaults.standard.getSettingTakePhoto()
             
+        } else if(self.cellSettingsSelected == .takeLivePhoto) {
+                   
+            self.strDescription = "Enter a pharse to use for taking a live photo.".getLocalized()
+            self.strTitle = UserDefaults.standard.getSettingTakeLivePhoto()
+                   
         } else if(self.cellSettingsSelected == .reverseCamera) {
             
             self.strDescription = "Enter a pharse to use for reversing the camera.".getLocalized()

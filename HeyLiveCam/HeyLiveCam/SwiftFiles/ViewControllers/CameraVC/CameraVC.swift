@@ -23,8 +23,14 @@ class CameraVC: UIViewController {
     //TODO: - Outlet Declaration
     @IBOutlet var viewVideoCaptureBG: UIView!
     @IBOutlet var viewPhotoCaptureBG: UIView!
+    @IBOutlet var viewLivePhotoCaptureBG: UIView!
+    @IBOutlet var photoPreviewer: PreviewView!
+    @IBOutlet var lblLivePhoto: UILabel!
+    
     @IBOutlet var btnPhoto: UIButton!
     @IBOutlet var btnVideo: UIButton!
+    @IBOutlet var btnLivePhoto: UIButton!
+    
     @IBOutlet var viewBlurBG: UIView!
     
     @IBOutlet var controlCameraBG: UIControl!
@@ -41,12 +47,15 @@ class CameraVC: UIViewController {
     @IBOutlet var imgPhotoGallery: UIImageView!
     
     //TODO: - Variable Declaration
+    var cameraStatus = CameraDisplay.livePhoto
     
     //Photo capture
     var imagesCaptured = [UIImage]()
     var captureSessionPhoto: AVCaptureSession!
     var cameraOutputPhoto: AVCapturePhotoOutput!
     var previewLayerPhoto: AVCaptureVideoPreviewLayer!
+    private var sessionRunningObserveContext = 0
+    var livePhotoCaptureSessionManager:LivePhotoCaptureSessionManager!
     
     //Video Capture
     var isPhotoCameraDisplay = true
@@ -72,12 +81,14 @@ class CameraVC: UIViewController {
     var strStartRecordingVideo = ""
     var strStopRecordingVideo = ""
     var strTakePhoto = ""
+    var strTakeLivePhoto = ""
     var strReverseCamera = ""
     var strCloseHeyCamera = ""
     var isCameraSoundEffects = true
     let cameraShutterSoundID: SystemSoundID = 1108
     
     //Speech to text
+    var isRefreshSpeechRecognizationLib = false
     var strSpeechText = ""
     var strSpeechTextParssed = ""
     var timerSpeechToText:Timer!
@@ -86,6 +97,7 @@ class CameraVC: UIViewController {
     var recognitionRequest      : SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask         : SFSpeechRecognitionTask?
     var audioEngine             = AVAudioEngine()
+    
     
     //TODO: - Override Methods
     override func viewDidLoad() {
@@ -115,6 +127,7 @@ class CameraVC: UIViewController {
         self.strStartRecordingVideo = UserDefaults.standard.getSettingStartRecordingVideo()
         self.strStopRecordingVideo = UserDefaults.standard.getSettingStopRecordingVideo()
         self.strTakePhoto = UserDefaults.standard.getSettingTakePhoto()
+        self.strTakeLivePhoto = UserDefaults.standard.getSettingTakeLivePhoto()
         self.strReverseCamera = UserDefaults.standard.getSettingReverseCamera()
         self.strCloseHeyCamera = UserDefaults.standard.getSettingCloseHeyCamera()
         self.isCameraSoundEffects = UserDefaults.standard.isSettingCameraSoundEffect()
@@ -124,10 +137,7 @@ class CameraVC: UIViewController {
         //Add Observers
         self.addObservers()
         
-        //Setup Speech
-        self.setupSpeech()
-        
-        if(self.isPhotoCameraDisplay == false) {
+        if(cameraStatus == .video) {
             
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 if setupSession() {
@@ -136,13 +146,22 @@ class CameraVC: UIViewController {
                 }
             }
         }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //Setup Speech
+        self.setupSpeech()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        /*if livePhotoCaptureSessionManager.isSessionRunning {
+            livePhotoCaptureSessionManager.stopSession()
+            self.removeObserversForLivePhoto()
+        }*/
+        
         
         if(self.timerCameraAuto != nil) {
             self.timerCameraAuto.invalidate()
@@ -161,6 +180,9 @@ class CameraVC: UIViewController {
         //Remove Observers
         self.removeObservers()
     }
+    override func didReceiveMemoryWarning() {
+       super.didReceiveMemoryWarning()
+    }
     func initialization() {
         
         //Hide Blur View
@@ -171,30 +193,73 @@ class CameraVC: UIViewController {
         self.controlCameraBG.layer.cornerRadius = 34
         
         //Hide Photo Gallery Button
-        self.controlPhotoGallery.isHidden = true
+        self.controlPhotoGallery.isHidden = false
         self.lblCameraTimer.text = ""
         
         //Update Camera Button
         self.updateCameraButton(type: 1, isAnimated: true)
         
+        //Open Camera
+        if cameraStatus == .photo {
+            
+            self.updateButtons()
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                if setupSession() {
+                    setupPreview()
+                    startSession()
+                }
+            }
+        } else if cameraStatus == .video {
+            
+            self.updateButtons()
+
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                if setupSession() {
+                    setupPreview()
+                    startSession()
+                }
+            }
+            
+        } else if cameraStatus == .livePhoto {
+                   
+            self.updateButtons()
+            self.startLivePhotoCamera()
+        }
     }
     func setAllText() {
         
         //Button
         self.btnPhoto.setTitle("PHOTO".getLocalized(), for: .normal)
         self.btnVideo.setTitle("VIDEO".getLocalized(), for: .normal)
+        self.btnLivePhoto.setTitle("LIVE PHOTO".getLocalized(), for: .normal)
         
         //Flash Mode
+        var flashStatus = UserDefaults.standard.getCameraFlashStatus()
+        if flashStatus == 0 {
+            flashStatus = 1
+        }
+        //Setup Camera Flash
+        self.setupCameraFlash(index: flashStatus)
+        
         arrFlashModeList.removeAll()
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "Auto".getLocalized(), id: "0", isSelectionTouch: true))
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: false, title: "On".getLocalized(), id: "1", isSelectionTouch: true))
-        arrFlashModeList.append(ModelPopupOver.init(isSelected: true, title: "Off".getLocalized(), id: "2", isSelectionTouch: true))
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: flashStatus==1, title: "Auto".getLocalized(), id: "0", isSelectionTouch: true))
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: flashStatus==2, title: "On".getLocalized(), id: "1", isSelectionTouch: true))
+        arrFlashModeList.append(ModelPopupOver.init(isSelected: flashStatus==3, title: "Off".getLocalized(), id: "2", isSelectionTouch: true))
         
         //Timer Mode
+        var cameraStatus = UserDefaults.standard.getCameraTimerStatus()
+        if cameraStatus == 0 {
+            cameraStatus = 1
+        }
+        
+        //Setup Camera Timer
+        self.setupCameraTimer(index: cameraStatus)
+        
         arrTimerList.removeAll()
-        arrTimerList.append(ModelPopupOver.init(isSelected: true, title: "Off".getLocalized(), id: "0", isSelectionTouch: true))
-        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "3s".getLocalized(), id: "1", isSelectionTouch: true))
-        arrTimerList.append(ModelPopupOver.init(isSelected: false, title: "10s".getLocalized(), id: "2", isSelectionTouch: true))
+        arrTimerList.append(ModelPopupOver.init(isSelected: cameraStatus==1, title: "Off".getLocalized(), id: "0", isSelectionTouch: true))
+        arrTimerList.append(ModelPopupOver.init(isSelected: cameraStatus==2, title: "3s".getLocalized(), id: "1", isSelectionTouch: true))
+        arrTimerList.append(ModelPopupOver.init(isSelected: cameraStatus==3, title: "10s".getLocalized(), id: "2", isSelectionTouch: true))
     }
     func cameraSoundEffect() {
         if(self.isCameraSoundEffects == true) {
@@ -267,54 +332,139 @@ class CameraVC: UIViewController {
     
     func updateButtons() {
         
-        if(self.isPhotoCameraDisplay) {
-            //btnPhoto.isUserInteractionEnabled = true
-            //btnVideo.isUserInteractionEnabled = false
-            
+        if cameraStatus == .photo {
+         
             btnPhoto.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 22/255, alpha: 1.0)
             btnPhoto.setTitleColor(UIColor.init(red: 254/255, green: 96/255, blue: 32/255, alpha: 1), for: .normal)
+            
             btnVideo.backgroundColor = UIColor.clear
             btnVideo.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
             
-            viewPhotoCaptureBG.isHidden = false
-            viewVideoCaptureBG.isHidden = true
-            
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                //Start Photo Camera
-                self.startPhotoCamera()
-            }
+            btnLivePhoto.backgroundColor = UIColor.clear
+            btnLivePhoto.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
             
             //Update Camera Button
             self.updateCameraButton(type: 1, isAnimated: true)
             
-        } else {
-            //btnPhoto.isUserInteractionEnabled = false
-            //btnVideo.isUserInteractionEnabled = true
+            viewPhotoCaptureBG.isHidden = false
+            viewVideoCaptureBG.isHidden = true
+            viewLivePhotoCaptureBG.isHidden = true
+            
+        } else if cameraStatus == .video {
             
             btnVideo.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 22/255, alpha: 1.0)
             btnVideo.setTitleColor(UIColor.init(red: 254/255, green: 96/255, blue: 32/255, alpha: 1), for: .normal)
+            
             btnPhoto.backgroundColor = UIColor.clear
             btnPhoto.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
             
-            viewPhotoCaptureBG.isHidden = true
-            viewVideoCaptureBG.isHidden = false
-            
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                if setupSession() {
-                    setupPreview()
-                    startSession()
-                }
-            }
+            btnLivePhoto.backgroundColor = UIColor.clear
+            btnLivePhoto.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
             
             //Update Camera Button
             self.updateCameraButton(type: 2, isAnimated: true)
+            
+            viewPhotoCaptureBG.isHidden = true
+            viewLivePhotoCaptureBG.isHidden = true
+            viewVideoCaptureBG.isHidden = false
+            
+        } else if cameraStatus == .livePhoto {
+                   
+            btnLivePhoto.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 22/255, alpha: 1.0)
+            btnLivePhoto.setTitleColor(UIColor.init(red: 254/255, green: 96/255, blue: 32/255, alpha: 1), for: .normal)
+            
+            btnPhoto.backgroundColor = UIColor.clear
+            btnPhoto.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
+            
+            btnVideo.backgroundColor = UIColor.clear
+            btnVideo.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
+            
+            //Update Camera Button
+            self.updateCameraButton(type: 1, isAnimated: true)
+            
+            viewPhotoCaptureBG.isHidden = true
+            viewVideoCaptureBG.isHidden = true
+            viewLivePhotoCaptureBG.isHidden = false
         }
+        
+//        if(cameraStatus == .photo) {
+//            //btnPhoto.isUserInteractionEnabled = true
+//            //btnVideo.isUserInteractionEnabled = false
+//
+//            btnPhoto.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 22/255, alpha: 1.0)
+//            btnPhoto.setTitleColor(UIColor.init(red: 254/255, green: 96/255, blue: 32/255, alpha: 1), for: .normal)
+//            btnVideo.backgroundColor = UIColor.clear
+//            btnVideo.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
+//
+//            viewPhotoCaptureBG.isHidden = false
+//            viewVideoCaptureBG.isHidden = true
+//
+//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                //Start Photo Camera
+//                self.startPhotoCamera()
+//            }
+//
+//            //Update Camera Button
+//            self.updateCameraButton(type: 1, isAnimated: true)
+//
+//        } else {
+//            //btnPhoto.isUserInteractionEnabled = false
+//            //btnVideo.isUserInteractionEnabled = true
+//
+//            btnVideo.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 22/255, alpha: 1.0)
+//            btnVideo.setTitleColor(UIColor.init(red: 254/255, green: 96/255, blue: 32/255, alpha: 1), for: .normal)
+//            btnPhoto.backgroundColor = UIColor.clear
+//            btnPhoto.setTitleColor(UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), for: .normal)
+//
+//            viewPhotoCaptureBG.isHidden = true
+//            viewVideoCaptureBG.isHidden = false
+//
+//            if UIImagePickerController.isSourceTypeAvailable(.camera){
+//                if setupSession() {
+//                    setupPreview()
+//                    startSession()
+//                }
+//            }
+//
+//            //Update Camera Button
+//            self.updateCameraButton(type: 2, isAnimated: true)
+//        }
     }
     func changeCameraNightMode() {
         if isNightMode == true {
             imgNightMode.image = UIImage.init(named: "imgCameraNightModeOn")
         } else {
             imgNightMode.image = UIImage.init(named: "imgCameraNightModeOff")
+        }
+    }
+    func setupCameraFlash(index:Int) {
+        
+        self.cameraFlashModeIndex = index-1
+        if(index == 1) {
+            imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteAuto")
+            
+        } else if(index == 2) {
+            
+            imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOn")
+            
+        } else if(index == 3) {
+                       
+            imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOff")
+        }
+    }
+    func setupCameraTimer(index:Int) {
+        
+        self.cameraTimerIndex = index-1
+        if(index == 1) {
+            self.lblCameraTimer.text = ""
+            
+        } else if(index == 2) {
+            
+            self.lblCameraTimer.text = "3"
+            
+        } else if(index == 3) {
+                       
+            self.lblCameraTimer.text = "10"
         }
     }
 }
@@ -402,24 +552,31 @@ extension CameraVC {
                 }*/
                 
                 //self.txtViewDescription.text = result?.bestTranscription.formattedString
+                print("========================================")
                 var strSpeechWord = (result?.bestTranscription.formattedString ?? "") + ""
+                print("strSpeechWord :",strSpeechWord)
                 strSpeechWord = strSpeechWord.uppercased()
                 strSpeechWord = strSpeechWord.trimmingCharacters(in: .whitespaces)
+                self.strSpeechText = strSpeechWord
+                self.strSpeechTextParssed = strSpeechWord
+                print("SPEECH WORD :",strSpeechWord)
                 
-                if(self.strSpeechText != strSpeechWord) {
+                /*if(self.strSpeechText != strSpeechWord) {
                     let strParsed = strSpeechWord.replacingOccurrences(of: self.strSpeechText, with: "").trimmingCharacters(in: .whitespaces)
                     //strSpeechWord = strSpeechWord.uppercased()
                     self.strSpeechText = strSpeechWord
-                    self.strSpeechTextParssed = strParsed
+                    self.strSpeechTextParssed = strParsed*/
                     
-                    print("SPEECH WORD PARSED :",strParsed)
-                    print("SPEECH WORD :",strSpeechWord)
+                    
+                    //print("SPEECH WORD PARSED :",strParsed)
+                    //print("SPEECH WORD :",strSpeechWord)
+                    //print("transcriptions :",result?.transcriptions)
                     
                     if(self.timerSpeechToText != nil) {
                         self.timerSpeechToText.invalidate()
                     }
                     self.timerSpeechToText = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.checkSpokeWord), userInfo: nil, repeats: false)
-                }
+                //}
                 isFinal = (result?.isFinal)!
             }
 
@@ -450,6 +607,9 @@ extension CameraVC {
         print("Say something, I'm listening!")
     }
     @objc func checkSpokeWord() {
+        
+        self.setupSpeech()
+        
         print("Check Spoke Word")
         
         print("SPEECH TEXT PARSSED :",self.strSpeechTextParssed)
@@ -464,6 +624,11 @@ extension CameraVC {
             //Photo Event
             self.photoEvent(isCapturePhoto: true)
             
+        } else if(self.strSpeechTextParssed == self.strTakeLivePhoto || self.strSpeechTextParssed == CameraControlStatic.livePhoto.rawValue) {
+                   
+            //Live Photo Event
+            self.livePhotoEvent(isCapturePhoto: true)
+                   
         } else if(self.strSpeechTextParssed == self.strStartRecordingVideo || self.strSpeechTextParssed == CameraControlStatic.video.rawValue) {
                    
             //Video Event
@@ -502,11 +667,19 @@ extension CameraVC {
         
         //Update Buttons
         self.updateButtons()
+        
+        if self.isRefreshSpeechRecognizationLib == true {
+            self.isRefreshSpeechRecognizationLib = false
+            //Setup Speech
+            self.setupSpeech()
+        }
     }
     @objc func applicationDidEnterBackground() {
         print("Application Did Enter Background")
         
-        if(movieOutput.isRecording == true && self.isPhotoCameraDisplay == true) {
+        self.isRefreshSpeechRecognizationLib = true
+        
+        if(movieOutput.isRecording == true && cameraStatus == .photo) {
             
             //Stop Recording
             self.stopRecording()
@@ -529,10 +702,7 @@ extension CameraVC: SFSpeechRecognizerDelegate {
         }
     }
 }
-//MARK: - UIImagePickerControllerDelegate
-extension CameraVC:UIImagePickerControllerDelegate {
-    
-}
+
 //MARK: - AVCaptureFileOutputRecordingDelegate
 extension CameraVC:AVCaptureFileOutputRecordingDelegate {
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
@@ -554,7 +724,7 @@ extension CameraVC:AVCaptureFileOutputRecordingDelegate {
             let imgThumbnail = self.createThumbnailOfVideoFromRemoteUrl(url: videoRecorded.absoluteString)
             if imgThumbnail != nil {
                 self.controlPhotoGallery.isHidden = false
-                self.imgPhotoGallery.image = imgThumbnail
+                //self.imgPhotoGallery.image = imgThumbnail
             }
             
             PHPhotoLibrary.shared().performChanges({ () -> Void in
@@ -795,6 +965,26 @@ extension CameraVC {
         ]
         settings.previewPhotoFormat = previewFormat
         cameraOutputPhoto.capturePhoto(with: settings, delegate: self)
+        
+    }
+    @objc func captureLivePhoto() {
+        
+        let videoPreviewLayerOrientation = photoPreviewer.videoPreviewLayer.connection?.videoOrientation
+        
+        livePhotoCaptureSessionManager.capture(videoOrientation: videoPreviewLayerOrientation!) { (inProgressLivePhotoCapturesCount) in
+            DispatchQueue.main.async { [unowned self] in
+                if inProgressLivePhotoCapturesCount > 0 {
+                    self.lblLivePhoto.isHidden = false
+                }
+                else if inProgressLivePhotoCapturesCount == 0 {
+                    self.lblLivePhoto.isHidden = true
+                    self.controlPhotoGallery.isHidden = false
+                }
+                else {
+                    print("Error: In progress live photo capture count is less than 0");
+                }
+            }
+        }
     }
 }
 //MARK: - Photo Functions
@@ -808,7 +998,39 @@ extension CameraVC {
         cameraOutputPhoto.isHighResolutionCaptureEnabled = true
         cameraOutputPhoto.isLivePhotoCaptureEnabled = cameraOutputPhoto.isLivePhotoCaptureSupported
         
-        //let device = AVCaptureDevice.default(for: AVMediaType.video)!
+        
+        // Set up the video preview view.
+        /*livePhotoCaptureSessionManager = LivePhotoCaptureSessionManager()
+        photoPreviewer.session = livePhotoCaptureSessionManager.session
+        self.photoPreviewer.videoPreviewLayer.videoGravity = .resizeAspectFill
+        livePhotoCaptureSessionManager.authorize()
+        livePhotoCaptureSessionManager.configureSession(isRearCamera: isRearCamera)
+        
+        
+        livePhotoCaptureSessionManager.startSession(handler: { [unowned self] (isStarted) in
+            if isStarted {
+                // Only setup observers and start the session running if setup succeeded.
+                self.addObserversForLivePhoto()
+            } else {
+                switch self.livePhotoCaptureSessionManager.setupResult {
+                case .success:
+                    break
+                case .notAuthorized:
+                    self.showAlert(
+                        title: "Not Authorized",
+                        message: "Doesn't have permission to use the camera, please change privacy settings")
+                case .notSupported:
+                    self.showAlert(
+                        title: "Not Supported",
+                        message: "Live photo captureling is not supported on this device.")
+                case .configurationFailed:
+                    self.showAlert(
+                        title: "Configuration Failed",
+                        message: "Unable to capture media")
+                }
+            }
+        })*/
+        
         var device = AVCaptureDevice.default(for: AVMediaType.video)!
 
         if(isRearCamera == true) {
@@ -859,29 +1081,127 @@ extension CameraVC {
             print("some problem here")
         }
     }
+    func startLivePhotoCamera() {
+        
+        // Set up the video preview view.
+        livePhotoCaptureSessionManager = LivePhotoCaptureSessionManager()
+        photoPreviewer.session = livePhotoCaptureSessionManager.session
+        self.photoPreviewer.videoPreviewLayer.videoGravity = .resizeAspectFill
+        livePhotoCaptureSessionManager.authorize()
+        livePhotoCaptureSessionManager.configureSession(isRearCamera: isRearCamera)
+        
+        livePhotoCaptureSessionManager.startSession(handler: { [unowned self] (isStarted) in
+            if isStarted {
+                // Only setup observers and start the session running if setup succeeded.
+                self.addObserversForLivePhoto()
+            } else {
+                switch self.livePhotoCaptureSessionManager.setupResult {
+                case .success:
+                    break
+                case .notAuthorized:
+                    self.showAlert(
+                        title: "Not Authorized",
+                        message: "Doesn't have permission to use the camera, please change privacy settings")
+                case .notSupported:
+                    self.showAlert(
+                        title: "Not Supported",
+                        message: "Live photo captureling is not supported on this device.")
+                case .configurationFailed:
+                    self.showAlert(
+                        title: "Configuration Failed",
+                        message: "Unable to capture media")
+                }
+            }
+        })
+        
+        var device = AVCaptureDevice.default(for: AVMediaType.video)!
+
+        if(isRearCamera == true) {
+            
+            if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back) {
+                device = dualCameraDevice
+            }
+
+            else if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) {
+                device = backCameraDevice
+            }
+            
+        } else {
+            
+            if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) {
+                device = frontCameraDevice
+            }
+        }
+        
+        if device.hasFlash {
+            //device.focusMode = .continuousAutoFocus
+            if(cameraFlashModeIndex == 0) {
+                //device.torchMode = .auto
+            } else if(cameraFlashModeIndex == 1) {
+                //device.torchMode = .on
+            } else if(cameraFlashModeIndex == 2) {
+                //device.torchMode = .off
+            }
+        }
+    }
     func reverseCamera() {
         
         self.isRearCamera = !self.isRearCamera
         
-        if(self.isPhotoCameraDisplay) {
+        if(cameraStatus == .photo) {
             
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 //Start Photo Camera
                 self.startPhotoCamera()
             }
-        } else {
-            
+        } else if (cameraStatus == .video) {
+        
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 if setupSession() {
                     setupPreview()
                     startSession()
                 }
             }
+        } else if (cameraStatus == .livePhoto) {
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.startLivePhotoCamera()
+            }
+        }
+    }
+    func livePhotoEvent(isCapturePhoto:Bool) {
+        
+        if(cameraStatus == .livePhoto) {
+            
+            if(isCapturePhoto == true) {
+                //Capture Live Photo
+                self.captureLivePhoto()
+            }
+        } else {
+            
+            //Update Buttons
+            cameraStatus = .livePhoto
+            self.updateButtons()
+            self.startLivePhotoCamera()
+            
+            if(movieOutput.isRecording == true) {
+                //Stop Recording
+                self.stopRecording()
+            }
+            
+            if(isCapturePhoto == true) {
+                if(self.timerCameraAuto != nil) {
+                    self.timerCameraAuto.invalidate()
+                }
+                self.timerCameraAuto = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(captureLivePhoto), userInfo: nil, repeats: false)
+            } else {
+                
+            }
         }
     }
     func photoEvent(isCapturePhoto:Bool) {
         
-        if(self.isPhotoCameraDisplay) {
+        if(cameraStatus == .photo) {
             
             if(isCapturePhoto == true) {
                 //Capture Photo
@@ -890,8 +1210,14 @@ extension CameraVC {
         } else {
             
             //Update Buttons
-            isPhotoCameraDisplay = true
+            cameraStatus = .photo
             self.updateButtons()
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                //Start Photo Camera
+                self.startPhotoCamera()
+            }
+            
             if(movieOutput.isRecording == true) {
                 //Stop Recording
                 self.stopRecording()
@@ -902,17 +1228,31 @@ extension CameraVC {
                     self.timerCameraAuto.invalidate()
                 }
                 self.timerCameraAuto = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(capturePhoto), userInfo: nil, repeats: false)
+            } else {
+                
             }
         }
     }
     func videoEvent(isPlayVideo:Bool) {
         
-        if(self.isPhotoCameraDisplay) {
-            
+        if(cameraStatus == .video) {
+            if(isPlayVideo == true) {
+                //Start Recording
+                self.startRecording()
+            }
+        } else {
+          
             //Update Buttons
-            isPhotoCameraDisplay = false
+            cameraStatus = .video
             self.updateButtons()
             
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                if setupSession() {
+                    setupPreview()
+                    startSession()
+                }
+            }
+                
             //Camera Tapped Animation
             self.cameraTappedAnimation(isAnimated: isPlayVideo)
             
@@ -921,12 +1261,6 @@ extension CameraVC {
                     self.timerPlayVideo.invalidate()
                 }
                 self.timerPlayVideo = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startRecording), userInfo: nil, repeats: false)
-            }
-        } else {
-          
-            if(isPlayVideo == true) {
-                //Start Recording
-                self.startRecording()
             }
         }
     }
@@ -945,21 +1279,48 @@ extension CameraVC {
     }
     @IBAction func tappedOnTakePhoto(_ sender: Any) {
         
+        if livePhotoCaptureSessionManager != nil && cameraStatus == .livePhoto  {
+            if livePhotoCaptureSessionManager.isSessionRunning {
+                livePhotoCaptureSessionManager.stopSession()
+                self.removeObserversForLivePhoto()
+            }
+        }
+        
         //Photo Event
         self.photoEvent(isCapturePhoto: false)
+        
     }
     @IBAction func tappedOnVideo(_ sender: Any) {
         print("Tapped On Video")
         
+        if livePhotoCaptureSessionManager != nil && cameraStatus == .livePhoto  {
+            if livePhotoCaptureSessionManager.isSessionRunning {
+                livePhotoCaptureSessionManager.stopSession()
+                self.removeObserversForLivePhoto()
+            }
+        }
+        
         //Video Event
         self.videoEvent(isPlayVideo: false)
+    }
+    @IBAction func tappedOnLivePhoto(_ sender: Any) {
+        
+        if livePhotoCaptureSessionManager != nil && cameraStatus == .livePhoto {
+            if livePhotoCaptureSessionManager.isSessionRunning {
+                livePhotoCaptureSessionManager.stopSession()
+                self.removeObserversForLivePhoto()
+            }
+        }
+        
+        //Live Photo Event
+        self.livePhotoEvent(isCapturePhoto: false)
     }
     @IBAction func tappedOnCamera(_ sender: Any) {
         
         //Camera Tapped Animation
         self.cameraTappedAnimation(isAnimated: true)
         
-        if(self.isPhotoCameraDisplay) {
+        if(cameraStatus == .photo) {
             
             if cameraTimerIndex == 0 {
                 //Capture Photo
@@ -977,7 +1338,27 @@ extension CameraVC {
                 }
                 self.timerCameraAuto = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(capturePhoto), userInfo: nil, repeats: false)
             }
-        } else {
+            
+        } else if(cameraStatus == .livePhoto) {
+            
+            if cameraTimerIndex == 0 {
+                //Capture Live Photo
+                self.captureLivePhoto()
+                
+            } else if cameraTimerIndex == 1 {
+                if(self.timerCameraAuto != nil) {
+                    self.timerCameraAuto.invalidate()
+                }
+                self.timerCameraAuto = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(captureLivePhoto), userInfo: nil, repeats: false)
+                
+            } else if cameraTimerIndex == 2 {
+                if(self.timerCameraAuto != nil) {
+                    self.timerCameraAuto.invalidate()
+                }
+                self.timerCameraAuto = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(captureLivePhoto), userInfo: nil, repeats: false)
+            }
+            
+        } else if(cameraStatus == .video) {
             if(movieOutput.isRecording == true) {
                 
                 //Stop Recording
@@ -1080,7 +1461,7 @@ extension CameraVC : AVCapturePhotoCaptureDelegate {
             UIImageWriteToSavedPhotosAlbum(orientationFixedImage, nil, nil, nil);
             //self.imagesCaptured.append(orientationFixedImage)
             self.controlPhotoGallery.isHidden = false
-            self.imgPhotoGallery.image = orientationFixedImage
+            //self.imgPhotoGallery.image = orientationFixedImage
 
         } else {
             print("some error here")
@@ -1099,8 +1480,10 @@ extension CameraVC {
         self.present(vcInAppPurchase, animated: true, completion: nil)
     }
     func redirectToPhotoGallery() {
-        let localController = PhotosController(dataSourceType: .local)
-        self.navigationController?.pushViewController(localController, animated: true)
+        /*let localController = PhotosController(dataSourceType: .local)
+        self.navigationController?.pushViewController(localController, animated: true)*/
+        
+        UIApplication.shared.open(URL(string:"photos-redirect://")!)
     }
 }
 //MARK: - PopupOverDelegate
@@ -1113,38 +1496,51 @@ extension CameraVC: PopupOverDelegate {
             self.arrFlashModeList = arrData
             self.cameraFlashModeIndex = index
             
-            if(index == 0) {
-                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteAuto")
-                
-            } else if(index == 1) {
-                
-                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOn")
-                
-            } else if(index == 2) {
-                           
-                imgCameraFlash.image = UIImage.init(named: "imgCameraFlashWhiteOff")
-            }
+            UserDefaults.standard.setCameraFlashStatus(value: (index+1))
+            UserDefaults.standard.synchronize()
+            
+            //Setup Camera Flash
+            self.setupCameraFlash(index: (index+1))
             
         } else if(tag == 2) {
             
             self.arrTimerList = arrData
             self.cameraTimerIndex = index
             
-            if(index == 0) {
-                self.lblCameraTimer.text = ""
-                
-            } else if(index == 1) {
-                
-                self.lblCameraTimer.text = "3"
-                
-            } else if(index == 2) {
-                           
-                self.lblCameraTimer.text = "10"
-            }
+            UserDefaults.standard.setCameraTimerStatus(value: (index+1))
+            UserDefaults.standard.synchronize()
+            
+            //Setup Camera Timer
+            self.setupCameraTimer(index: (index+1))
         }
     }
     func dismissPopoverView() {
         
+    }
+}
+// MARK: - KVO and Notifications
+extension CameraVC {
+    
+    private func addObserversForLivePhoto() {
+        livePhotoCaptureSessionManager.session.addObserver(self, forKeyPath: "running", options: .new, context: &sessionRunningObserveContext)
+    }
+    
+    private func removeObserversForLivePhoto() {
+        livePhotoCaptureSessionManager.session.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if context == &sessionRunningObserveContext {
+            guard let isSessionRunning = (change?[.newKey] as AnyObject).boolValue else { return }
+            
+            print("isSessionRunning : ",isSessionRunning)
+            DispatchQueue.main.async { [unowned self] in
+                //self.photoButton.isEnabled = isSessionRunning
+                //self.controlCameraBG.isEnabled = isSessionRunning
+            }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
     }
 }
 //MARK: - UIPopoverPresentationControllerDelegate

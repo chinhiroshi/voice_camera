@@ -18,12 +18,15 @@ enum UserDefaultsKeys : String {
     case settingStartRecordingVideo
     case settingStopRecordingVideo
     case settingTakePhoto
+    case settingTakeLivePhoto
     case settingReverseCamera
     case settingCloseHeyCamera
     case settingCameraSoundEffects
     case settingVideoResolution
     case settingTrimTheEndOfVideos
     case settingLanguageStatus
+    case cameraTimerStatus
+    case cameraFlashStatus
 }
 
 extension UserDefaults {
@@ -92,6 +95,15 @@ extension UserDefaults {
         return string(forKey: UserDefaultsKeys.settingTakePhoto.rawValue) ?? ""
     }
     
+    //MARK: - Take Live Photo
+    func setSettingTakeLivePhoto(value: String) {
+        set(value, forKey: UserDefaultsKeys.settingTakeLivePhoto.rawValue)
+        synchronize()
+    }
+    func getSettingTakeLivePhoto()-> String {
+        return string(forKey: UserDefaultsKeys.settingTakeLivePhoto.rawValue) ?? ""
+    }
+    
     //MARK: - Reverse Camera
     func setSettingReverseCamera(value: String) {
         set(value, forKey: UserDefaultsKeys.settingReverseCamera.rawValue)
@@ -144,5 +156,22 @@ extension UserDefaults {
     }
     func getSettingLanguageStatus()-> Int {
         return integer(forKey: UserDefaultsKeys.settingLanguageStatus.rawValue)
+    }
+    
+    //MARK: - Set Camera Timer Status
+    func setCameraTimerStatus(value: Int) {
+        set(value, forKey: UserDefaultsKeys.cameraTimerStatus.rawValue)
+        synchronize()
+    }
+    func getCameraTimerStatus()-> Int {
+        return integer(forKey: UserDefaultsKeys.cameraTimerStatus.rawValue)
+    }
+    //MARK: - Set Camera Flash Status
+    func setCameraFlashStatus(value: Int) {
+        set(value, forKey: UserDefaultsKeys.cameraFlashStatus.rawValue)
+        synchronize()
+    }
+    func getCameraFlashStatus()-> Int {
+        return integer(forKey: UserDefaultsKeys.cameraFlashStatus.rawValue)
     }
 }

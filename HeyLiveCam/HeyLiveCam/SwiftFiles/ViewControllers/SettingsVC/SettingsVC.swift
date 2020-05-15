@@ -24,6 +24,7 @@ class SettingsVC: UIViewController {
     var strStartRecordingVideo = ""
     var strStopRecordingVideo = ""
     var strTakePhoto = ""
+    var strTakeLivePhoto = ""
     var strReverseCamera = ""
     var strCloseHeyCamera = ""
     
@@ -52,6 +53,7 @@ class SettingsVC: UIViewController {
             self.strStartRecordingVideo = UserDefaults.standard.getSettingStartRecordingVideo()
             self.strStopRecordingVideo = UserDefaults.standard.getSettingStopRecordingVideo()
             self.strTakePhoto = UserDefaults.standard.getSettingTakePhoto()
+            self.strTakeLivePhoto = UserDefaults.standard.getSettingTakeLivePhoto()
             self.strReverseCamera = UserDefaults.standard.getSettingReverseCamera()
             self.strCloseHeyCamera = UserDefaults.standard.getSettingCloseHeyCamera()
             
@@ -62,8 +64,9 @@ class SettingsVC: UIViewController {
             self.arrSettings[0].arrSettings[0].strSubTitle = strStartRecordingVideo
             self.arrSettings[0].arrSettings[1].strSubTitle = strStopRecordingVideo
             self.arrSettings[0].arrSettings[2].strSubTitle = strTakePhoto
-            self.arrSettings[0].arrSettings[3].strSubTitle = strReverseCamera
-            self.arrSettings[0].arrSettings[4].strSubTitle = strCloseHeyCamera
+            self.arrSettings[0].arrSettings[3].strSubTitle = strTakeLivePhoto
+            self.arrSettings[0].arrSettings[4].strSubTitle = strReverseCamera
+            self.arrSettings[0].arrSettings[5].strSubTitle = strCloseHeyCamera
             
             arrSettings[2].arrSettings[1].isSwitchOn = self.isCameraSoundEffects
         }
@@ -102,6 +105,15 @@ class SettingsVC: UIViewController {
         [
             "title":"Take Photo".getLocalized(),
             "subTitle":UserDefaults.standard.getSettingTakePhoto(),
+            "photo":"imgSettingsCamera",
+            "displayDescription":true
+        ]
+        , cellType: .rightArrowCell))
+        
+        arrSettingsVoiceCommands.append(ModalSettingsSubClass.init(dictData:
+        [
+            "title":"Take Live Photo".getLocalized(),
+            "subTitle":UserDefaults.standard.getSettingTakeLivePhoto(),
             "photo":"imgSettingsCamera",
             "displayDescription":true
         ]
@@ -523,8 +535,10 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
             } else if indexPath.row == 2 {
                 self.cellSettingsSelected = .takePhoto
             } else if indexPath.row == 3 {
-                self.cellSettingsSelected = .reverseCamera
+                self.cellSettingsSelected = .takeLivePhoto
             } else if indexPath.row == 4 {
+                self.cellSettingsSelected = .reverseCamera
+            } else if indexPath.row == 5 {
                 self.cellSettingsSelected = .closeHeyCamera
             }
             //Redirect To Voice Text Update Screen
@@ -734,6 +748,7 @@ enum SettingsSelected {
     case startRecordingVideo
     case stopRecordingVideo
     case takePhoto
+    case takeLivePhoto
     case reverseCamera
     case closeHeyCamera
     case none

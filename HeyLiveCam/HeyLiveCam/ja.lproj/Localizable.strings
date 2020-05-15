@@ -30,6 +30,7 @@
 "Start Recording Video" = "ビデオの録画を開始";
 "Stop Recording Video" = "ビデオの録画を停止";
 "Take Photo" = "写真を撮る";
+"Take Live Photo" = "ライブ写真を撮る";
 "Reverse Camera" = "リバースカメラ";
 "Close Hey Camera" = "カメラを閉じる";
 "Voice Commands" = "音声コマンド";
@@ -68,10 +69,9 @@
 
 
 //======================= Camera Screen =======================
-
-
 "PHOTO" = "写真";
 "VIDEO" = "ビデオ";
+"LIVE PHOTO" = "ライブ写真";
 "On" = "オン";
 "Off" = "オフ";
 "Auto" = "オート";
@@ -84,6 +84,7 @@
 "Enter a pharse to use for starting a video recording." = "ビデオ録画の開始に使用するフレーズを入力します。";
 "Enter a pharse to use for stopping a video recording." = "ビデオ録画の停止に使用するフレーズを入力します。";
 "Enter a pharse to use for taking a photo." = "写真の撮影に使用するフレーズを入力します。";
+"Enter a pharse to use for taking a live photo." = "ライブ写真の撮影に使用するフレーズを入力します。";
 "Enter a pharse to use for reversing the camera." = "カメラの反転に使用するフレーズを入力します。";
 "Enter a pharse to use for closing Hey Camera(useful to get back to sign)." = "カメラを閉じるために使用するフレーズを入力します（サインに戻るのに便利です）。";
 

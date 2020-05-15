@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C3B46C337230E5CDD211268 /* Pods_HeyLiveCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28312230A8A87055BDAE0219 /* Pods_HeyLiveCam.framework */; };
+		F42352AF23FD9F1E001C66D3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42352AE23FD9F1E001C66D3 /* StoreKit.framework */; };
 		F443917623AB658C004349F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917523AB658C004349F8 /* AppDelegate.swift */; };
 		F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917723AB658C004349F8 /* SceneDelegate.swift */; };
 		F443917A23AB658C004349F8 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443917923AB658C004349F8 /* CameraVC.swift */; };
@@ -22,6 +23,7 @@
 		F4656FE323D155DB005F1380 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE223D155DB005F1380 /* MobileCoreServices.framework */; };
 		F4656FE523D16F00005F1380 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE423D16F00005F1380 /* MessageUI.framework */; };
 		F4656FE723D1A993005F1380 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE623D1A993005F1380 /* AudioToolbox.framework */; };
+		F48DABB7246A9BBE0069CDDB /* ModelCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48DABB6246A9BBE0069CDDB /* ModelCamera.swift */; };
 		F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFE623AC831D00DED004 /* AVFoundation.framework */; };
 		F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */; };
 		F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEB23ACD32400DED004 /* Speech.framework */; };
@@ -68,6 +70,12 @@
 		F4B0D90023AE42A4007F0380 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */; };
 		F4B1BF9223BB681A00FB60A5 /* ConstantFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1BF9123BB681A00FB60A5 /* ConstantFile.swift */; };
 		F4B1BF9623BB706000FB60A5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B1BF9523BB706000FB60A5 /* SpriteKit.framework */; };
+		F4E09AB62467D3E700EF0197 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E09AB12467D3E700EF0197 /* PreviewView.swift */; };
+		F4E09AB72467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E09AB22467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift */; };
+		F4E09AB82467D3E700EF0197 /* LivePhotoCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E09AB32467D3E700EF0197 /* LivePhotoCaptureViewController.swift */; };
+		F4E09AB92467D3E700EF0197 /* LivePhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E09AB42467D3E700EF0197 /* LivePhotoCaptureDelegate.swift */; };
+		F4E09ABA2467D3E700EF0197 /* LivePhotoCapture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E09AB52467D3E700EF0197 /* LivePhotoCapture.storyboard */; };
+		F4E09ABC2467D42600EF0197 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E09ABB2467D42600EF0197 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +95,7 @@
 		1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeyLiveCam.release.xcconfig"; path = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.release.xcconfig"; sourceTree = "<group>"; };
 		28312230A8A87055BDAE0219 /* Pods_HeyLiveCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyLiveCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeyLiveCam.debug.xcconfig"; path = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.debug.xcconfig"; sourceTree = "<group>"; };
+		F42352AE23FD9F1E001C66D3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F443917223AB658C004349F8 /* HeyLiveCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyLiveCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F443917523AB658C004349F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F443917723AB658C004349F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +112,7 @@
 		F4656FE223D155DB005F1380 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F4656FE423D16F00005F1380 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F4656FE623D1A993005F1380 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F48DABB6246A9BBE0069CDDB /* ModelCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCamera.swift; sourceTree = "<group>"; };
 		F497CFE623AC831D00DED004 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextVC.swift; sourceTree = "<group>"; };
 		F497CFEB23ACD32400DED004 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
@@ -153,6 +163,12 @@
 		F4B0D8FF23AE42A4007F0380 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F4B1BF9123BB681A00FB60A5 /* ConstantFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantFile.swift; sourceTree = "<group>"; };
 		F4B1BF9523BB706000FB60A5 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		F4E09AB12467D3E700EF0197 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		F4E09AB22467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePhotoCaptureSessionManager.swift; sourceTree = "<group>"; };
+		F4E09AB32467D3E700EF0197 /* LivePhotoCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePhotoCaptureViewController.swift; sourceTree = "<group>"; };
+		F4E09AB42467D3E700EF0197 /* LivePhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		F4E09AB52467D3E700EF0197 /* LivePhotoCapture.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LivePhotoCapture.storyboard; sourceTree = "<group>"; };
+		F4E09ABB2467D42600EF0197 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +179,7 @@
 				F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */,
 				F456CC9C23B5B38F006C3C82 /* Foundation.framework in Frameworks */,
 				F456CC9A23B5B386006C3C82 /* Photos.framework in Frameworks */,
+				F42352AF23FD9F1E001C66D3 /* StoreKit.framework in Frameworks */,
 				F4656FE723D1A993005F1380 /* AudioToolbox.framework in Frameworks */,
 				F497CFF023ACD43900DED004 /* UIKit.framework in Frameworks */,
 				F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */,
@@ -273,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				F443917923AB658C004349F8 /* CameraVC.swift */,
+				F48DABB6246A9BBE0069CDDB /* ModelCamera.swift */,
 			);
 			path = CameraVC;
 			sourceTree = "<group>";
@@ -288,6 +306,7 @@
 		F497CFE523AC831D00DED004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F42352AE23FD9F1E001C66D3 /* StoreKit.framework */,
 				F4656FE623D1A993005F1380 /* AudioToolbox.framework */,
 				F4656FE423D16F00005F1380 /* MessageUI.framework */,
 				F4656FE223D155DB005F1380 /* MobileCoreServices.framework */,
@@ -315,6 +334,7 @@
 		F497CFF123ACEC1000DED004 /* LTL_Library */ = {
 			isa = PBXGroup;
 			children = (
+				F4E09AB02467D3E700EF0197 /* LivePhotoCapture */,
 				F4559EFF23B3190700E5BD30 /* UserDefaultData */,
 				F4B0D8F123ADE096007F0380 /* CustomLibrary */,
 				F497CFF223ACEC1B00DED004 /* Extension */,
@@ -328,6 +348,7 @@
 				F497CFF323ACEC3800DED004 /* UIImageExtension.swift */,
 				F46166B523D2C7B50000A26F /* BundleExtension.swift */,
 				F4A04FEA23D5AD6900132A3A /* StringExtension.swift */,
+				F4E09ABB2467D42600EF0197 /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -449,6 +470,18 @@
 			path = ConstantFile;
 			sourceTree = "<group>";
 		};
+		F4E09AB02467D3E700EF0197 /* LivePhotoCapture */ = {
+			isa = PBXGroup;
+			children = (
+				F4E09AB12467D3E700EF0197 /* PreviewView.swift */,
+				F4E09AB22467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift */,
+				F4E09AB32467D3E700EF0197 /* LivePhotoCaptureViewController.swift */,
+				F4E09AB42467D3E700EF0197 /* LivePhotoCaptureDelegate.swift */,
+				F4E09AB52467D3E700EF0197 /* LivePhotoCapture.storyboard */,
+			);
+			path = LivePhotoCapture;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4A4321923B8769C001787A5 /* clear.png in Resources */,
+				F4E09ABA2467D3E700EF0197 /* LivePhotoCapture.storyboard in Resources */,
 				F4A04FE623D5A9FD00132A3A /* Localizable.strings in Resources */,
 				F4A4321A23B8769C001787A5 /* 5.png in Resources */,
 				F4A4322C23B877EC001787A5 /* Viewer.xcassets in Resources */,
@@ -577,12 +611,14 @@
 			files = (
 				F4A4323023B877EC001787A5 /* UIImage+CenteredFrame.swift in Sources */,
 				F4A4322A23B877EC001787A5 /* Viewable.swift in Sources */,
+				F48DABB7246A9BBE0069CDDB /* ModelCamera.swift in Sources */,
 				F4A4323723B877EC001787A5 /* ViewableControllerContainer.swift in Sources */,
 				F4A4323423B877EC001787A5 /* UIViewController+Window.swift in Sources */,
 				F4A9136D23B4B698006E207A /* PopOverVC.swift in Sources */,
 				F443917A23AB658C004349F8 /* CameraVC.swift in Sources */,
 				F443917623AB658C004349F8 /* AppDelegate.swift in Sources */,
 				F4A4322B23B877EC001787A5 /* UIViewExtensions.swift in Sources */,
+				F4E09AB92467D3E700EF0197 /* LivePhotoCaptureDelegate.swift in Sources */,
 				F4A4323823B877EC001787A5 /* ViewerController.swift in Sources */,
 				F4A4323323B877EC001787A5 /* VideoView.swift in Sources */,
 				F4B0D8F423ADE0B9007F0380 /* CameraController.swift in Sources */,
@@ -595,15 +631,19 @@
 				F4A4322D23B877EC001787A5 /* ViewerAssets.swift in Sources */,
 				F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */,
 				F4A4321023B8769C001787A5 /* PopupController.swift in Sources */,
+				F4E09AB72467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift in Sources */,
 				F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */,
 				F4A4321323B8769C001787A5 /* PhotoCell.swift in Sources */,
 				F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */,
 				F4A4322E23B877EC001787A5 /* VideoProgressView.swift in Sources */,
 				F4A4323623B877EC001787A5 /* ViewableController.swift in Sources */,
 				F4A4321423B8769C001787A5 /* Photo.swift in Sources */,
+				F4E09ABC2467D42600EF0197 /* UIViewControllerExtension.swift in Sources */,
+				F4E09AB62467D3E700EF0197 /* PreviewView.swift in Sources */,
 				F4A4320F23B8769C001787A5 /* HeaderView.swift in Sources */,
 				F4AD5A8423B21CC900784D94 /* VoiceTextUpdateVC.swift in Sources */,
 				F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */,
+				F4E09AB82467D3E700EF0197 /* LivePhotoCaptureViewController.swift in Sources */,
 				F4B0D8FA23ADEE55007F0380 /* CameraVidoeVC.swift in Sources */,
 				F4A4321723B8769C001787A5 /* PhotosCollectionLayout.swift in Sources */,
 				F4A4323523B877EC001787A5 /* SlideshowView.swift in Sources */,
@@ -770,18 +810,18 @@
 			baseConfigurationReference = 95DD20A01518E2313153A69C /* Pods-HeyLiveCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroshi Chin (3RX2RWFJJ4)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7983WL2YNG;
 				INFOPLIST_FILE = HeyLiveCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.heylivecameraapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_2020_02_19_HeyLiveCameraApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -792,18 +832,18 @@
 			baseConfigurationReference = 1EF37BA145912A959B522B35 /* Pods-HeyLiveCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WNSR674VCF;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroshi Chin (3RX2RWFJJ4)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7983WL2YNG;
 				INFOPLIST_FILE = HeyLiveCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.HeyLiveCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ltl.heylivecameraapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_2020_02_19_HeyLiveCameraApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

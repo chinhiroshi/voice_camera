@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setSettingStartRecordingVideo(value: "START".getLocalized())
             UserDefaults.standard.setSettingStopRecordingVideo(value: "STOP".getLocalized())
             UserDefaults.standard.setSettingTakePhoto(value: "IMAGE".getLocalized())
+            UserDefaults.standard.setSettingTakeLivePhoto(value: "LIVE PHOTO".getLocalized())
             UserDefaults.standard.setSettingReverseCamera(value: "REVERSE".getLocalized())
             UserDefaults.standard.setSettingCloseHeyCamera(value: "CLOSE APP".getLocalized())
             

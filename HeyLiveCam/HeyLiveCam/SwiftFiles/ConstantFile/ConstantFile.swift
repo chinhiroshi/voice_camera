@@ -19,6 +19,7 @@ enum CameraControlStatic: String {
     case video
     case stop
     case photo
+    case livePhoto
     case direction
     case closeCamera
 
@@ -27,6 +28,7 @@ enum CameraControlStatic: String {
             case .video: return "VIDEO"
             case .stop: return "STOP"
             case .photo: return "PHOTO"
+            case .livePhoto: return "LIVE PHOTO"
             case .direction: return "DIRECTION"
             case .closeCamera: return "CLOSE"
         }

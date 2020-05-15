@@ -30,6 +30,7 @@
 "Start Recording Video" = "Start Recording Video";
 "Stop Recording Video" = "Stop Recording Video";
 "Take Photo" = "Take Photo";
+"Take Live Photo" = "Take Live Photo";
 "Reverse Camera" = "Reverse Camera";
 "Close Hey Camera" = "Close Hey Camera";
 "Voice Commands" = "Voice Commands";
@@ -72,6 +73,7 @@
 
 "PHOTO" = "PHOTO";
 "VIDEO" = "VIDEO";
+"LIVE PHOTO" = "LIVE PHOTO";
 "On" = "On";
 "Off" = "Off";
 "Auto" = "Auto";
@@ -84,6 +86,7 @@
 "Enter a pharse to use for starting a video recording." = "Enter a pharse to use for starting a video recording.";
 "Enter a pharse to use for stopping a video recording." = "Enter a pharse to use for stopping a video recording.";
 "Enter a pharse to use for taking a photo." = "Enter a pharse to use for taking a photo.";
+"Enter a pharse to use for taking a live photo." = "Enter a pharse to use for taking a live photo.";
 "Enter a pharse to use for reversing the camera." = "Enter a pharse to use for reversing the camera.";
 "Enter a pharse to use for closing Hey Camera(useful to get back to sign)." = "Enter a pharse to use for closing Hey Camera(useful to get back to sign).";
 
