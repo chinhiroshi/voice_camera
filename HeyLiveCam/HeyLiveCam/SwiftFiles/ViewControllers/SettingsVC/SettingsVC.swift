@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MessageUI
+import IAPurchaseManager
 
 //MARK: - Settings View Controller
 class SettingsVC: UIViewController {
@@ -31,6 +32,9 @@ class SettingsVC: UIViewController {
     var isCameraSoundEffects = true
     var isVideoResolutionHigh = true
     var trimTheEndOfVideos = 0
+    var loaderView: LoaderView?
+    
+    var isPurchased = false
     
     //TODO: - Override Methods
     override func viewDidLoad() {
@@ -231,6 +235,15 @@ class SettingsVC: UIViewController {
         
         arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
         [
+            "title":"Buy premium feature".getLocalized(),
+            "subTitle":"",
+            "photo":"ic_buy_premium",
+            "displayDescription":false
+        ]
+        , cellType: .rightArrowCell))
+        
+        arrSettingsMiscellaneous.append(ModalSettingsSubClass.init(dictData:
+        [
             "title":"Restore Purchases".getLocalized(),
             "subTitle":"",
             "photo":"imgSettingsRestore",
@@ -305,7 +318,24 @@ class SettingsVC: UIViewController {
         arrSettings[2].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingCameraSoundEffect()
         //arrSettings[2].arrSettings[2].isSwitchOn = UserDefaults.standard.isSettingStoreGeolocationOnMedia()
         
+        self.checkPurchseFeature()
+        
         self.tblSettings.reloadData()
+    }
+    func checkPurchseFeature() {
+        
+        let isProductPurchased = IAPManager.shared.isProductPurchased(productId: strInAppPurchase)
+        if isProductPurchased {
+           print("isProductPurchased : YES")
+            arrSettings[2].arrSettings[1].strTitle = "Purchsed premium feature".getLocalized()
+            isPurchased = true
+            
+        } else {
+           print("isProductPurchased : NO")
+            
+            arrSettings[2].arrSettings[1].strTitle = "Buy premium feature".getLocalized()
+            isPurchased = false
+        }
     }
     func openLanguageSelectionPopup() {
         let optionMenu = UIAlertController(title: nil, message: "Language".getLocalized(), preferredStyle: .actionSheet)
@@ -424,6 +454,45 @@ class SettingsVC: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
+    func buyPremiumFeature() {
+        showLoaderView(with: "")
+        IAPManager.shared.purchaseProduct(productId: strInAppPurchase) { (error) -> Void in
+            if error == nil {
+                print("successful purchase!")
+            } else {
+                print("something wrong..")
+                print(error ?? "NIL")
+            }
+            
+            //Check Purchse Feature
+            self.checkPurchseFeature()
+            
+            self.tblSettings.reloadData()
+            
+            //Hide Loader
+            self.hideLoader()
+        }
+    }
+    func restore() {
+        
+        showLoaderView(with: "")
+        IAPManager.shared.restoreCompletedTransactions { (error) in
+            print("error : ",error ?? "NIL")
+            if error != nil {
+                
+            } else {
+                self.showAlert(title: "Alert", message: "Restore purchased failed!")
+            }
+            
+            //Check Purchse Feature
+            self.checkPurchseFeature()
+            
+            self.tblSettings.reloadData()
+            
+            //Hide Loader
+            self.hideLoader()
+        }
+    }
 }
 //MARK: - UITableViewDelegate
 extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
@@ -516,6 +585,14 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
             
         }
         
+        if indexPath.section == 2 {
+            if (indexPath.row == 1 || indexPath.row == 2) && isPurchased {
+                cell.contentView.alpha = 0.3
+            } else {
+                cell.contentView.alpha = 1.0
+            }
+        }
+        
         return cell
     }
     
@@ -566,21 +643,37 @@ extension SettingsVC:UITableViewDelegate,UITableViewDataSource {
                 //Open Language Selection Popup
                 self.openLanguageSelectionPopup()
                 
-            } else if(indexPath.row == 3) {
+            } else if(indexPath.row == 1) {
+                
+                //Buy Premium Feature
+                if isPurchased == false {
+                    
+                    //Buy Premium Feature
+                    self.buyPremiumFeature()
+                }
+            } else if(indexPath.row == 2) {
+                
+                //Restore Purchases
+                if isPurchased == false {
+                    
+                    //Restore
+                    self.restore()
+                }
+            }  else if(indexPath.row == 4) {
                     
                 //Share this app
                 self.openShareBox()
                 
-            } else if(indexPath.row == 4) {
+            } else if(indexPath.row == 5) {
             
                 //Rate This App
                 self.rateThisApp()
-            } else if(indexPath.row == 5) {
+            } else if(indexPath.row == 6) {
                 
                 //Redirect To Help Screen
                 self.redirectToHelpScreen()
                 
-            } else if(indexPath.row == 6) {
+            } else if(indexPath.row == 7) {
                 
                 //Send Feedback
                 self.sendFeedback()
@@ -681,6 +774,22 @@ extension SettingsVC: MFMailComposeViewControllerDelegate {
                    UIApplication.shared.openURL(urlEmail)
                }
             }
+        }
+    }
+}
+
+// MARK: - Show / Hide loader for purchase and restore
+extension SettingsVC {
+    func showLoaderView(with title:String) {
+        loaderView = LoaderView.instanceFromNib()
+        loaderView?.lblLoaderTitle.text = title
+        loaderView?.frame = self.view.frame
+        self.view.addSubview(loaderView!)
+    }
+
+    func hideLoader() {
+        if loaderView != nil {
+            loaderView?.removeFromSuperview()
         }
     }
 }

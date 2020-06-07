@@ -24,6 +24,11 @@
 		F4656FE523D16F00005F1380 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE423D16F00005F1380 /* MessageUI.framework */; };
 		F4656FE723D1A993005F1380 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4656FE623D1A993005F1380 /* AudioToolbox.framework */; };
 		F48DABB7246A9BBE0069CDDB /* ModelCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48DABB6246A9BBE0069CDDB /* ModelCamera.swift */; };
+		F49740F7248C8415004CCBDA /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49740F2248C8415004CCBDA /* IAPManager.swift */; };
+		F49740F8248C8415004CCBDA /* IAP_ProductIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49740F3248C8415004CCBDA /* IAP_ProductIDs.plist */; };
+		F49740F9248C8415004CCBDA /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49740F5248C8415004CCBDA /* LoaderView.xib */; };
+		F49740FA248C8415004CCBDA /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49740F6248C8415004CCBDA /* LoaderView.swift */; };
+		F49740FD248CB07D004CCBDA /* YMUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49740FC248CB07D004CCBDA /* YMUserDefault.swift */; };
 		F497CFE723AC831D00DED004 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFE623AC831D00DED004 /* AVFoundation.framework */; };
 		F497CFEA23ACD20C00DED004 /* SpeechToTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */; };
 		F497CFEC23ACD32400DED004 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F497CFEB23ACD32400DED004 /* Speech.framework */; };
@@ -113,6 +118,11 @@
 		F4656FE423D16F00005F1380 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F4656FE623D1A993005F1380 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		F48DABB6246A9BBE0069CDDB /* ModelCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCamera.swift; sourceTree = "<group>"; };
+		F49740F2248C8415004CCBDA /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		F49740F3248C8415004CCBDA /* IAP_ProductIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IAP_ProductIDs.plist; sourceTree = "<group>"; };
+		F49740F5248C8415004CCBDA /* LoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
+		F49740F6248C8415004CCBDA /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		F49740FC248CB07D004CCBDA /* YMUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMUserDefault.swift; sourceTree = "<group>"; };
 		F497CFE623AC831D00DED004 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F497CFE923ACD20C00DED004 /* SpeechToTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextVC.swift; sourceTree = "<group>"; };
 		F497CFEB23ACD32400DED004 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
@@ -303,6 +313,33 @@
 			path = UserDefaultData;
 			sourceTree = "<group>";
 		};
+		F49740F1248C8415004CCBDA /* IAPManager */ = {
+			isa = PBXGroup;
+			children = (
+				F49740F2248C8415004CCBDA /* IAPManager.swift */,
+				F49740F3248C8415004CCBDA /* IAP_ProductIDs.plist */,
+				F49740F4248C8415004CCBDA /* Loader */,
+			);
+			path = IAPManager;
+			sourceTree = "<group>";
+		};
+		F49740F4248C8415004CCBDA /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				F49740F5248C8415004CCBDA /* LoaderView.xib */,
+				F49740F6248C8415004CCBDA /* LoaderView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		F49740FB248CB07D004CCBDA /* YMUserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				F49740FC248CB07D004CCBDA /* YMUserDefault.swift */,
+			);
+			path = YMUserDefault;
+			sourceTree = "<group>";
+		};
 		F497CFE523AC831D00DED004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +371,8 @@
 		F497CFF123ACEC1000DED004 /* LTL_Library */ = {
 			isa = PBXGroup;
 			children = (
+				F49740FB248CB07D004CCBDA /* YMUserDefault */,
+				F49740F1248C8415004CCBDA /* IAPManager */,
 				F4E09AB02467D3E700EF0197 /* LivePhotoCapture */,
 				F4559EFF23B3190700E5BD30 /* UserDefaultData */,
 				F4B0D8F123ADE096007F0380 /* CustomLibrary */,
@@ -548,11 +587,13 @@
 				F4E09ABA2467D3E700EF0197 /* LivePhotoCapture.storyboard in Resources */,
 				F4A04FE623D5A9FD00132A3A /* Localizable.strings in Resources */,
 				F4A4321A23B8769C001787A5 /* 5.png in Resources */,
+				F49740F8248C8415004CCBDA /* IAP_ProductIDs.plist in Resources */,
 				F4A4322C23B877EC001787A5 /* Viewer.xcassets in Resources */,
 				F4A4321123B8769C001787A5 /* 2.jpg in Resources */,
 				F4A4321523B8769C001787A5 /* 4.jpg in Resources */,
 				F4A4320D23B8769C001787A5 /* 0.jpg in Resources */,
 				F443918523AB658E004349F8 /* LaunchScreen.storyboard in Resources */,
+				F49740F9248C8415004CCBDA /* LoaderView.xib in Resources */,
 				F443918223AB658E004349F8 /* Assets.xcassets in Resources */,
 				F443917D23AB658C004349F8 /* Main.storyboard in Resources */,
 				F4A4320E23B8769C001787A5 /* 1.jpg in Resources */,
@@ -631,9 +672,11 @@
 				F4A4322D23B877EC001787A5 /* ViewerAssets.swift in Sources */,
 				F4559F0123B3193000E5BD30 /* UserDefaultData.swift in Sources */,
 				F4A4321023B8769C001787A5 /* PopupController.swift in Sources */,
+				F49740FD248CB07D004CCBDA /* YMUserDefault.swift in Sources */,
 				F4E09AB72467D3E700EF0197 /* LivePhotoCaptureSessionManager.swift in Sources */,
 				F443917823AB658C004349F8 /* SceneDelegate.swift in Sources */,
 				F4A4321323B8769C001787A5 /* PhotoCell.swift in Sources */,
+				F49740FA248C8415004CCBDA /* LoaderView.swift in Sources */,
 				F497CFF423ACEC3800DED004 /* UIImageExtension.swift in Sources */,
 				F4A4322E23B877EC001787A5 /* VideoProgressView.swift in Sources */,
 				F4A4323623B877EC001787A5 /* ViewableController.swift in Sources */,
@@ -645,6 +688,7 @@
 				F4AD5A8723B2607400784D94 /* HelpVC.swift in Sources */,
 				F4E09AB82467D3E700EF0197 /* LivePhotoCaptureViewController.swift in Sources */,
 				F4B0D8FA23ADEE55007F0380 /* CameraVidoeVC.swift in Sources */,
+				F49740F7248C8415004CCBDA /* IAPManager.swift in Sources */,
 				F4A4321723B8769C001787A5 /* PhotosCollectionLayout.swift in Sources */,
 				F4A4323523B877EC001787A5 /* SlideshowView.swift in Sources */,
 				F4A4323223B877EC001787A5 /* NSIndexPath+Contiguous.swift in Sources */,

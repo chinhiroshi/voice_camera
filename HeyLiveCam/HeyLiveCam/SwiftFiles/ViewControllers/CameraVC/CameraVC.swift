@@ -147,6 +147,11 @@ class CameraVC: UIViewController {
             }
         }
         
+        if cameraStatus == .photo {
+            
+            //Photo Event
+            self.photoEvent(isCapturePhoto: false)
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -227,6 +232,7 @@ class CameraVC: UIViewController {
             self.startLivePhotoCamera()
         }
     }
+    
     func setAllText() {
         
         //Button
@@ -621,19 +627,36 @@ extension CameraVC {
             
         } else if(self.strSpeechTextParssed == self.strTakePhoto || self.strSpeechTextParssed == CameraControlStatic.photo.rawValue) {
             
-            //Photo Event
-            self.photoEvent(isCapturePhoto: true)
+            if isUserCanTakePhoto() {
+                //Photo Event
+                self.photoEvent(isCapturePhoto: true)
+                
+            } else {
+                //Redirect To In App Purchase Screen
+                self.redirectToInAppPurchaseScreen()
+            }
             
         } else if(self.strSpeechTextParssed == self.strTakeLivePhoto || self.strSpeechTextParssed == CameraControlStatic.livePhoto.rawValue) {
-                   
-            //Live Photo Event
-            self.livePhotoEvent(isCapturePhoto: true)
+            
+            if isUserCanTakePhoto() {
+                //Live Photo Event
+                self.livePhotoEvent(isCapturePhoto: true)
+                
+            } else {
+                //Redirect To In App Purchase Screen
+                self.redirectToInAppPurchaseScreen()
+            }
                    
         } else if(self.strSpeechTextParssed == self.strStartRecordingVideo || self.strSpeechTextParssed == CameraControlStatic.video.rawValue) {
                    
-            //Video Event
-            self.videoEvent(isPlayVideo: true)
-            
+            if isUserCanTakePhoto() {
+                //Video Event
+                self.videoEvent(isPlayVideo: true)
+                
+            } else {
+                //Redirect To In App Purchase Screen
+                self.redirectToInAppPurchaseScreen()
+            }
         } else if(self.strSpeechTextParssed == self.strStopRecordingVideo || self.strSpeechTextParssed == CameraControlStatic.stop.rawValue) {
             
             self.stopRecording()
@@ -642,6 +665,38 @@ extension CameraVC {
             
             //Close The App
             self.closeTheApp()
+        }
+    }
+    func isUserCanTakePhoto() -> Bool {
+        
+        let isProductPurchased = IAPManager.shared.isProductPurchased(productId: strInAppPurchase)
+        if isProductPurchased {
+            return true
+        } else {
+            
+            let strLastDate = UserDefaults.Main.string(forKey: .last_date)
+            let int_photo_shoot_by_voice_counter = UserDefaults.Main.integer(forKey: .int_photo_shoot_by_voice_counter)
+            
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let str_current_date = formatter.string(from: date)
+            
+            if strLastDate == str_current_date && int_photo_shoot_by_voice_counter < 10 {
+                
+                UserDefaults.Main.set((int_photo_shoot_by_voice_counter+1), forKey: .int_photo_shoot_by_voice_counter)
+                return true
+                
+            } else if strLastDate != str_current_date {
+                       
+                UserDefaults.Main.set(str_current_date, forKey: .last_date)
+                UserDefaults.Main.set(1, forKey: .int_photo_shoot_by_voice_counter)
+                
+                return true
+            } else {
+                
+                return false
+            }
         }
     }
 }
@@ -1435,8 +1490,6 @@ extension CameraVC {
         //Redirect To Settings Screen
         self.redirectToSettingsScreen()
         
-        //Redirect To In App Purchase Screen
-        //self.redirectToInAppPurchaseScreen()
     }
 }
 //MARK: - AV Capture Photo Capture Delegate
@@ -1477,7 +1530,7 @@ extension CameraVC {
     func redirectToInAppPurchaseScreen() {
         
         let vcInAppPurchase = self.storyboard?.instantiateViewController(withIdentifier: "InAppPurchaseVC") as! InAppPurchaseVC
-        self.present(vcInAppPurchase, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vcInAppPurchase, animated: true)
     }
     func redirectToPhotoGallery() {
         /*let localController = PhotosController(dataSourceType: .local)

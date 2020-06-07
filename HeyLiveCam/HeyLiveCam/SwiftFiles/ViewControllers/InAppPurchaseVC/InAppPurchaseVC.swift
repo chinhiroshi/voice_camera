@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IAPurchaseManager
 
 //MARK: - In App Purchase VC
 class InAppPurchaseVC: UIViewController {
@@ -17,8 +18,8 @@ class InAppPurchaseVC: UIViewController {
     @IBOutlet var lblDescription: UILabel!
     
     //TODO: - Variable Declaration
-    var strRupees = "79.00"
-    
+    var strPrice = ""
+    var loaderView: LoaderView?
     
     //TODO: - Override Methods
     override func viewDidLoad() {
@@ -29,11 +30,49 @@ class InAppPurchaseVC: UIViewController {
     }
     func initialization() {
         
+        //strPrice
+        strPrice = UserDefaults.Main.string(forKey: .in_app_purchase_price)
+        
         controlPurchaseUnlimited.layer.cornerRadius = 8
-        lblPurchaseUnlimited.text = "Purchase Unlimited - ₹ ".getLocalized() + strRupees;
+        lblPurchaseUnlimited.text = "Purchase Unlimited - ".getLocalized() + strPrice;
         lblDescription.text = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos.".getLocalized()
     }
+    func buyPremiumFeature() {
+        
+        showLoaderView(with: "")
+        IAPManager.shared.purchaseProduct(productId: strInAppPurchase) { (error) -> Void in
+            if error == nil {
+                print("successful purchase!")
+            } else {
+                print("something wrong..")
+                print(error ?? "NIL")
+            }
+            
+            //Redirect To Back
+            self.redirectToBack()
+            
+            //Hide Loader
+            self.hideLoader()
+        }
+    }
 }
+
+// MARK: - Show / Hide loader for purchase and restore
+extension InAppPurchaseVC {
+    func showLoaderView(with title:String) {
+        loaderView = LoaderView.instanceFromNib()
+        loaderView?.lblLoaderTitle.text = title
+        loaderView?.frame = self.view.frame
+        self.view.addSubview(loaderView!)
+    }
+
+    func hideLoader() {
+        if loaderView != nil {
+            loaderView?.removeFromSuperview()
+        }
+    }
+}
+
 //MARK: - Tapped Event
 extension InAppPurchaseVC {
     @IBAction func tappedOnClose(_ sender: Any) {
@@ -43,6 +82,8 @@ extension InAppPurchaseVC {
     }
     @IBAction func tappedOnPurchaseUnlimited(_ sender: Any) {
         
+        //Buy Premium Feature
+        self.buyPremiumFeature()
     }
 }
 //MARK: - Redirect to next view
@@ -50,6 +91,6 @@ extension InAppPurchaseVC {
 
     //Redirect To Back
     func redirectToBack() {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }

@@ -3,80 +3,99 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		034EC5D06653DBBAAC9EEDAA18237324 /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274718643DD359E5D5E5F78A615BB4D0 /* SlideshowView.swift */; };
-		11F255BB5EB0779A15EEA8F6BACF66D7 /* ViewerAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DABEA3F703E5133327D3E807D8E5D2C /* ViewerAssets.swift */; };
-		1698CDDB1DA11A2461E86244E83F1AF8 /* ViewableControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D1DC4630F71826DD07DBCA6FBBE30 /* ViewableControllerContainer.swift */; };
-		1BE99D3D868252327A875DCF5EA2E6FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		034EC5D06653DBBAAC9EEDAA18237324 /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75653DA693A504F0D7FC6972BA314435 /* SlideshowView.swift */; };
+		0909435020E6B18595121581BF33F40D /* IAPurchaseManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C27827FE73A571970B0DA9E2DB729 /* IAPurchaseManager-dummy.m */; };
+		1174EC4FF655892226CC61D4F8A7B364 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E79025F4499DCF63E4ECE50E68525 /* IAPManager.swift */; };
+		11F255BB5EB0779A15EEA8F6BACF66D7 /* ViewerAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26374F180D98F3ECEB6C7469A4EEB944 /* ViewerAssets.swift */; };
+		1698CDDB1DA11A2461E86244E83F1AF8 /* ViewableControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B399C4C71E2C727195AEF60AC5CCC /* ViewableControllerContainer.swift */; };
 		272E144808BB04444D7D15E2C0FA642E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		31FBA8B406B2724E8A781EE74C6CC0BE /* Pods-HeyLiveCam-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F373748EDD99A00D31FDD9EF9C69E57 /* Pods-HeyLiveCam-dummy.m */; };
-		3E41BCBA1E74487A29A8BA03F07C6D1F /* VideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0DC855F5E9CCEA94B9F7B9E392EC04 /* VideoProgressView.swift */; };
-		493D1B7EEEB1C51D6B4B6E6E952EE6A7 /* NSIndexPath+Contiguous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F25E9DA1985E91F145B31D6420FFC9 /* NSIndexPath+Contiguous.swift */; };
+		3E41BCBA1E74487A29A8BA03F07C6D1F /* VideoProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47372ED8E163455A798DAA13DCC719F0 /* VideoProgressView.swift */; };
+		493D1B7EEEB1C51D6B4B6E6E952EE6A7 /* NSIndexPath+Contiguous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DD21CB716BC8A9C43AFDD07A1A973 /* NSIndexPath+Contiguous.swift */; };
+		4CA81267E6005E66025BA8E67A289C79 /* Pods-HeyLiveCam-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F373748EDD99A00D31FDD9EF9C69E57 /* Pods-HeyLiveCam-dummy.m */; };
 		4ED78CB3285B32B3C8EDDB64E0F61970 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		77C2CFC813F6F44ED40702344267F824 /* ViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EB0B7F925F5F251471AD576F2AFA7 /* ViewerController.swift */; };
-		98F7723A91E5C078907FFA5722346ABB /* UIImage+CenteredFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692F62B77DDEA3D09D2CF9DF7624DB02 /* UIImage+CenteredFrame.swift */; };
-		99AE01BDE31063A026954B1ED139D354 /* Viewer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F998913215009A5884FB0D438BFE5C /* Viewer.xcassets */; };
-		C170CB78FECF5B8BCE3A94CC91A21EDF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2E77812F965ED9EE904650BAB1E94 /* VideoView.swift */; };
-		C1E77AAAAC926DC76BD559DA748DE72F /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BE7B2F061A550DD27AEB7F65019F0D /* Viewable.swift */; };
-		D2F31241AFB62008F4EDDAD2B28BFB12 /* Viewer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B53767EC3CA8AB908AE69B0E4780AC /* Viewer-dummy.m */; };
-		DBAE5EABD8E214406FBDBEC76524342A /* DefaultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132E3513520C7ED8B9F43AD2E9B43DC /* DefaultHeaderView.swift */; };
-		E0198C244449A9E68F2160E31E9F785E /* UIViewController+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088F07FAE9A66E6C366FA750B0770CA /* UIViewController+Window.swift */; };
-		E1040D4259A06D0209552DDF5C542975 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D167BC2D466D480C2FD4456DB1772 /* PaginatedScrollView.swift */; };
-		EEFCEE90B32EC24B214F5E3F44FF8F7B /* Viewer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0529635F9DB5C6E303EB03863D5EDD /* Viewer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F3AC87874D74A814E1DD6B13BB221438 /* ViewableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C47C55720E32ACBFD764227E8B9238 /* ViewableController.swift */; };
-		F671945B3B0DE63AEA784F05DCAA8590 /* Pods-HeyLiveCam-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE8C03DB14AF237328747AACB0C28ED /* Pods-HeyLiveCam-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC57146472C1B1C053ADD3A8EA0D0F98 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A5CDEF9B786AEAE5F42B1932302325 /* UIViewExtensions.swift */; };
+		5A03E13DEB156D18E284C92CE096BD2F /* IAPurchaseManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 018AA537EBEBE356E9B5C34BB4E574FA /* IAPurchaseManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77C2CFC813F6F44ED40702344267F824 /* ViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BDC49E18D92181263B81E05E3B6290 /* ViewerController.swift */; };
+		98F7723A91E5C078907FFA5722346ABB /* UIImage+CenteredFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548E74C6582460C12B5580E8D6522E61 /* UIImage+CenteredFrame.swift */; };
+		99AE01BDE31063A026954B1ED139D354 /* Viewer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F29B1F8E7E236724DC42913D0FC89 /* Viewer.xcassets */; };
+		C170CB78FECF5B8BCE3A94CC91A21EDF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0026E3414AD9FEDFCF9D8F53A7B6AE /* VideoView.swift */; };
+		C1E77AAAAC926DC76BD559DA748DE72F /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7000EE9E534CBFF2C74B527AF618914 /* Viewable.swift */; };
+		C6420F1A2ADB2BD0D190F79CF088DBF9 /* Pods-HeyLiveCam-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE8C03DB14AF237328747AACB0C28ED /* Pods-HeyLiveCam-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2F31241AFB62008F4EDDAD2B28BFB12 /* Viewer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8F948D205B93576DFEA61A3F2E0CC /* Viewer-dummy.m */; };
+		DBAE5EABD8E214406FBDBEC76524342A /* DefaultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B04630656F42128F3E4D5746E7E17F /* DefaultHeaderView.swift */; };
+		E0198C244449A9E68F2160E31E9F785E /* UIViewController+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C32B79BAD8EE5AE75CDBD1207A3579 /* UIViewController+Window.swift */; };
+		E1040D4259A06D0209552DDF5C542975 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEE1D1A608EA7E80845F3357F0A79E7 /* PaginatedScrollView.swift */; };
+		EAB1E9251730EB5195D1469E77EF21B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		EEFCEE90B32EC24B214F5E3F44FF8F7B /* Viewer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A95E971F6F9F60514CB64EDF4D47F8C /* Viewer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3AC87874D74A814E1DD6B13BB221438 /* ViewableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424489ECA14FDAFCB9CAD0116F025E58 /* ViewableController.swift */; };
+		FC57146472C1B1C053ADD3A8EA0D0F98 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C82C7C60CAE2CEEE4372430D961B88 /* UIViewExtensions.swift */; };
+		FF232C48A635833F9D50D5E204248D31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ED1CA29CD27382A5FAFFD271676C2960 /* PBXContainerItemProxy */ = {
+		0B91081326332424925939340E737493 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5DE22257779495AB28DAFF598718B662;
 			remoteInfo = Viewer;
 		};
+		F0714D561331DDE49C49C5DCBEB0B31C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6E11A7243E6977A796734B7A3136EE7;
+			remoteInfo = IAPurchaseManager;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018AA537EBEBE356E9B5C34BB4E574FA /* IAPurchaseManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IAPurchaseManager-umbrella.h"; sourceTree = "<group>"; };
 		026FA9F94FCC77B9B3F0CF03E09D16E5 /* Pods-HeyLiveCam-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HeyLiveCam-acknowledgements.markdown"; sourceTree = "<group>"; };
-		02F25E9DA1985E91F145B31D6420FFC9 /* NSIndexPath+Contiguous.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Contiguous.swift"; path = "Source/NSIndexPath+Contiguous.swift"; sourceTree = "<group>"; };
+		03A38F24CF61B32928074B0E0BC9D35E /* IAPurchaseManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IAPurchaseManager.xcconfig; sourceTree = "<group>"; };
+		051AC82B84EDB9E7720120FADB70AD52 /* IAPurchaseManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IAPurchaseManager.modulemap; sourceTree = "<group>"; };
+		0A95E971F6F9F60514CB64EDF4D47F8C /* Viewer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viewer-umbrella.h"; sourceTree = "<group>"; };
 		0F373748EDD99A00D31FDD9EF9C69E57 /* Pods-HeyLiveCam-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HeyLiveCam-dummy.m"; sourceTree = "<group>"; };
+		1095C7137290EA3AFDB013DD7D56A928 /* Viewer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viewer-prefix.pch"; sourceTree = "<group>"; };
+		14F8F948D205B93576DFEA61A3F2E0CC /* Viewer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Viewer-dummy.m"; sourceTree = "<group>"; };
 		1934B78DC8E5A9F10FACBD24C829DF0A /* Pods-HeyLiveCam-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HeyLiveCam-frameworks.sh"; sourceTree = "<group>"; };
-		1DABEA3F703E5133327D3E807D8E5D2C /* ViewerAssets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewerAssets.swift; path = Source/ViewerAssets.swift; sourceTree = "<group>"; };
+		26374F180D98F3ECEB6C7469A4EEB944 /* ViewerAssets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewerAssets.swift; path = Source/ViewerAssets.swift; sourceTree = "<group>"; };
 		2666206CF4344DD812A2AA9944FE7B66 /* Pods-HeyLiveCam-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HeyLiveCam-acknowledgements.plist"; sourceTree = "<group>"; };
-		26B2E77812F965ED9EE904650BAB1E94 /* VideoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoView.swift; path = Source/VideoView.swift; sourceTree = "<group>"; };
-		274718643DD359E5D5E5F78A615BB4D0 /* SlideshowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SlideshowView.swift; path = Source/SlideshowView.swift; sourceTree = "<group>"; };
+		28D1A79AEA13452489F2E3FEF0C6494B /* IAPurchaseManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IAPurchaseManager-prefix.pch"; sourceTree = "<group>"; };
+		2B2DD21CB716BC8A9C43AFDD07A1A973 /* NSIndexPath+Contiguous.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSIndexPath+Contiguous.swift"; path = "Source/NSIndexPath+Contiguous.swift"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A9D167BC2D466D480C2FD4456DB1772 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaginatedScrollView.swift; path = Source/PaginatedScrollView.swift; sourceTree = "<group>"; };
 		3BB7F5B62CCF0782B3871E68526EE0A8 /* Pods-HeyLiveCam.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HeyLiveCam.modulemap"; sourceTree = "<group>"; };
-		4132E3513520C7ED8B9F43AD2E9B43DC /* DefaultHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultHeaderView.swift; path = Source/DefaultHeaderView.swift; sourceTree = "<group>"; };
+		424489ECA14FDAFCB9CAD0116F025E58 /* ViewableController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewableController.swift; path = Source/ViewableController.swift; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		49C47C55720E32ACBFD764227E8B9238 /* ViewableController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewableController.swift; path = Source/ViewableController.swift; sourceTree = "<group>"; };
-		4A0529635F9DB5C6E303EB03863D5EDD /* Viewer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viewer-umbrella.h"; sourceTree = "<group>"; };
-		4D0DC855F5E9CCEA94B9F7B9E392EC04 /* VideoProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoProgressView.swift; path = Source/VideoProgressView.swift; sourceTree = "<group>"; };
-		58A5CDEF9B786AEAE5F42B1932302325 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Source/UIViewExtensions.swift; sourceTree = "<group>"; };
-		692F62B77DDEA3D09D2CF9DF7624DB02 /* UIImage+CenteredFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+CenteredFrame.swift"; path = "Source/UIImage+CenteredFrame.swift"; sourceTree = "<group>"; };
-		6AA453A7EF38DF6AFD7FFD5D8756D0E3 /* Viewer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Viewer.modulemap; sourceTree = "<group>"; };
+		47372ED8E163455A798DAA13DCC719F0 /* VideoProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoProgressView.swift; path = Source/VideoProgressView.swift; sourceTree = "<group>"; };
+		52BDC49E18D92181263B81E05E3B6290 /* ViewerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewerController.swift; path = Source/ViewerController.swift; sourceTree = "<group>"; };
+		548E74C6582460C12B5580E8D6522E61 /* UIImage+CenteredFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+CenteredFrame.swift"; path = "Source/UIImage+CenteredFrame.swift"; sourceTree = "<group>"; };
+		54C32B79BAD8EE5AE75CDBD1207A3579 /* UIViewController+Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Window.swift"; path = "Source/UIViewController+Window.swift"; sourceTree = "<group>"; };
+		64C82C7C60CAE2CEEE4372430D961B88 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Source/UIViewExtensions.swift; sourceTree = "<group>"; };
 		6CE8C03DB14AF237328747AACB0C28ED /* Pods-HeyLiveCam-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HeyLiveCam-umbrella.h"; sourceTree = "<group>"; };
-		78F998913215009A5884FB0D438BFE5C /* Viewer.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Viewer.xcassets; path = Source/Viewer.xcassets; sourceTree = "<group>"; };
+		6D91058C46305382961373F22CD45E44 /* IAPurchaseManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IAPurchaseManager.framework; path = IAPurchaseManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75653DA693A504F0D7FC6972BA314435 /* SlideshowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SlideshowView.swift; path = Source/SlideshowView.swift; sourceTree = "<group>"; };
 		7CB29199DAEB632F8BC2A15C40671399 /* Pods-HeyLiveCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HeyLiveCam.release.xcconfig"; sourceTree = "<group>"; };
+		81A494A89CA4BC93E779DFF95FC38E7C /* IAPurchaseManager-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IAPurchaseManager-Info.plist"; sourceTree = "<group>"; };
+		8B8F29B1F8E7E236724DC42913D0FC89 /* Viewer.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Viewer.xcassets; path = Source/Viewer.xcassets; sourceTree = "<group>"; };
 		910B3B28A0740E5B2D1C43D328641CF4 /* Pods_HeyLiveCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HeyLiveCam.framework; path = "Pods-HeyLiveCam.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		944EB0B7F925F5F251471AD576F2AFA7 /* ViewerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewerController.swift; path = Source/ViewerController.swift; sourceTree = "<group>"; };
+		9C0026E3414AD9FEDFCF9D8F53A7B6AE /* VideoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoView.swift; path = Source/VideoView.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1B53767EC3CA8AB908AE69B0E4780AC /* Viewer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Viewer-dummy.m"; sourceTree = "<group>"; };
 		A26DB440D2926169C17ACD0240E4B9B7 /* Pods-HeyLiveCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HeyLiveCam.debug.xcconfig"; sourceTree = "<group>"; };
+		A6031889BA8D1EC9B23B2F47AF9C1F70 /* Viewer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Viewer-Info.plist"; sourceTree = "<group>"; };
+		A7000EE9E534CBFF2C74B527AF618914 /* Viewable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Viewable.swift; path = Source/Viewable.swift; sourceTree = "<group>"; };
+		A8A2EC3BE75276B047D99326DF091DD0 /* Viewer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Viewer.modulemap; sourceTree = "<group>"; };
+		B88E79025F4499DCF63E4ECE50E68525 /* IAPManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		B8D8A1930AA46168E508AF4CE06724BD /* Pods-HeyLiveCam-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HeyLiveCam-Info.plist"; sourceTree = "<group>"; };
-		B94C45E3935396C5BDE1669003DF63F4 /* Viewer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viewer-prefix.pch"; sourceTree = "<group>"; };
-		BFE8E21B7716C3527C67AC3BDBA0041A /* Viewer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viewer.xcconfig; sourceTree = "<group>"; };
-		D05D1DC4630F71826DD07DBCA6FBBE30 /* ViewableControllerContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewableControllerContainer.swift; path = Source/ViewableControllerContainer.swift; sourceTree = "<group>"; };
-		D088F07FAE9A66E6C366FA750B0770CA /* UIViewController+Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Window.swift"; path = "Source/UIViewController+Window.swift"; sourceTree = "<group>"; };
+		BD3B399C4C71E2C727195AEF60AC5CCC /* ViewableControllerContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewableControllerContainer.swift; path = Source/ViewableControllerContainer.swift; sourceTree = "<group>"; };
+		C35C27827FE73A571970B0DA9E2DB729 /* IAPurchaseManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IAPurchaseManager-dummy.m"; sourceTree = "<group>"; };
 		DEBA5B746B190CCAABADA0ED59503299 /* Viewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Viewer.framework; path = Viewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8BE7B2F061A550DD27AEB7F65019F0D /* Viewable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Viewable.swift; path = Source/Viewable.swift; sourceTree = "<group>"; };
-		F6343841DEB06D9BFCC83273204CC1FE /* Viewer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Viewer-Info.plist"; sourceTree = "<group>"; };
+		E29E699DFE321DCCA494131904F22E28 /* Viewer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viewer.xcconfig; sourceTree = "<group>"; };
+		E6B04630656F42128F3E4D5746E7E17F /* DefaultHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultHeaderView.swift; path = Source/DefaultHeaderView.swift; sourceTree = "<group>"; };
+		FDEE1D1A608EA7E80845F3357F0A79E7 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaginatedScrollView.swift; path = Source/PaginatedScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,47 +108,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8240E963570961D060BBA45E331E9615 /* Frameworks */ = {
+		A8E24D6635DB9F6BAB79048202885FDB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BE99D3D868252327A875DCF5EA2E6FB /* Foundation.framework in Frameworks */,
+				EAB1E9251730EB5195D1469E77EF21B8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F38984D6752A644614C5A30E16F421F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF232C48A635833F9D50D5E204248D31 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CDD7E24A673BDA440F6BD4CF52A6D0C /* Pods */ = {
+		0781F73241A9D0F9015B66572B90EE96 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				11F4176CACAEB197964DE8679DAE62E1 /* Viewer */,
+				42F394533885AD49B2362665EC82AFED /* IAPurchaseManager */,
+				8C2EE99616C39A815448F8517349F812 /* Viewer */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		11F4176CACAEB197964DE8679DAE62E1 /* Viewer */ = {
-			isa = PBXGroup;
-			children = (
-				4132E3513520C7ED8B9F43AD2E9B43DC /* DefaultHeaderView.swift */,
-				02F25E9DA1985E91F145B31D6420FFC9 /* NSIndexPath+Contiguous.swift */,
-				3A9D167BC2D466D480C2FD4456DB1772 /* PaginatedScrollView.swift */,
-				274718643DD359E5D5E5F78A615BB4D0 /* SlideshowView.swift */,
-				692F62B77DDEA3D09D2CF9DF7624DB02 /* UIImage+CenteredFrame.swift */,
-				D088F07FAE9A66E6C366FA750B0770CA /* UIViewController+Window.swift */,
-				58A5CDEF9B786AEAE5F42B1932302325 /* UIViewExtensions.swift */,
-				4D0DC855F5E9CCEA94B9F7B9E392EC04 /* VideoProgressView.swift */,
-				26B2E77812F965ED9EE904650BAB1E94 /* VideoView.swift */,
-				E8BE7B2F061A550DD27AEB7F65019F0D /* Viewable.swift */,
-				49C47C55720E32ACBFD764227E8B9238 /* ViewableController.swift */,
-				D05D1DC4630F71826DD07DBCA6FBBE30 /* ViewableControllerContainer.swift */,
-				1DABEA3F703E5133327D3E807D8E5D2C /* ViewerAssets.swift */,
-				944EB0B7F925F5F251471AD576F2AFA7 /* ViewerController.swift */,
-				BD25A2180BF6C7829B26F87644594870 /* Resources */,
-				5DE1821CD939E8C77D5B09A2DF03C91D /* Support Files */,
-			);
-			name = Viewer;
-			path = Viewer;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -138,6 +142,24 @@
 				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18569C629FF5DCC52A551D13A554A8EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D91058C46305382961373F22CD45E44 /* IAPurchaseManager.framework */,
+				910B3B28A0740E5B2D1C43D328641CF4 /* Pods_HeyLiveCam.framework */,
+				DEBA5B746B190CCAABADA0ED59503299 /* Viewer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28E938BFACBCB1DE30EC4DB65D37AFC6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B8F29B1F8E7E236724DC42913D0FC89 /* Viewer.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		2DC268594E1E93A7DEBDC3FC7F57DFAF /* Pods-HeyLiveCam */ = {
@@ -157,18 +179,28 @@
 			path = "Target Support Files/Pods-HeyLiveCam";
 			sourceTree = "<group>";
 		};
-		5DE1821CD939E8C77D5B09A2DF03C91D /* Support Files */ = {
+		42F394533885AD49B2362665EC82AFED /* IAPurchaseManager */ = {
 			isa = PBXGroup;
 			children = (
-				6AA453A7EF38DF6AFD7FFD5D8756D0E3 /* Viewer.modulemap */,
-				BFE8E21B7716C3527C67AC3BDBA0041A /* Viewer.xcconfig */,
-				A1B53767EC3CA8AB908AE69B0E4780AC /* Viewer-dummy.m */,
-				F6343841DEB06D9BFCC83273204CC1FE /* Viewer-Info.plist */,
-				B94C45E3935396C5BDE1669003DF63F4 /* Viewer-prefix.pch */,
-				4A0529635F9DB5C6E303EB03863D5EDD /* Viewer-umbrella.h */,
+				B88E79025F4499DCF63E4ECE50E68525 /* IAPManager.swift */,
+				5CA8613344EE9F26BC975BC4221E035F /* Support Files */,
+			);
+			name = IAPurchaseManager;
+			path = IAPurchaseManager;
+			sourceTree = "<group>";
+		};
+		5CA8613344EE9F26BC975BC4221E035F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				051AC82B84EDB9E7720120FADB70AD52 /* IAPurchaseManager.modulemap */,
+				03A38F24CF61B32928074B0E0BC9D35E /* IAPurchaseManager.xcconfig */,
+				C35C27827FE73A571970B0DA9E2DB729 /* IAPurchaseManager-dummy.m */,
+				81A494A89CA4BC93E779DFF95FC38E7C /* IAPurchaseManager-Info.plist */,
+				28D1A79AEA13452489F2E3FEF0C6494B /* IAPurchaseManager-prefix.pch */,
+				018AA537EBEBE356E9B5C34BB4E574FA /* IAPurchaseManager-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Viewer";
+			path = "../Target Support Files/IAPurchaseManager";
 			sourceTree = "<group>";
 		};
 		7D52578646D402BBD88BCBDE16A6EDD1 /* Targets Support Files */ = {
@@ -179,12 +211,28 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BD25A2180BF6C7829B26F87644594870 /* Resources */ = {
+		8C2EE99616C39A815448F8517349F812 /* Viewer */ = {
 			isa = PBXGroup;
 			children = (
-				78F998913215009A5884FB0D438BFE5C /* Viewer.xcassets */,
+				E6B04630656F42128F3E4D5746E7E17F /* DefaultHeaderView.swift */,
+				2B2DD21CB716BC8A9C43AFDD07A1A973 /* NSIndexPath+Contiguous.swift */,
+				FDEE1D1A608EA7E80845F3357F0A79E7 /* PaginatedScrollView.swift */,
+				75653DA693A504F0D7FC6972BA314435 /* SlideshowView.swift */,
+				548E74C6582460C12B5580E8D6522E61 /* UIImage+CenteredFrame.swift */,
+				54C32B79BAD8EE5AE75CDBD1207A3579 /* UIViewController+Window.swift */,
+				64C82C7C60CAE2CEEE4372430D961B88 /* UIViewExtensions.swift */,
+				47372ED8E163455A798DAA13DCC719F0 /* VideoProgressView.swift */,
+				9C0026E3414AD9FEDFCF9D8F53A7B6AE /* VideoView.swift */,
+				A7000EE9E534CBFF2C74B527AF618914 /* Viewable.swift */,
+				424489ECA14FDAFCB9CAD0116F025E58 /* ViewableController.swift */,
+				BD3B399C4C71E2C727195AEF60AC5CCC /* ViewableControllerContainer.swift */,
+				26374F180D98F3ECEB6C7469A4EEB944 /* ViewerAssets.swift */,
+				52BDC49E18D92181263B81E05E3B6290 /* ViewerController.swift */,
+				28E938BFACBCB1DE30EC4DB65D37AFC6 /* Resources */,
+				F604E307C85340D7B9F0C7ABE8B72661 /* Support Files */,
 			);
-			name = Resources;
+			name = Viewer;
+			path = Viewer;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -192,19 +240,10 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				0CDD7E24A673BDA440F6BD4CF52A6D0C /* Pods */,
-				DD20C58A030BE9BCEC114C8C67CA7951 /* Products */,
+				0781F73241A9D0F9015B66572B90EE96 /* Pods */,
+				18569C629FF5DCC52A551D13A554A8EB /* Products */,
 				7D52578646D402BBD88BCBDE16A6EDD1 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		DD20C58A030BE9BCEC114C8C67CA7951 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				910B3B28A0740E5B2D1C43D328641CF4 /* Pods_HeyLiveCam.framework */,
-				DEBA5B746B190CCAABADA0ED59503299 /* Viewer.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
@@ -216,9 +255,31 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		F604E307C85340D7B9F0C7ABE8B72661 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8A2EC3BE75276B047D99326DF091DD0 /* Viewer.modulemap */,
+				E29E699DFE321DCCA494131904F22E28 /* Viewer.xcconfig */,
+				14F8F948D205B93576DFEA61A3F2E0CC /* Viewer-dummy.m */,
+				A6031889BA8D1EC9B23B2F47AF9C1F70 /* Viewer-Info.plist */,
+				1095C7137290EA3AFDB013DD7D56A928 /* Viewer-prefix.pch */,
+				0A95E971F6F9F60514CB64EDF4D47F8C /* Viewer-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Viewer";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		455429E4B8EE1D63C31932D31DC64BA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A03E13DEB156D18E284C92CE096BD2F /* IAPurchaseManager-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91768734234631611435F7E56AECCE11 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,11 +288,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAE34F45F6E49F0DE20B3F6D445BC73E /* Headers */ = {
+		F975F6AD2EF7939A367C5D9F604E7C95 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F671945B3B0DE63AEA784F05DCAA8590 /* Pods-HeyLiveCam-umbrella.h in Headers */,
+				C6420F1A2ADB2BD0D190F79CF088DBF9 /* Pods-HeyLiveCam-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,21 +319,40 @@
 		};
 		DD3C1A52F2F10AAB282786441CB1A3A6 /* Pods-HeyLiveCam */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C402EA0457EC6D17E1E0F718241448A6 /* Build configuration list for PBXNativeTarget "Pods-HeyLiveCam" */;
+			buildConfigurationList = F88D6D086C4EA1C7B980DACC6699958B /* Build configuration list for PBXNativeTarget "Pods-HeyLiveCam" */;
 			buildPhases = (
-				BAE34F45F6E49F0DE20B3F6D445BC73E /* Headers */,
-				93D1A8F01ED283CAABBC20912C36897C /* Sources */,
-				8240E963570961D060BBA45E331E9615 /* Frameworks */,
-				0266E88E9B9077A0BD0EDA93F4E2300C /* Resources */,
+				F975F6AD2EF7939A367C5D9F604E7C95 /* Headers */,
+				4C4350CF6F0129CA20804AD08B239FE6 /* Sources */,
+				A8E24D6635DB9F6BAB79048202885FDB /* Frameworks */,
+				7DD02A8CDD9C0CB3CF6059A1BEF2CB1A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8FD01138E52548EF424537A38919BFF1 /* PBXTargetDependency */,
+				1ADBC6675B3A0C14A7761DDC5AC6E34E /* PBXTargetDependency */,
+				E64DE48B35443B5FC7B6B540B90242C8 /* PBXTargetDependency */,
 			);
 			name = "Pods-HeyLiveCam";
 			productName = "Pods-HeyLiveCam";
 			productReference = 910B3B28A0740E5B2D1C43D328641CF4 /* Pods_HeyLiveCam.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E6E11A7243E6977A796734B7A3136EE7 /* IAPurchaseManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AD0F02E3A6A24F15A02EE8D4DFBF07 /* Build configuration list for PBXNativeTarget "IAPurchaseManager" */;
+			buildPhases = (
+				455429E4B8EE1D63C31932D31DC64BA2 /* Headers */,
+				C5864D8D7AFAA518D15EB67DF39D82A7 /* Sources */,
+				F38984D6752A644614C5A30E16F421F5 /* Frameworks */,
+				D3F333AF446E2BD19F40EDC1528770B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IAPurchaseManager;
+			productName = IAPurchaseManager;
+			productReference = 6D91058C46305382961373F22CD45E44 /* IAPurchaseManager.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +365,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -293,10 +373,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = DD20C58A030BE9BCEC114C8C67CA7951 /* Products */;
+			productRefGroup = 18569C629FF5DCC52A551D13A554A8EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				E6E11A7243E6977A796734B7A3136EE7 /* IAPurchaseManager */,
 				DD3C1A52F2F10AAB282786441CB1A3A6 /* Pods-HeyLiveCam */,
 				5DE22257779495AB28DAFF598718B662 /* Viewer */,
 			);
@@ -304,13 +385,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0266E88E9B9077A0BD0EDA93F4E2300C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6373A4D5ED1E755BEF635131C39D1CDA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,14 +393,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7DD02A8CDD9C0CB3CF6059A1BEF2CB1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F333AF446E2BD19F40EDC1528770B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		93D1A8F01ED283CAABBC20912C36897C /* Sources */ = {
+		4C4350CF6F0129CA20804AD08B239FE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FBA8B406B2724E8A781EE74C6CC0BE /* Pods-HeyLiveCam-dummy.m in Sources */,
+				4CA81267E6005E66025BA8E67A289C79 /* Pods-HeyLiveCam-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,57 +440,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5864D8D7AFAA518D15EB67DF39D82A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1174EC4FF655892226CC61D4F8A7B364 /* IAPManager.swift in Sources */,
+				0909435020E6B18595121581BF33F40D /* IAPurchaseManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8FD01138E52548EF424537A38919BFF1 /* PBXTargetDependency */ = {
+		1ADBC6675B3A0C14A7761DDC5AC6E34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IAPurchaseManager;
+			target = E6E11A7243E6977A796734B7A3136EE7 /* IAPurchaseManager */;
+			targetProxy = F0714D561331DDE49C49C5DCBEB0B31C /* PBXContainerItemProxy */;
+		};
+		E64DE48B35443B5FC7B6B540B90242C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Viewer;
 			target = 5DE22257779495AB28DAFF598718B662 /* Viewer */;
-			targetProxy = ED1CA29CD27382A5FAFFD271676C2960 /* PBXContainerItemProxy */;
+			targetProxy = 0B91081326332424925939340E737493 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		121A566DB247E7FCA242343C0F68D524 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CB29199DAEB632F8BC2A15C40671399 /* Pods-HeyLiveCam.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -463,10 +527,82 @@
 			};
 			name = Release;
 		};
-		922162DA9133FFFABF7BEFB99E6F4600 /* Debug */ = {
+		306F09C9EB04C10FAF12D57F293A42A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE8E21B7716C3527C67AC3BDBA0041A /* Viewer.xcconfig */;
+			baseConfigurationReference = 03A38F24CF61B32928074B0E0BC9D35E /* IAPurchaseManager.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IAPurchaseManager/IAPurchaseManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IAPurchaseManager/IAPurchaseManager-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IAPurchaseManager/IAPurchaseManager.modulemap";
+				PRODUCT_MODULE_NAME = IAPurchaseManager;
+				PRODUCT_NAME = IAPurchaseManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		375682168FC5374A55495B371D678E97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03A38F24CF61B32928074B0E0BC9D35E /* IAPurchaseManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IAPurchaseManager/IAPurchaseManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IAPurchaseManager/IAPurchaseManager-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IAPurchaseManager/IAPurchaseManager.modulemap";
+				PRODUCT_MODULE_NAME = IAPurchaseManager;
+				PRODUCT_NAME = IAPurchaseManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3D325034988C77433BC5999BE0A62DA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CB29199DAEB632F8BC2A15C40671399 /* Pods-HeyLiveCam.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -477,29 +613,31 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Viewer/Viewer-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Viewer/Viewer-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/Viewer/Viewer.modulemap";
-				PRODUCT_MODULE_NAME = Viewer;
-				PRODUCT_NAME = Viewer;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HeyLiveCam/Pods-HeyLiveCam.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		CAD680306CB572201CE534D9448ECF94 /* Debug */ = {
+		727B0848AEA70DB9F4CEF1D719DF311A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A26DB440D2926169C17ACD0240E4B9B7 /* Pods-HeyLiveCam.debug.xcconfig */;
 			buildSettings = {
@@ -537,9 +675,45 @@
 			};
 			name = Debug;
 		};
+		922162DA9133FFFABF7BEFB99E6F4600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E29E699DFE321DCCA494131904F22E28 /* Viewer.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Viewer/Viewer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Viewer/Viewer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Viewer/Viewer.modulemap";
+				PRODUCT_MODULE_NAME = Viewer;
+				PRODUCT_NAME = Viewer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		CC39A44499A6CB953189D9526D060684 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE8E21B7716C3527C67AC3BDBA0041A /* Viewer.xcconfig */;
+			baseConfigurationReference = E29E699DFE321DCCA494131904F22E28 /* Viewer.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -650,6 +824,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		50AD0F02E3A6A24F15A02EE8D4DFBF07 /* Build configuration list for PBXNativeTarget "IAPurchaseManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				306F09C9EB04C10FAF12D57F293A42A4 /* Debug */,
+				375682168FC5374A55495B371D678E97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5B74A900BB29DD86D2796C8181F0C363 /* Build configuration list for PBXNativeTarget "Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -659,11 +842,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C402EA0457EC6D17E1E0F718241448A6 /* Build configuration list for PBXNativeTarget "Pods-HeyLiveCam" */ = {
+		F88D6D086C4EA1C7B980DACC6699958B /* Build configuration list for PBXNativeTarget "Pods-HeyLiveCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CAD680306CB572201CE534D9448ECF94 /* Debug */,
-				121A566DB247E7FCA242343C0F68D524 /* Release */,
+				727B0848AEA70DB9F4CEF1D719DF311A /* Debug */,
+				3D325034988C77433BC5999BE0A62DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

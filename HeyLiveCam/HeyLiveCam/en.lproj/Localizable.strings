@@ -43,6 +43,8 @@
 "Language" = "Language";
 "English" = "English";
 "Restore Purchases" = "Restore Purchases";
+"Buy premium feature" = "Buy premium feature";
+"Purchsed premium feature" = "Purchsed premium feature";
 "Camera Sound Effects" = "Camera Sound Effects";
 "Share This App" = "Share This App";
 "Rate This App" = "Rate This App";
@@ -93,5 +95,5 @@
 
 //======================= InAppPurchaseVC Screen =======================
 
-"Purchase Unlimited - ₹ " = "Purchase Unlimited - ₹ ";
+"Purchase Unlimited - " = "Purchase Unlimited - ";
 "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos." = "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos.";

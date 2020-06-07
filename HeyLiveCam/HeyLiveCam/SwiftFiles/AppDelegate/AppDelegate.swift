@@ -49,6 +49,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setSettingCameraSoundEffect(value: true)
             UserDefaults.standard.setSettingTrimTheEndOfVideos(value: 0)
         }
+        
+        let strLastDate = UserDefaults.Main.string(forKey: .last_date)
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let str_current_date = formatter.string(from: date)
+        if strLastDate.count == 0 {
+            
+            UserDefaults.Main.set(str_current_date, forKey: .last_date)
+            UserDefaults.Main.set(0, forKey: .int_photo_shoot_by_voice_counter)
+            
+        } else if strLastDate != str_current_date {
+            
+            UserDefaults.Main.set(str_current_date, forKey: .last_date)
+            UserDefaults.Main.set(0, forKey: .int_photo_shoot_by_voice_counter)
+        }
+        
+        //Get In App Purchase Price
+        self.getInAppPurchasePrice()
+        
         return true
     }
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -119,6 +139,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    func getInAppPurchasePrice() {
+        
+        IAPManager.shared.loadProducts(productIds: [strInAppPurchase]) { (products, error) -> Void in
+            if error != nil {
+                
+            } else {
+                if let product = products?.first {
+                    // Get its price from iTunes Connect
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.formatterBehavior = .behavior10_4
+                    numberFormatter.numberStyle = .currency
+                    numberFormatter.locale = product.priceLocale
+                    if let price = numberFormatter.string(from: product.price) {
+                        let in_app_purchase_price = String(describing: price)
+                        UserDefaults.Main.set(in_app_purchase_price, forKey: .in_app_purchase_price)
+                    }
+                }
             }
         }
     }

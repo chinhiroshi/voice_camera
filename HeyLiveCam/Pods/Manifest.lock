@@ -1,16 +1,20 @@
 PODS:
+  - IAPurchaseManager (0.2.0)
   - Viewer (4.1.0)
 
 DEPENDENCIES:
+  - IAPurchaseManager
   - Viewer
 
 SPEC REPOS:
   trunk:
+    - IAPurchaseManager
     - Viewer
 
 SPEC CHECKSUMS:
+  IAPurchaseManager: 2e4678d9dc157627e1f2c4c6e13fd9559f27f3c0
   Viewer: 80e7b1e8c105e8cb655e4032ed1aebbfea6e3e58
 
-PODFILE CHECKSUM: 39b8ea24ec118ce1f02c69befb808b50a0c8fb99
+PODFILE CHECKSUM: 086df4cc9208f35b2b4367506717e5dce5f0575a
 
 COCOAPODS: 1.8.4

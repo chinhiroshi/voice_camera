@@ -43,6 +43,8 @@
 "Language" = "言語";
 "English" = "英語";
 "Restore Purchases" = "購入を復元";
+"Buy premium feature" = "プレミアム機能を購入";
+"Purchsed premium feature" = "購入したプレミアム機能";
 "Camera Sound Effects" = "カメラの効果音";
 "Share This App" = "このアプリを共有する";
 "Rate This App" = "このアプリを評価する";
@@ -91,5 +93,5 @@
 
 //======================= InAppPurchaseVC Screen =======================
 
-"Purchase Unlimited - ₹ " = "無制限で購入-£";
+"Purchase Unlimited - " = "無制限の購入-";
 "You have reached the maximum number of captures allowed in the free version. Purchase Unlimited to continue capturing photos and videos." = "無料版で許可されているキャプチャの最大数に達しました。 Unlimitedを購入して、写真やビデオのキャプチャを続けてください。";

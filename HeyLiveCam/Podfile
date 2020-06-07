@@ -7,4 +7,5 @@ target 'HeyLiveCam' do
 
   # Pods for HeyLiveCam
   pod 'Viewer'
+  pod 'IAPurchaseManager'
 end
